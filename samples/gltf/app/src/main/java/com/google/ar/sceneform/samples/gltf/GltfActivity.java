@@ -55,54 +55,55 @@ import java.util.Random;
  * This is an example activity that uses the Sceneform UX package to make common AR tasks easier.
  */
 public class GltfActivity extends AppCompatActivity {
-  private static final String TAG = GltfActivity.class.getSimpleName();
-  private static final double MIN_OPENGL_VERSION = 3.0;
+    private static final String TAG = GltfActivity.class.getSimpleName();
+    private static final double MIN_OPENGL_VERSION = 3.0;
 
-  private ArFragment arFragment;
-  private Renderable renderable;
+    private ArFragment arFragment;
+    private Renderable renderable;
     String modelLink;
-  private static class AnimationInstance {
-    Animator animator;
-    Long startTime;
-    float duration;
-    int index;
+    private static class AnimationInstance {
+        Animator animator;
+        Long startTime;
+        float duration;
+        int index;
 
-    AnimationInstance(Animator animator, int index, Long startTime) {
-      this.animator = animator;
-      this.startTime = startTime;
-      this.duration = animator.getAnimationDuration(index);
-      this.index = index;
-    }
-  }
-
-  private final Set<AnimationInstance> animators = new ArraySet<>(); //neverupdate
-
-  private final List<Color> colors =
-      Arrays.asList(
-          new Color(0, 0, 0, 1),
-          new Color(1, 0, 0, 1),
-          new Color(0, 1, 0, 1),
-          new Color(0, 0, 1, 1),
-          new Color(1, 1, 0, 1),
-          new Color(0, 1, 1, 1),
-          new Color(1, 0, 1, 1),
-          new Color(1, 1, 1, 1));
-  private int nextColor = 0;
-
-  @Override
-  @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
-  // CompletableFuture requires api level 24
-  // FutureReturnValueIgnored is not valid
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    if (!checkIsSupportedDeviceOrFinish(this)) {
-      return;
+        AnimationInstance(Animator animator, int index, Long startTime) {
+            this.animator = animator;
+            this.startTime = startTime;
+            this.duration = animator.getAnimationDuration(index);
+            this.index = index;
+        }
     }
 
-    setContentView(R.layout.activity_ux);
-    arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
-      modelLink= furniture_select_activity.selection;
+    private final Set<AnimationInstance> animators = new ArraySet<>(); //neverupdate
+
+    private final List<Color> colors =
+            Arrays.asList(
+                    new Color(0, 0, 0, 1),
+                    new Color(1, 0, 0, 1),
+                    new Color(0, 1, 0, 1),
+                    new Color(0, 0, 1, 1),
+                    new Color(1, 1, 0, 1),
+                    new Color(0, 1, 1, 1),
+                    new Color(1, 0, 1, 1),
+                    new Color(1, 1, 1, 1));
+    private int nextColor = 0;
+
+    @Override
+    @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
+    // CompletableFuture requires api level 24
+    // FutureReturnValueIgnored is not valid
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (!checkIsSupportedDeviceOrFinish(this)) {
+            return;
+        }
+
+        setContentView(R.layout.activity_ux);
+        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
+        //furniture_select_activity fur;//??
+        modelLink= furniture_select_activity.selection;//?? make static then ok? no need obj or declare?
     /*WeakReference<GltfActivity> weakActivity = new WeakReference<>(this);
 
     ModelRenderable.builder()
@@ -127,81 +128,81 @@ public class GltfActivity extends AppCompatActivity {
               toast.show();
               return null;
             });*/
-      seturl();
-    arFragment.setOnTapArPlaneListener(// part 2
-        (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-          if (renderable == null) {
-            return;
-          }
+        seturl();
+        arFragment.setOnTapArPlaneListener(// part 2
+                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
+                    if (renderable == null) {
+                        return;
+                    }
 
-          // Create the Anchor.
-          Anchor anchor = hitResult.createAnchor();
-          AnchorNode anchorNode = new AnchorNode(anchor);
-          anchorNode.setParent(arFragment.getArSceneView().getScene());
+                    // Create the Anchor.
+                    Anchor anchor = hitResult.createAnchor();
+                    AnchorNode anchorNode = new AnchorNode(anchor);
+                    anchorNode.setParent(arFragment.getArSceneView().getScene());
 
-          // Create the transformable model and add it to the anchor.
-          TransformableNode model = new TransformableNode(arFragment.getTransformationSystem());
-          model.setParent(anchorNode);
-          model.setRenderable(renderable);
-          model.select();
+                    // Create the transformable model and add it to the anchor.
+                    TransformableNode model = new TransformableNode(arFragment.getTransformationSystem());
+                    model.setParent(anchorNode);
+                    model.setRenderable(renderable);
+                    model.select();
 
-          FilamentAsset filamentAsset = model.getRenderableInstance().getFilamentAsset(); //useless but for animator
-          if (filamentAsset.getAnimator().getAnimationCount() > 0) {// adding one more furniture??(duplicate?)
-            animators.add(new AnimationInstance(filamentAsset.getAnimator(), 0, System.nanoTime()));
-          }
+                    FilamentAsset filamentAsset = model.getRenderableInstance().getFilamentAsset(); //useless but for animator
+                    if (filamentAsset.getAnimator().getAnimationCount() > 0) {// adding one more furniture??(duplicate?)
+                        animators.add(new AnimationInstance(filamentAsset.getAnimator(), 0, System.nanoTime()));
+                    }
 
-          Color color = colors.get(nextColor); //useless but for animator
-          nextColor++;
-          for (int i = 0; i < renderable.getSubmeshCount(); ++i) {
-            Material material = renderable.getMaterial(i);
-            material.setFloat4("baseColorFactor", color);
-          }
+                    Color color = colors.get(nextColor); //useless but for animator
+                    nextColor++;
+                    for (int i = 0; i < renderable.getSubmeshCount(); ++i) {
+                        Material material = renderable.getMaterial(i);
+                        material.setFloat4("baseColorFactor", color);
+                    }
 
-          Node tigerTitleNode = new Node();
-          tigerTitleNode.setParent(model);
-          tigerTitleNode.setEnabled(false);
-          tigerTitleNode.setLocalPosition(new Vector3(0.0f, 1.0f, 0.0f));
-          ViewRenderable.builder()
-                  .setView(this, R.layout.tiger_card_view)
-                  .build()
-                  .thenAccept(
-                          (renderable) -> {
-                              tigerTitleNode.setRenderable(renderable);
-                              tigerTitleNode.setEnabled(true);
-                          })
-                  .exceptionally(
-                          (throwable) -> {
-                              throw new AssertionError("Could not load card view.", throwable);
-                          }
-                  );
-        });
+                    Node tigerTitleNode = new Node();
+                    tigerTitleNode.setParent(model);
+                    tigerTitleNode.setEnabled(false);
+                    tigerTitleNode.setLocalPosition(new Vector3(0.0f, 1.0f, 0.0f));
+                    ViewRenderable.builder()
+                            .setView(this, R.layout.tiger_card_view)
+                            .build()
+                            .thenAccept(
+                                    (renderable) -> {
+                                        tigerTitleNode.setRenderable(renderable);
+                                        tigerTitleNode.setEnabled(true);
+                                    })
+                            .exceptionally(
+                                    (throwable) -> {
+                                        throw new AssertionError("Could not load card view.", throwable);
+                                    }
+                            );
+                });
 
-    arFragment  //useless but for animator
-        .getArSceneView()
-        .getScene()
-        .addOnUpdateListener(
-            frameTime -> {
-              Long time = System.nanoTime();
-              for (AnimationInstance animator : animators) {
-                animator.animator.applyAnimation(
-                    animator.index,
-                    (float) ((time - animator.startTime) / (double) SECONDS.toNanos(1))
-                        % animator.duration);
-                animator.animator.updateBoneMatrices();
-              }
-            });
-  }
+        arFragment  //useless but for animator
+                .getArSceneView()
+                .getScene()
+                .addOnUpdateListener(
+                        frameTime -> {
+                            Long time = System.nanoTime();
+                            for (AnimationInstance animator : animators) {
+                                animator.animator.applyAnimation(
+                                        animator.index,
+                                        (float) ((time - animator.startTime) / (double) SECONDS.toNanos(1))
+                                                % animator.duration);
+                                animator.animator.updateBoneMatrices();
+                            }
+                        });
+    }
 
-public void seturl(){
-    WeakReference<GltfActivity> weakActivity = new WeakReference<>(this);
+    public void seturl(){
+        WeakReference<GltfActivity> weakActivity = new WeakReference<>(this);
 
         String [] link ={"https://storage.googleapis.com/ar-answers-in-search-models/static/Tiger/model.glb","https://github.com/chickpow2/noob-example/raw/master/tablechair_1.glb","https://github.com/chickpow2/noob-example/raw/master/sofa_04.glb","https://github.com/chickpow2/noob-example/raw/master/sofa_05.glb","https://github.com/chickpow2/noob-example/raw/master/scale_chair1.glb"};
         //for test(furniture class to contain link)
-    ModelRenderable.builder()
+        ModelRenderable.builder()
                 .setSource(
                         this,
                         Uri.parse(
-                                furniture_select_activity.selection)) //genRand()/link[2]
+                                furniture_select_activity.selection)) //genRand()/link[2]/furniture_select_activity.selection
                 .setIsFilamentGltf(true)
                 .build()
                 .thenAccept(
@@ -228,36 +229,37 @@ public void seturl(){
         int index = rand.nextInt(2);
         //System.out.println("Selected: "+list.remove(index));
 
-      return index;
+        return index;
 
     }
 
-  /**
-   * Returns false and displays an error message if Sceneform can not run, true if Sceneform can run
-   * on this device.
-   *
-   * <p>Sceneform requires Android N on the device as well as OpenGL 3.0 capabilities.
-   *
-   * <p>Finishes the activity if Sceneform can not run
-   */
-  public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {
-    if (Build.VERSION.SDK_INT < VERSION_CODES.N) {
-      Log.e(TAG, "Sceneform requires Android N or later");
-      Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show();
-      activity.finish();
-      return false;
+    /**
+     * Returns false and displays an error message if Sceneform can not run, true if Sceneform can run
+     * on this device.
+     *
+     * <p>Sceneform requires Android N on the device as well as OpenGL 3.0 capabilities.
+     *
+     * <p>Finishes the activity if Sceneform can not run
+     */
+    public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {
+        if (Build.VERSION.SDK_INT < VERSION_CODES.N) {
+            Log.e(TAG, "Sceneform requires Android N or later");
+            Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show();
+            activity.finish();
+            return false;
+        }
+        String openGlVersionString =
+                ((ActivityManager) activity.getSystemService(Context.ACTIVITY_SERVICE))
+                        .getDeviceConfigurationInfo()
+                        .getGlEsVersion();
+        if (Double.parseDouble(openGlVersionString) < MIN_OPENGL_VERSION) {
+            Log.e(TAG, "Sceneform requires OpenGL ES 3.0 later");
+            Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG)
+                    .show();
+            activity.finish();
+            return false;
+        }
+        return true;
     }
-    String openGlVersionString =
-        ((ActivityManager) activity.getSystemService(Context.ACTIVITY_SERVICE))
-            .getDeviceConfigurationInfo()
-            .getGlEsVersion();
-    if (Double.parseDouble(openGlVersionString) < MIN_OPENGL_VERSION) {
-      Log.e(TAG, "Sceneform requires OpenGL ES 3.0 later");
-      Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG)
-          .show();
-      activity.finish();
-      return false;
-    }
-    return true;
-  }
 }
+

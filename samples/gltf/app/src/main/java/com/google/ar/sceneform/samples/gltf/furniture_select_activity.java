@@ -11,9 +11,9 @@ public class furniture_select_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_furniture_select);
-        Furniture a = new Furniture("chair", 520, "https://github.com/chickpow2/noob-example/raw/master/scale_chair1.glb");
-        Furniture b = new Furniture("sofa", 1000, "https://github.com/chickpow2/noob-example/raw/master/sofa_05.glb");
-        Furniture c = new Furniture("Dining Table and Chair Set", 1000, "https://github.com/chickpow2/noob-example/raw/master/tablechair_1.glb");
+        Furniture a = new Furniture("chair", 520, "https://github.com/chickpow2/furniture_model/raw/master/scale_chair1.glb");
+        Furniture b = new Furniture("sofa", 1000, "https://github.com/chickpow2/furniture_model/raw/master/sofa_05.glb");
+        Furniture c = new Furniture("Dining Table and Chair Set", 1000, "https://github.com/chickpow2/furniture_model/raw/master/tablechair_1.glb");
 
 
         Button button2= (Button)findViewById(R.id.button2);

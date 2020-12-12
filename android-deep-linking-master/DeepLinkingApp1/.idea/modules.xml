@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DeepLinkingApp1.iml" filepath="$PROJECT_DIR$/DeepLinkingApp1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/DeepLinkingApp1-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/DeepLinkingApp1-app.iml" group="DeepLinkingApp1/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-deep-linking-master-DeepLinkingApp1.iml" filepath="$PROJECT_DIR$/.idea/modules/android-deep-linking-master-DeepLinkingApp1.iml" group="DeepLinkingApp1" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>

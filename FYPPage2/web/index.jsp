@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 2020年12月13日, 上午11:42:22
+    Author     : solidcat
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 

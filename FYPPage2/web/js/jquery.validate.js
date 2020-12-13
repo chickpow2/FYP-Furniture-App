@@ -939,14 +939,14 @@ $.extend( $.validator, {
 				error.removeClass( this.settings.validClass ).addClass( this.settings.errorClass );
 
 				// Replace message on existing label
-				error.jsp( message );
+				error.html( message );
 			} else {
 
 				// Create error element
 				error = $( "<" + this.settings.errorElement + ">" )
 					.attr( "id", elementID + "-error" )
 					.addClass( this.settings.errorClass )
-					.jsp( message || "" );
+					.html( message || "" );
 
 				// Maintain reference to the element to be placed into the DOM
 				place = error;
@@ -1377,7 +1377,7 @@ $.extend( $.validator, {
 		// https://jqueryvalidation.org/email-method/
 		email: function( value, element ) {
 
-			// From https://html.spec.whatwg.org/multipage/forms.jsp#valid-e-mail-address
+			// From https://html.spec.whatwg.org/multipage/forms.html#valid-e-mail-address
 			// Retrieved 2014-01-14
 			// If you have a problem with this implementation, report a bug against the above spec
 			// Or use custom methods to implement your own email validation

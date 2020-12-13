@@ -57,6 +57,7 @@ public class HandleEdit extends HttpServlet {
             c.setName(name);
             c.setPrice(tel);
             c.setModel(age);
+
             db.editRecord(c);
         } else {
             db.addRecord(id, name, tel, age);

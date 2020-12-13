@@ -68,7 +68,7 @@ public class FurnitureDB {
             stmnt = cnnct.createStatement();  // create statement
             String sql
                     = "CREATE TABLE FURNITURE("
-                    + "furnitureId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "     
+                    + "furnitureId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
                     + "name VARCHAR(25), price VARCHAR(10), model VARCHAR(255),description VARCHAR(255))";
             stmnt.execute(sql);
             stmnt.close();
@@ -120,7 +120,7 @@ public class FurnitureDB {
         try {
             //1.  get Connection
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE CUSTID=?";
+            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE FURNITUREID=?";
             //2.  get the prepare Statement
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //3. update the placehoder with id
@@ -136,6 +136,7 @@ public class FurnitureDB {
                 cb.setName(rs.getString(2));
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
             }
 
             pStmnt.close();
@@ -169,6 +170,7 @@ public class FurnitureDB {
                 cb.setName(rs.getString(2));
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
                 list.add(cb);
             }
             return list;
@@ -215,6 +217,7 @@ public class FurnitureDB {
                 cb.setName(rs.getString(2));
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
                 list.add(cb);
             }
             return list;
@@ -261,6 +264,7 @@ public class FurnitureDB {
                 cb.setName(rs.getString(2));
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
                 list.add(cb);
             }
             return list;
@@ -293,7 +297,7 @@ public class FurnitureDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "DELETE FROM FURNITURE WHERE CUSTID=?";
+            String preQueryStatement = "DELETE FROM FURNITURE WHERE FURNITUREID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, custId);
 
@@ -328,12 +332,13 @@ public class FurnitureDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,TEL=? ,AGE=? WHERE CUSTID=?";
+            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,MODEL=? WHERE FURNITUREID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
-            pStmnt.setString(1, cb.getFurnitureId());
-            pStmnt.setString(2, cb.getName());
-            pStmnt.setString(3, cb.getPrice());
-            pStmnt.setString(4, cb.getModel());
+
+            pStmnt.setString(1, cb.getName());
+            pStmnt.setString(2, cb.getPrice());
+            pStmnt.setString(3, cb.getModel());
+            pStmnt.setString(4, cb.getFurnitureId());
             //Statement s = cnnct.createStatement();
             int rs = pStmnt.executeUpdate();
             return rs;

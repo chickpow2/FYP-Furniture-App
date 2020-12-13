@@ -83,18 +83,18 @@ public class FurnitureDB {
         }
     }
 
-    public boolean addRecord(String furnitureId, String name, String price, String model) {
+    public boolean addRecord(String name, String price, String description) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  FURNITURE  VALUES  (?,?,?,?)";
-            pStmnt = cnnct.prepareStatement(preQueryStatement);
-            pStmnt.setString(1, furnitureId);
-            pStmnt.setString(2, name);
-            pStmnt.setString(3, price);
-            pStmnt.setString(4, model);
+            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, DESCRIPTION)  VALUES  (?,?,?)"; //v 
+            pStmnt = cnnct.prepareStatement(preQueryStatement); //SET NAME=? ,PRICE=? ,MODEL=?
+
+            pStmnt.setString(1, name); //?
+            pStmnt.setString(2, price);//?
+            pStmnt.setString(3, description);//?
             int rowCount = pStmnt.executeUpdate();
             if (rowCount >= 1) {
                 isSuccess = true;
@@ -332,12 +332,12 @@ public class FurnitureDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,MODEL=? WHERE FURNITUREID=?";
+            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,DESCRIPTION=? WHERE FURNITUREID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, cb.getName());
             pStmnt.setString(2, cb.getPrice());
-            pStmnt.setString(3, cb.getModel());
+            pStmnt.setString(3, cb.getDescription());
             pStmnt.setString(4, cb.getFurnitureId());
             //Statement s = cnnct.createStatement();
             int rs = pStmnt.executeUpdate();

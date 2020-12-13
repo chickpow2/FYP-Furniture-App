@@ -60,7 +60,10 @@ public class HandleEdit extends HttpServlet {
 
             db.editRecord(c);
         } else {
-            db.addRecord(id, name, tel, age);
+            db.addRecord(name, tel, age);
+
+            /*            boolean furnitures = db.addRecord(name, tel, age);
+                        request.setAttribute("furnitures", furnitures);*/
             // redirect the result
         }
         response.sendRedirect("handleFurniture?action=list");

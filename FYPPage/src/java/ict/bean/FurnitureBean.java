@@ -9,6 +9,10 @@ public class FurnitureBean implements Serializable {
     private String price;
     private String model;
     private String description;
+    private int rating;
+    private int stock;
+    private String detailDescription;
+    
     // private String photo;
 
     public FurnitureBean() {
@@ -62,47 +66,28 @@ public class FurnitureBean implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    /*
     
-    private String custid;
-    private String name;
-    private String tel;
-    private String age;
-
-    public FurnitureBean(){
-    }
-    
-    public String getCustid(){
-        return custid;
+    public int getRating() {
+        return rating;
     }
 
-    public String getName(){
-        return name;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
-    public String getTel(){
-        return tel;
+    public int getStock() {
+        return stock;
     }
 
-    public String getAge(){
-        return age;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public void setCustid(String id){
-        custid=id;
+    public String getDetailDescription() {
+        return detailDescription;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public void setDetailDescription(String detailDescription) {
+        this.detailDescription = detailDescription;
     }
-
-    public void setTel(String tel){
-        this.tel=tel;
-    }
-
-    public void setAge(String age){
-        this.age=age;
-    }
-
-     */
 }

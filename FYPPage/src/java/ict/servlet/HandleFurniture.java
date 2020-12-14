@@ -104,7 +104,22 @@ public class HandleFurniture extends HttpServlet {
             rd.forward(request, response);
 
 
-        } else {
+        } 
+         else if ("ShowOneFurniture".equalsIgnoreCase(action)) {
+            // call the query db to get retrieve for a customer witht the id
+            String id = request.getParameter("id");
+
+            // set the result into the attribute
+            // forward the result to the editFurniture.jsp
+            FurnitureBean customer = db.queryCustByID(id);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/product_detail3.jsp");
+            request.setAttribute("c", customer);
+            rd.forward(request, response);
+
+
+        } 
+        else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");
         } //no other else if 

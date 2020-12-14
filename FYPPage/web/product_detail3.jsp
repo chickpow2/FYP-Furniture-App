@@ -33,6 +33,7 @@
 <!-- body -->
 
 <body class="main-layout">
+          <jsp:useBean id="c" scope="request" class="ict.bean.FurnitureBean" />
     <!-- loader  -->
     <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
@@ -129,10 +130,10 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 product_detail_side">
                             <div class="abotext_box">
                                 <div class="product-heading">
-                                    <h2>Jane Lauren Design Chair</h2>
+                                    <h2><%=c.getName()%></h2>
                                 </div>
                                 <div class="product-detail-side">
-                                    <span><del>$679.89</del></span><span class="new-price">$547.60</span>
+                                    <span class="new-price">$<%=c.getPrice()%></span>
                                     <span class="rating">
                      <i class="fa fa-star" aria-hidden="true"></i>
                      <i class="fa fa-star" aria-hidden="true"></i>
@@ -143,8 +144,8 @@
                                     <span class="review">(5 customer review)</span>
                                 </div>
                                 <div class="detail-contant">
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-                                        <br><span class="stock">2 in stock</span>
+                                    <p><%=c.getDescription()%>
+                                        <br><br><span class="stock">2 in stock</span>
                                     </p>
                                     <form class="cart" method="post" action="shop-cart.jsp">
                                         <div class="quantity">

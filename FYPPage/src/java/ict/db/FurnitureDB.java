@@ -335,9 +335,9 @@ public class FurnitureDB {
             String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,DESCRIPTION=? WHERE FURNITUREID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
-            pStmnt.setString(1, cb.getName());
-            pStmnt.setString(2, cb.getPrice());
-            pStmnt.setString(3, cb.getDescription());
+            pStmnt.setString(1, cb.getName()); // v 
+            pStmnt.setString(2, cb.getPrice()); // v 
+            pStmnt.setString(3, cb.getDescription()); // v 
             pStmnt.setString(4, cb.getFurnitureId());
             //Statement s = cnnct.createStatement();
             int rs = pStmnt.executeUpdate();

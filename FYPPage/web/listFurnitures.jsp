@@ -25,7 +25,7 @@
                         out.println("<h1>Furnitures</h1>");
                         out.println("<table border='1'               >");
                         out.println("<tr>");
-                        out.println("<th>CustId</th>  <th>FurnitureId</th><th>Price</th><th> Description</th >");
+                        out.println("<th>Furniture Id</th>  <th>Furniture Name</th><th>Price</th><th> Description</th >");
                         out.println("</tr>");
                         // loop through the customer array to display each customer record
                         for (int i = 0; i < customers.size(); i++) {

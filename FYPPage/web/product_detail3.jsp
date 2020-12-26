@@ -141,11 +141,11 @@
                      <i class="fa fa-star" aria-hidden="true"></i>
                      <i class="fa fa-star-o" aria-hidden="true"></i>
                      </span>
-                                    <span class="review">(5 customer review)</span>
+                                    <span class="review">(? customer review)</span>
                                 </div>
-                                <div class="detail-contant">
+                                <div class="detail-contant">  
                                     <p><%=c.getDescription()%>
-                                        <br><br><span class="stock">2 in stock</span>
+                                        <br>                    <%=c.getFurnitureId()%><br><span class="stock">? in stock</span>
                                     </p>
                                     <form class="cart" method="post" action="shop-cart.jsp">
                                         <div class="quantity">
@@ -169,9 +169,9 @@
                                     <div class="tab-content">
                                         <div id="description" class="tab-pane active">
                                             <div class="product_desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac elementum elit. Morbi eu arcu ipsum. Aliquam lobortis accumsan quam ac convallis. Fusce elit mauris, aliquet at odio vel, convallis vehicula nisi. Morbi vitae porttitor dolor. Integer eget metus sem. Nam venenatis mauris vel leo pulvinar, id rutrum dui varius. Nunc ac varius quam, non convallis magna. Donec suscipit commodo dapibus.
+                                                <p><%=c.getDescription()%>(?? detail description require)
                                                     <br>
-                                                    <br>Vestibulum et ullamcorper ligula. Morbi bibendum tempor rutrum. Pelle tesque auctor purus id molestie ornare.Donec eu lobortis risus. Pellentesque sed aliquam lorem. Praesent pulvinar lorem vel mauris ultrices posuere. Phasellus elit ex, gravida a semper ut, venenatis vitae diam. Nullam eget leo massa. Aenean eu consequat arcu, vitae scelerisque quam. Suspendisse risus turpis, pharetra a finibus vitae, lobortis et mi.</p>
+                                                    
                                             </div>
                                         </div>
                                         <div id="reviews" class="tab-pane fade">

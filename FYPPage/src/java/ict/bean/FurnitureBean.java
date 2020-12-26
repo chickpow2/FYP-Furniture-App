@@ -24,7 +24,7 @@ public class FurnitureBean implements Serializable {
         this.name = name;
         this.price = price;
         this.model = model;
-        //this.description = description;
+        this.description = description;
     }
 
     public String getFurnitureId() {

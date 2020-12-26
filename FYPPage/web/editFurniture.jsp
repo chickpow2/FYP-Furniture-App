@@ -29,7 +29,7 @@
                 %>
             <p><label for="name">name</label><input type="text"  name="name" id="name" value="<%=c.getName() != null ? c.getName() : ""%>"/></p>
             <p><label for="tel">Price</label><input name="tel"  type="text" value="<%=c.getPrice() != null ? c.getPrice() : ""%>"/></p>
-            <p><label for="age">Description</label><input name="tel"  type="text" value="<%=c.getDescription() != null ? c.getDescription() : ""%>"/></p>
+            <p><label for="age">Description</label><input type="text"  name="age" id="name" value="<%=c.getDescription() != null ? c.getDescription() : ""%>"/></p>
 
 
             <p class="submit"><input type="submit" value="Submit" /></p>

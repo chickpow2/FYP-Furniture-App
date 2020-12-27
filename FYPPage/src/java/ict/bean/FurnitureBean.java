@@ -19,13 +19,18 @@ public class FurnitureBean implements Serializable {
 
     }
 
-    public FurnitureBean(String furnitureId, String name, String price, String model) {
+    public FurnitureBean(String furnitureId, String name, String price, String model, String description, int rating, int stock, String detailDescription) {
         this.furnitureId = furnitureId;
         this.name = name;
         this.price = price;
         this.model = model;
         this.description = description;
+        this.rating = rating;
+        this.stock = stock;
+        this.detailDescription = detailDescription;
     }
+
+
 
     public String getFurnitureId() {
         return furnitureId;

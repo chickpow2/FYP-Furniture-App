@@ -23,7 +23,7 @@
                                 = (ArrayList<FurnitureBean>) request.getAttribute("customers");
 
                         out.println("<h1>Furnitures</h1>");
-                        out.println("<table border='1'               >");
+                        out.println("<table border='1'>");
                         out.println("<tr>");
                         out.println("<th>Furniture Id</th>  <th>Furniture Name</th><th>Price</th><th> Description</th >");
                         out.println("</tr>");
@@ -35,7 +35,12 @@
                             out.println("<td>" + c.getFurnitureId() + "</td>");
                             out.println("<td>" + c.getName() + "</td>");
                             out.println("<td>" + c.getPrice() + "</td>");
+                            out.println("<td>" + c.getModel() + "</td>");
                             out.println("<td>" + c.getDescription() + "</td>");
+                            out.println("<td>" + c.getRating() + "</td>");
+                            out.println("<td>" + c.getStock() + "</td>");
+                            out.println("<td>" + c.getDetailDescription() + "</td>");
+
                             out.println("<td><a href=\"handleFurniture?action=delete&id=" + c.getFurnitureId() + "\">delete</a></td>");
                             out.println("<td><a href=\"handleFurniture?action=getEditFurniture&id=" + c.getFurnitureId() + "\">edit</a></td>");
                             out.println("<td><a href=\"handleFurniture?action=ShowOneFurniture&id=" + c.getFurnitureId() + "\">ItemPage</a></td>");

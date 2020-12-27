@@ -137,6 +137,9 @@ public class FurnitureDB {
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
                 cb.setDescription(rs.getString(5));
+                cb.setRating(rs.getInt(6));
+                cb.setStock(rs.getInt(7));
+                cb.setDetailDescription(rs.getString(8));
             }
 
             pStmnt.close();
@@ -171,6 +174,9 @@ public class FurnitureDB {
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
                 cb.setDescription(rs.getString(5));
+                cb.setRating(rs.getInt(6));
+                cb.setStock(rs.getInt(7));
+                cb.setDetailDescription(rs.getString(8));
                 list.add(cb);
             }
             return list;

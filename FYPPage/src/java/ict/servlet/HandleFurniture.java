@@ -25,7 +25,6 @@ public class HandleFurniture extends HttpServlet {
 
     private FurnitureDB db;
 
-
     @Override
     public void init() {
         String dbUser = this.getServletContext().getInitParameter("dbUser");
@@ -35,21 +34,17 @@ public class HandleFurniture extends HttpServlet {
     }
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(
-            HttpServletRequest request, 
+            HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-        
-        
 
         String action = request.getParameter("action");
 
@@ -103,9 +98,7 @@ public class HandleFurniture extends HttpServlet {
             request.setAttribute("c", customer);
             rd.forward(request, response);
 
-
-        } 
-         else if ("ShowOneFurniture".equalsIgnoreCase(action)) {
+        } else if ("ShowOneFurniture".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
             String id = request.getParameter("id");
 
@@ -117,9 +110,7 @@ public class HandleFurniture extends HttpServlet {
             request.setAttribute("c", customer);
             rd.forward(request, response);
 
-
-        } 
-        else {
+        } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");
         } //no other else if 
@@ -127,8 +118,7 @@ public class HandleFurniture extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -142,8 +132,7 @@ public class HandleFurniture extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response

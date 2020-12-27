@@ -38,36 +38,7 @@
 
      <div class="wrapper">
 
-      <!-- end loader --> 
-      <div class="sidebar">
-         <!-- Sidebar  -->
-        <nav id="sidebar">
-
-            <div id="dismiss">
-                <i class="fa fa-arrow-left"></i>
-            </div>
-
-            <ul class="list-unstyled components">
-                
-                <li>
-                    <a href="index.jsp">Home</a>
-                </li>
-                <li>
-                    <a href="about.jsp">About</a>
-                </li>
-                <li>
-                    <a href="product.jsp">Product</a>
-                </li>
-                <li>
-                    <a href="blog.jsp">Blog</a>
-                </li>
-                <li class="active">
-                    <a href="contact.jsp">Contact Us</a>
-                </li>
-            </ul>
-
-        </nav>
-      </div>
+     <%@include file="/header.jsp" %>
      
      <div id="content">
       <!-- header -->

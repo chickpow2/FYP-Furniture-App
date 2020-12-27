@@ -41,37 +41,7 @@
         </div>
 
         <div class="wrapper">
-
-            <!-- end loader -->
-            <div class="sidebar">
-                <!-- Sidebar  -->
-                <nav id="sidebar">
-
-                    <div id="dismiss">
-                        <i class="fa fa-arrow-left"></i>
-                    </div>
-
-                    <ul class="list-unstyled components">
-
-                        <li>
-                            <a href="index.jsp">Home</a>
-                        </li>
-                        <li>
-                            <a href="about.jsp">About</a>
-                        </li>
-                        <li class="active">
-                            <a href="product.jsp">Product</a>
-                        </li>
-                        <li>
-                            <a href="blog.jsp">Blog</a>
-                        </li>
-                        <li>
-                            <a href="contact.jsp">Contact Us</a>
-                        </li>
-                    </ul>
-
-                </nav>
-            </div>
+            <%@include file="/header.jsp" %>
 
             <div id="content">
                 <!-- header -->
@@ -141,7 +111,7 @@
                                             <%}%>
                                             <%for (int i = 0; i < 5 - c.getRating(); i++) {%>
                                             <i class="fa fa-star-o" aria-hidden="true"></i>
-                                              <%}%>
+                                            <%}%>
                                         </span>
                                         <span class="review"><%=c.getRating()%></span>
                                     </div>

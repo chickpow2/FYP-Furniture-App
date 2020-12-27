@@ -271,11 +271,13 @@
                                     FurnitureBean c = customers.get(i);%>
 
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                                
                                 <div class="brand-box">
+                               <%out.println("<a href=\"handleFurniture?action=ShowOneFurniture&id=" + c.getFurnitureId() + "\">");%>
                                     <i><img src="icon/p1.png"/></i>
                                     <h3><%out.println(c.getName());%></h3>
-                                    <span>$<%out.println(c.getPrice());%></span>
-                                </div>
+                                    <span>$<%out.println(c.getPrice());%></span></a>  
+                                </div>           
                             </div>
                             <%}%>
 

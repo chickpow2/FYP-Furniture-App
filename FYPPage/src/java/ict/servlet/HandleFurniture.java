@@ -48,14 +48,15 @@ public class HandleFurniture extends HttpServlet {
 
         String action = request.getParameter("action");
 
-        if ("list".equalsIgnoreCase(action)) {
+        if ("list".equalsIgnoreCase(action) || "home".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for all customer
             ArrayList customers = db.queryCust();
             // set the result into the attribute
             request.setAttribute("customers", customers);
             // redirect the result to the listFurnitures.jsp
             RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/listFurnitures.jsp");
+            rd = getServletContext().getRequestDispatcher("/"
+                    + "index.jsp");
             rd.forward(request, response);
         } else if ("delete".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for all customer

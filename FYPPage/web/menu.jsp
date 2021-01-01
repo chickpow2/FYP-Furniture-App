@@ -1,7 +1,7 @@
        
  
-<ul><li>  <a href="editFurniture.jsp" >add Customer </a></li>
-<li>  <a href="handleFurniture?action=list" >list Customer </a></li>
+<ul><li>  <a href="editFurniture.jsp" >add furniture </a></li>
+<li>  <a href="handleFurniture?action=list" >list furniture </a></li>
 
 
 

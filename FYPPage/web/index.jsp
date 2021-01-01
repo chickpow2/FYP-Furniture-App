@@ -59,7 +59,7 @@
 <%@include file="/header.jsp" %>
 
           
-                </header>
+             
                 <!-- end header -->
                 <section class="slider_section">
                     <div class="banner_main">

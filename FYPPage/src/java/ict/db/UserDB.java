@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
-
 public class UserDB {
 
     private String url = "";
@@ -63,38 +62,15 @@ public class UserDB {
         try {
             cnnct = getConnection();  // the connection 
             stmnt = cnnct.createStatement();  // create statement
-            /*
-             String sql = "CREATE  TABLE  USERINFO  ("
-             + "UserId  VARCHAR(5)  CONSTRAINT  PK_USER  PRIMARY  KEY,  "
-             + "username  VARCHAR(25),  password  VARCHAR(100))";
-             */
 
             String sql
                     = "CREATE TABLE USERINFO ("
-                    + "UserId varchar(5) CONSTRAINT PK_USERINFO PRIMARY KEY,"
-                    + "username varchar(25),"
-                    + "password varchar(100)"
-                    + ")";
-            /* String sql
-                    = "CREATE TABLE IF NOT EXISTS USERINFO ("
-                    + "UserId varchar(5)  NOT NULL,"
-                    + "username varchar(25) NOT NULL,"
-                    + "password varchar(100) NOT NULL,"
-                    + "PRIMARY KEY (UserId)"
-                    + ")";*/
-            
- /*"CREATE TABLE CUSTOMER("
-                    + "CustId VARCHAR(5) CONSTRAINT PK_CUSTOMER PRIMARY KEY, "
-                    + "Name VARCHAR(25), Tel VARCHAR(10), Age INTEGER)";
-            
-                        String sql
-                    = "CREATE TABLE IF NOT EXISTS USERINFO ("
-                    + "UserId varchar(5) CONSTRAINT PK_USERINFO PRIMARY KEY,"
+                    + "UserId INTEGER CONSTRAINT PK_USERINFO PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1),"
                     + "username varchar(25),"
                     + "password varchar(100),"
-                    + "PRIMARY KEY (UserId)"
-                    + ")";
-             */
+                    + "position VARCHAR(10),"
+                    + "tel VARCHAR(10),"
+                    + "age VARCHAR(3))";
 
             stmnt.execute(sql);
 
@@ -118,12 +94,11 @@ public class UserDB {
         try {
             //1.  get Connection
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  USERINFO WHERE "
-                    ;
+            String preQueryStatement = "SELECT * FROM  USERINFO WHERE ";
             //2.  get the prepare Statement
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //3. update the placehoder with id
-            pStmnt.setString(1, user); 
+            pStmnt.setString(1, user);
             pStmnt.setString(2, pwd);
             ResultSet rs = null;
             //4. execute the query and assign to the result 
@@ -144,5 +119,36 @@ public class UserDB {
             ex.printStackTrace();
         }
         return isValid;
+    }
+    
+    public boolean addUser(String username, String password, String position, String tel, String age) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        boolean isSuccess = false;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "INSERT  INTO  userinfo(USERNAME, PASSWORD, POSITION, TEL, AGE) VALUES  (?,?,?,?,?)";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            pStmnt.setString(1, username);
+            pStmnt.setString(2, password);
+            pStmnt.setString(3, position);
+            pStmnt.setString(4, tel);
+            pStmnt.setString(5, age);
+
+            int rowCount = pStmnt.executeUpdate();
+            if (rowCount >= 1) {
+                isSuccess = true;
+            }
+            pStmnt.close();
+            cnnct.close();
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return isSuccess;
     }
 }

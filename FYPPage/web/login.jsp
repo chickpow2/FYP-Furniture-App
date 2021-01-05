@@ -22,7 +22,7 @@
 
         <form action="main" method="POST" class="form_center card">
             <input type="hidden" name="action" value="authenticate"/>
-            <center><h1>**** Company</h1></center>
+            <center><img src="images/logo.jpg" alt="#"></center>
             <div class="card-body">
                 <div class="form-group">
                     <label>Email address</label>

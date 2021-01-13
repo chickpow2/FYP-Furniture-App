@@ -163,7 +163,6 @@ public class GltfActivity extends AppCompatActivity {
                     tigerTitleNode.setEnabled(false);
                     tigerTitleNode.setLocalPosition(new Vector3(0.0f, 1.0f, 0.0f));
                     ViewRenderable.builder()
-                            .setView(this, R.layout.tiger_card_view)
                             .build()
                             .thenAccept(
                                     (renderable) -> {

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lab04Q3</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("input").click(function(){
+			$.getJSON("Lab4_3.json",function(result){
+				$("div").html('<table><tr><th>Prod_ID</th><th>Name</th><th>Price</th><th>test</th><tr>');
+				$.each(result.student, function(i, name){//like android json
+					$("#stage").append("<tr><td>"+name.id+"</td>"+"<td> "+name.name+"</td>"+"<td> "+name.lname+"</td>"+"<td> "+name.age+"</td>"+"<td> "+name.sex+"</td></tr>");
+				});
+                                $('#stage').append('</table>');
+			});
+		});
+	});
+</script>
+<body>
+	<p>Click on the button to load students' records</p>
+	<pre>
+		 <div id="stage" style="background-color:pink;">STAGE</div>
+ 	</pre>
+	<input type="button" value="Load Data">
+</body>
+</html>
+//pre for beautiful display 

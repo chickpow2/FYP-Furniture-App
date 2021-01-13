@@ -93,17 +93,17 @@
                                 <div class="right_header_info">
                                     <ul>
                                          <li>
-                                            <a href="#"><img style="margin-right: 15px;" src="icon/5.png" width="35" height="35" alt="AR Function" /></a>
+                                            <a href="#"><img style="margin-right: 15px;" src="icon/5.png" width="35" height="35" alt="AR Function" /></a> <!-- for AR function -->
                                         </li>
                                         <li>
-                                            <a href="#"><img style="margin-right: 15px;" src="icon/1.png" alt="#" /></a>
+                                            <a href="#"><img style="margin-right: 15px;" src="icon/1.png" alt="#" /></a> <!-- for personal information -->
                                         </li>
                                      <!--   <li class="tytyu">   購物車顯示數量-->
-                                       <li>     <a href="#"><img style="margin-right: 15px;" src="icon/2.png" alt="#" /></a></li>
+                                       <li>     <a href="#"><img style="margin-right: 15px;" src="icon/2.png" alt="#" /></a></li> <!-- for going to the page which user like it or want to buy it -->
                                       <!--   </li> -->
                                         
                                         <li>
-                                            <a href="product.jsp"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a>
+                                            <a href="product.jsp"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a> <!-- for going to buy product  -->
                                         </li>
                                        
 
@@ -271,28 +271,28 @@
                             <div class="brand-box">
                                 <i><img src="icon/p1.png"/></i>
                                 <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
+                                <span>HK$80.00</span>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                             <div class="brand-box">
                                 <i><img src="icon/p2.png"/></i>
                                 <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
+                                <span>HK$120.00</span>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                             <div class="brand-box">
                                 <i><img src="icon/p3.png"/></i>
                                 <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
+                                <span>HK$250.00</span>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                             <div class="brand-box">
                                 <i><img src="icon/p4.png"/></i>
                                 <h3>Jane Lauren Design Chair</h3>
-                                <span>$80.00</span>
+                                <span>HK$380.00</span>
                             </div>
                         </div>
                     </div>
@@ -403,7 +403,7 @@
                     </div>
                   
                     <div class="copyright">
-                        <p>Copyright 2021 All Right Reserved By <a href="#">Sweethome Smart Furniture</a></p>
+                        <p>Copyright 2021 All Right Reserved By <a href="#">Sweethome Smart Furniture™</a></p>
                     </div>
             
              </div>

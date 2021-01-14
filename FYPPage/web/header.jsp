@@ -41,7 +41,7 @@
 
                     <ul class="list-unstyled components">
 
-                        <li class="active"> <a href="index.jsp">Home</a></li>
+                        <li class="active"> <a href="handleFurniture?action=home">Home</a></li>
                         <li> <a href="about.jsp">About</a></li>
                         <li> <a href="product.jsp">Product</a></li>
                         <li> <a href="blog.jsp">Blog</a></li>
@@ -63,7 +63,7 @@
                <div class="col-lg-3 logo_section">
                   <div class="full">
                      <div class="center-desk">
-                        <div class="logo"> <a href="index.jsp"><img src="images/logo.jpg" alt="#"></a> </div>
+                        <div class="logo"> <a href="handleFurniture?action=home"><img src="images/MFL_h.png" alt="#"></a> </div>
                      </div>
                   </div>
                </div>

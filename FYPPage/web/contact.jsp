@@ -112,7 +112,7 @@
                      <ul class="lik">
                         <li> <a href="index.jsp">Home</a></li>
                          <li> <a href="about.jsp">About</a></li>
-                         <li> <a href="product.jsp">Product</a></li>
+                         <li> <a href="handleFurniture?action=productList">Product</a></li>
                          <li> <a href="blog.jsp">Blog</a></li>
                         <li> <a href="contact.jsp">Contact us</a></li>
                      </ul>

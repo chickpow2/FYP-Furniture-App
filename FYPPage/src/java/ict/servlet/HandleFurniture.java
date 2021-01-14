@@ -109,6 +109,12 @@ public class HandleFurniture extends HttpServlet {
             request.setAttribute("c", customer);
             rd.forward(request, response);
 
+        } else if ("productList".equalsIgnoreCase(action)) {
+            ArrayList<FurnitureBean> furnitureList = db.queryCust();
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/product.jsp");
+            request.setAttribute("furnitureList", furnitureList);
+            rd.forward(request, response);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

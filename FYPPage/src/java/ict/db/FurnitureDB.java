@@ -85,20 +85,22 @@ public class FurnitureDB {
         }
     }
 
-    public boolean addRecord(String name, String price, String model, int stock, String description) {
+    public boolean addRecord(String name, String price, String model, String description, int rating, int stock, String detail) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, MODEL, STOCK, DESCRIPTION)  VALUES  (?,?,?,?,?)"; //v 
+            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, MODEL, DESCRIPTION, RATING, STOCK, DETAILDESCRIPTION)  VALUES  (?,?,?,?,?,?,?)"; //v 
             pStmnt = cnnct.prepareStatement(preQueryStatement); //SET NAME=? ,PRICE=? ,MODEL=?
 
             pStmnt.setString(1, name); //?
             pStmnt.setString(2, price);
             pStmnt.setString(3, model);
-            pStmnt.setInt(4, stock);
-            pStmnt.setString(5, description);//?
+            pStmnt.setString(4, description);
+            pStmnt.setInt(5, rating);//?
+            pStmnt.setInt(6, stock);
+            pStmnt.setString(7, detail);
             int rowCount = pStmnt.executeUpdate();
             if (rowCount >= 1) {
                 isSuccess = true;

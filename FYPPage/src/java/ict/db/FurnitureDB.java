@@ -69,7 +69,9 @@ public class FurnitureDB {
             String sql
                     = "CREATE TABLE FURNITURE("
                     + "furnitureId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
-                    + "name VARCHAR(25), price VARCHAR(10), model VARCHAR(255),description VARCHAR(255), RATING INTEGER, STOCK INTEGER, DETAILDESCRIPTION VARCHAR(255))";
+                    + "name VARCHAR(25), price VARCHAR(10), model VARCHAR(255),"
+                    + "description VARCHAR(255), RATING INTEGER, STOCK INTEGER, "
+                    + "DETAILDESCRIPTION VARCHAR(255))";
             stmnt.execute(sql);
             stmnt.close();
             cnnct.close();

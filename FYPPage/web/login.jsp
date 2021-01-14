@@ -22,7 +22,7 @@
 
         <form action="main" method="POST" class="form_center card">
             <input type="hidden" name="action" value="authenticate"/>
-            <center><img src="images/MFL_v.png" alt="#"></center>
+            <center><img src="images/MFL_h.png" alt="#"></center>
             <div class="card-body">
                 <div class="form-group">
                     <label>Email address</label>

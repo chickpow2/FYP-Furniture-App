@@ -47,20 +47,24 @@ public class HandleEdit extends HttpServlet {
         // get the parameter from users
         String id = request.getParameter("id");
         String name = request.getParameter("name");
-        String tel = request.getParameter("tel");
-        String age = request.getParameter("age");
+        String price = request.getParameter("price");
+        String model = request.getParameter("model");
+        int stock = Integer.parseInt(request.getParameter("stock"));
+        String descrip = request.getParameter("descrip");
 
         // update the database operations
         FurnitureBean c = db.queryCustByID(id);
         if (c != null) {
             c.setFurnitureId(id);
             c.setName(name);
-            c.setPrice(tel);
-            c.setDescription(age);
+            c.setPrice(price);
+            c.setModel(model);
+            c.setStock(stock);
+            c.setDescription(descrip);
 
             db.editRecord(c);
         } else {
-            db.addRecord(name, tel, age);
+            db.addRecord(name, price, model, stock, descrip);
 
             /*            boolean furnitures = db.addRecord(name, tel, age);
                         request.setAttribute("furnitures", furnitures);*/

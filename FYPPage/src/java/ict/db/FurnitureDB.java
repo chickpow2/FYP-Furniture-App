@@ -85,18 +85,20 @@ public class FurnitureDB {
         }
     }
 
-    public boolean addRecord(String name, String price, String description) {
+    public boolean addRecord(String name, String price, String model, int stock, String description) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, DESCRIPTION)  VALUES  (?,?,?)"; //v 
+            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, MODEL, STOCK, DESCRIPTION)  VALUES  (?,?,?,?,?)"; //v 
             pStmnt = cnnct.prepareStatement(preQueryStatement); //SET NAME=? ,PRICE=? ,MODEL=?
 
             pStmnt.setString(1, name); //?
-            pStmnt.setString(2, price);//?
-            pStmnt.setString(3, description);//?
+            pStmnt.setString(2, price);
+            pStmnt.setString(3, model);
+            pStmnt.setInt(4, stock);
+            pStmnt.setString(5, description);//?
             int rowCount = pStmnt.executeUpdate();
             if (rowCount >= 1) {
                 isSuccess = true;
@@ -340,13 +342,15 @@ public class FurnitureDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,DESCRIPTION=? WHERE FURNITUREID=?";
+            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,MODEL=? , STOCK=?, DESCRIPTION=? WHERE FURNITUREID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
-            pStmnt.setString(1, cb.getName()); // v 
-            pStmnt.setString(2, cb.getPrice()); // v 
-            pStmnt.setString(3, cb.getDescription()); // v 
-            pStmnt.setString(4, cb.getFurnitureId());
+            pStmnt.setString(1, cb.getName());
+            pStmnt.setString(2, cb.getPrice());
+            pStmnt.setString(3, cb.getModel());
+            pStmnt.setInt(4, cb.getStock());
+            pStmnt.setString(5, cb.getDescription());
+            pStmnt.setString(6, cb.getFurnitureId());
             //Statement s = cnnct.createStatement();
             int rs = pStmnt.executeUpdate();
             return rs;

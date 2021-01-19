@@ -176,12 +176,12 @@
                                     <div class="row">
                                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
                                             <div class="img_bg">
-                                                <h3>50% DISCOUNT<br> <strong class="black_nolmal">the latest collection</strong></h3>
+                                                <h3>Putting the <br> <strong class="black_nolmal">spotlight</strong></h3>
                                             </div>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                                             <div class="img_bg">
-                                                <figure><img src="images/discount.jpg" /></figure>
+                                                <figure><img src="images/discount6.jpg" /></figure>
                                             </div>
                                         </div>
                                     </div>
@@ -195,12 +195,12 @@
                                     <div class="row">
                                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
                                             <div class="img_bg">
-                                                <h3>50% DISCOUNT<br> <strong class="black_nolmal">the latest collection</strong></h3>
+                                                <h3>Make your home feel <br> <strong class="black_nolmal"> Extra-festive!</strong></h3>
                                             </div>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                                             <div class="img_bg">
-                                                <figure><img src="images/discount.jpg" /></figure>
+                                                <figure><img src="images/discount5.jpg"  /></figure>
                                             </div>
                                         </div>
                                     </div>
@@ -226,22 +226,22 @@
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margitop">
                             <div class="trending-box">
-                                <figure><img src="images/1.jpg" /></figure>
+                                <figure><img src="images/4.jpg" /></figure>
                                 <h3>Outdoor</h3>
 
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="trending-box">
-                                <figure><img src="images/2.jpg" /></figure>
+                                <figure><img src="images/5.jpg" /></figure>
                                 <h3>Living Room</h3>
 
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margitop">
                             <div class="trending-box">
-                                <figure><img src="images/3.jpg" /></figure>
-                                <h3>Bedroom Lighting</h3>
+                                <figure><img src="images/6.jpg" /></figure>
+                                <h3>Bedroom</h3>
 
                             </div>
                         </div>

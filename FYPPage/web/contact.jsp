@@ -32,8 +32,8 @@
    <!-- body -->
    <body class="main-layout contact_page">
       <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+       
+          
       </div>
 
      <div class="wrapper">

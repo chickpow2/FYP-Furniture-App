@@ -33,11 +33,11 @@
     </head>
     <!-- body -->
 
-    <body class="main-layout">
+     
         <jsp:useBean id="c" scope="request" class="ict.bean.FurnitureBean" />
         <!-- loader  -->
-        <div class="loader_bg">
-            <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+         
+             
         </div>
 
         <div class="wrapper">

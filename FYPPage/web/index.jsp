@@ -218,27 +218,27 @@
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                             <div class="brand-box">
                                 <i><img src="icon/p1.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>HK$80.00</span>
+                                <h3>Light</h3>
+                                <span>HK$900.00</span>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                             <div class="brand-box">
-                                <i><img src="icon/p2.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>HK$120.00</span>
+                                <i><img src="icon/fur7.png"/></i>
+                                <h3>Wooden Table</h3>
+                                <span>HK$1210.00</span>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                             <div class="brand-box">
                                 <i><img src="icon/p3.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>HK$250.00</span>
+                                <h3>Wooden Design Chair</h3>
+                                <span>HK$2250.00</span>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                             <div class="brand-box">
-                                <i><img src="icon/p4.png"/></i>
+                                <i><img src="icon/fur6.png"/></i>
                                 <h3>Jane Lauren Design Chair</h3>
                                 <span>HK$380.00</span>
                             </div>
@@ -295,68 +295,7 @@
             </div>
             <!-- end map -->
             <!--  footer -->
-            <footer>
-                <div class="footer">
-                    <div class="container-fluid">
-                        <div class="border1">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-
-                                    <img class="logo3" src="images/logo3.jpg" />
-                                </div>
-
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-
-                                    <ul class="lik">
-                                        <li> <a href="index.jsp">Home</a></li>
-                                        <li> <a href="about.jsp">About</a></li>
-                                        <li> <a href="product.jsp">Product</a></li>
-                                        <li> <a href="blog.jsp">Blog</a></li>
-                                        <li> <a href="contact.jsp">Contact us</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                                    <ul class="sociel">
-                                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="container">
-                         <div class="newtt">
-                                    <p>Write down your email to subscibe and get the latest news!
-                                        <br>Modern Furniture</p>
-                                </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="new">
-                                    <h3>Newsletter</h3>
-                                    <form class="newtetter">
-                                        <input class="tetter" placeholder="Your email" type="text" name="Your email">
-                                        <button class="submit">Subscribe</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                           
-                            </div>
-                        </div>
-
-                    </div>
-                  
-                    <div class="copyright">
-                        <p>Copyright 2021 All Right Reserved By <a href="#">Modern Furniture™</a></p>
-                    </div>
-            
-             </div>
-
-            </footer>
+  <%@include file="/footer.jsp" %>
             <!-- end footer -->
         </div>
 

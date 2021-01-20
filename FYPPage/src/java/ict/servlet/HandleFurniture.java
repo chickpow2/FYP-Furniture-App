@@ -48,9 +48,9 @@ public class HandleFurniture extends HttpServlet {
 
         if ("list".equalsIgnoreCase(action) || "home".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for all customer
-            ArrayList customers = db.queryCust();
+            ArrayList furnitures = db.queryCust();
             // set the result into the attribute
-            request.setAttribute("customers", customers);
+            request.setAttribute("furnitures", furnitures);
             // redirect the result to the listFurnitures.jsp
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/"

@@ -77,6 +77,7 @@
     </div>
   </div>
 </div>
+      
       <!--  footer --> 
       <%@include file="/footer.jsp" %>
       <!-- end footer -->

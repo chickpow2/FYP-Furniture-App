@@ -70,7 +70,7 @@
                                             + "<div class='full product'>"
                                             + "<div class='product_img'>"
                                             + "<div class='center'>"
-                                            + "<img src='icon/p1.png' alt='#'/>"
+                                            +"<img src=\"furniture/"+furnitureList.get(i).getFurnitureId()+".png\" alt='#'/>"
                                             + "<div class='overlay_hover'>"                                          
                                             + "<a class='add-bt'>Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
                                             + "</div></div></div>"

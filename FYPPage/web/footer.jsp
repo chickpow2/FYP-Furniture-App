@@ -61,7 +61,7 @@
                     </div>
                   
                     <div class="copyright">
-                        <p>Copyright 2021 All Right Reserved By <a href="#">Modern Furniture™</a></p>
+                        <p>Copyright 2021 All Right Reserved By <a href="#">Modern Furniture</a></p>
                     </div>
             
              </div>

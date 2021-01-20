@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Sweethome</title>
+    <title>Modern Furniture</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                 <div class="text-img">
-                                    <figure><img src="images/bg.jpg" /></figure>
+                                    <figure><img src="images/bg2.jpg" /></figure>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +331,7 @@
                     <div class="container">
                          <div class="newtt">
                                     <p>Write down your email to subscibe and get the latest news!
-                                        <br>Sweethome Smart Furniture</p>
+                                        <br>Modern Furniture</p>
                                 </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -351,7 +351,7 @@
                     </div>
                   
                     <div class="copyright">
-                        <p>Copyright 2021 All Right Reserved By <a href="#">Sweethome Smart Furniture™</a></p>
+                        <p>Copyright 2021 All Right Reserved By <a href="#">Modern Furniture™</a></p>
                     </div>
             
              </div>

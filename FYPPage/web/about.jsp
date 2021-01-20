@@ -65,7 +65,7 @@
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
         <h3>About us</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+        <p>Modern Furniture Ltd is a multinational conglomerate that designs and sells ready-to-assemble furniture, kitchen appliances and home accessories, among other useful goods and occasionally home services.  It was founded in Hong Kong in 2010 by nekcihc redwop. Modern has been expanding its business in 10 years. </p>
         <a href="#">Read More</a>
         </div>
       </div>

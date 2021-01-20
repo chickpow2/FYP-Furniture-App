@@ -3,7 +3,8 @@
     Created on : 2020年12月13日, 上午11:42:22
     Author     : solidcat
 --%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="ict.bean.FurnitureBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -190,40 +191,24 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div class="brand-bg">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="brand-box">
-                                <i><img src="icon/p1.png"/></i>
-                                <h3>Light</h3>
-                                <span>HK$900.00</span>
+                                   <%
+                    ArrayList<FurnitureBean> customers = (ArrayList<FurnitureBean>) request.getAttribute("customers");%>
+                <div class="container-fluid">
+                    <div class="brand-bg">
+                        <div class="row">
+                            <%  for (int i = 0; i < customers.size(); i++) {
+                                    FurnitureBean c = customers.get(i);%>
+
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                                
+                                <div class="brand-box">
+                               <%out.println("<a href=\"handleFurniture?action=ShowOneFurniture&id=" + c.getFurnitureId() + "\">");%>
+                                    <i><img src="icon/p1.png"/></i>
+                                    <h3><%out.println(c.getName());%></h3>
+                                    <span>$<%out.println(c.getPrice());%></span></a>  
+                                </div>           
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                            <div class="brand-box">
-                                <i><img src="icon/fur7.png"/></i>
-                                <h3>Wooden Table</h3>
-                                <span>HK$1210.00</span>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="brand-box">
-                                <i><img src="icon/p3.png"/></i>
-                                <h3>Wooden Design Chair</h3>
-                                <span>HK$2250.00</span>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="brand-box">
-                                <i><img src="icon/fur6.png"/></i>
-                                <h3>Jane Lauren Design Chair</h3>
-                                <span>HK$380.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <%}%>
             <!-- end our brand -->
             <!-- map -->
             <div class="contact">

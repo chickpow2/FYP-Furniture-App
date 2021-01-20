@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ict.bean.FurnitureBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -70,15 +71,16 @@
                                             + "<div class='product_img'>"
                                             + "<div class='center'>"
                                             + "<img src='icon/p1.png' alt='#'/>"
-                                            + "<div class='overlay_hover'>"
-                                            + "<a class='add-bt' href='product_detail3.jsp'>+ Add to cart</a>"
+                                            + "<div class='overlay_hover'>"                                          
+                                            + "<a class='add-bt'>Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
                                             + "</div></div></div>"
                                             + "<div class='product_detail text_align_center'>");
                                     out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice() + "<span class='old_price'>$679.89</span></p>");
                                     out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
                                     out.println("</div></div></div>");
                                 }
-                            %>
+                            %>  
+
 
                             <!-- end product -->
                             

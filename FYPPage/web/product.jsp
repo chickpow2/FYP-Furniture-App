@@ -74,12 +74,12 @@
                         </form>
 
                         <br>
-                        <div class="list-group" id="list-tab" role="tablist">
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=home"  >Sofa</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=home" role="tab" aria-controls="profile">Table</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=home" role="tab" aria-controls="messages">Chair</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=home" role="tab" aria-controls="settings">Electronics</a>
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=home" role="tab" aria-controls="settings">Other</a>
+                        <div class="list-group" id="list-tab" name ="type" role="tablist">
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
                         </div>
                         <br>
 

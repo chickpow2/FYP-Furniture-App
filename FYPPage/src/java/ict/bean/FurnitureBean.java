@@ -12,11 +12,11 @@ public class FurnitureBean implements Serializable {
     private int rating;
     private int stock;
     private String detailDescription;
+    private String type;
     
-    // private String photo;
+
 
     public FurnitureBean() {
-
     }
 
     public FurnitureBean(String furnitureId, String name, String price, String model, String description, int rating, int stock, String detailDescription) {
@@ -94,5 +94,14 @@ public class FurnitureBean implements Serializable {
 
     public void setDetailDescription(String detailDescription) {
         this.detailDescription = detailDescription;
+    }
+        public String getType() {
+        return type;
+
+    }
+
+    // private String photo;
+    public void setType(String type) {
+        this.type = type;
     }
 }

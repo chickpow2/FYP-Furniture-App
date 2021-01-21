@@ -256,7 +256,52 @@ public class FurnitureDB {
         }
         return null;
     }
+ public ArrayList queryCustByType(String type) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE TYPE= ?";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            pStmnt.setString(1, type);
+            //Statement s = cnnct.createStatement();
+            ResultSet rs = pStmnt.executeQuery();
 
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                FurnitureBean cb = new FurnitureBean();
+                cb.setFurnitureId(rs.getString(1));
+                cb.setName(rs.getString(2));
+                cb.setPrice(rs.getString(3));
+                cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
     public ArrayList queryCustByTel(String tel) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;

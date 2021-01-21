@@ -20,7 +20,7 @@
     </head>
     <body>
 
-        <form action="main" method="POST" class="form_center card">
+        <form action="Login" method="POST" class="form_center card">
             <input type="hidden" name="action" value="authenticate"/>
             <center><img src="images/MFL_h.png" alt="#"></center>
             <div class="card-body">

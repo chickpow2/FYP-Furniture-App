@@ -2,7 +2,9 @@ package ict.db;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserDB {
 
@@ -20,39 +22,10 @@ public class UserDB {
         // System.setProperty("jdbc.drivers", "com.mysql.jdbc.Driver");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return DriverManager.getConnection(url, username, password);
-    }
-
-    public boolean addUser(String id, String username, String password) {
-        Connection cnnct = null;
-        PreparedStatement pStmnt = null;
-        boolean isSuccess = false;
-        try {
-            cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  userinfo  VALUES  (?,?,?)";
-            pStmnt = cnnct.prepareStatement(preQueryStatement);
-            pStmnt.setString(1, id);
-            pStmnt.setString(2, username);
-            pStmnt.setString(3, password);
-
-            int rowCount = pStmnt.executeUpdate();
-            if (rowCount >= 1) {
-                isSuccess = true;
-            }
-            pStmnt.close();
-            cnnct.close();
-        } catch (SQLException ex) {
-            while (ex != null) {
-                ex.printStackTrace();
-                ex = ex.getNextException();
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return isSuccess;
     }
 
     public void createUserInfoTable() {
@@ -69,8 +42,7 @@ public class UserDB {
                     + "username varchar(25),"
                     + "password varchar(100),"
                     + "position VARCHAR(10),"
-                    + "tel VARCHAR(10),"
-                    + "age VARCHAR(3))";
+                    + "tel VARCHAR(10))";
 
             stmnt.execute(sql);
 
@@ -94,7 +66,7 @@ public class UserDB {
         try {
             //1.  get Connection
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  USERINFO WHERE ";
+            String preQueryStatement = "SELECT * FROM  USERINFO WHERE username =  ? and  password =  ?";
             //2.  get the prepare Statement
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //3. update the placehoder with id

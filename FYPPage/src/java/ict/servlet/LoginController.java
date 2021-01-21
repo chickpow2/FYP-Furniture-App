@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
  
-@WebServlet(name = "LoginController", urlPatterns = {"/main"})
+@WebServlet(name = "LoginController", urlPatterns = {"/Login"})
 public class LoginController extends HttpServlet {
 
     private UserDB userDb;
@@ -73,9 +73,9 @@ public class LoginController extends HttpServlet {
             bean.setPassword(password);
             // store the userInfo to the session	
             session.setAttribute("userInfo", bean);
-            targetURL = "/welcome.jsp";
+            targetURL = "/redirect.jsp";
         } else {
-            targetURL = "/loginError.jsp";
+            targetURL = "/login.jsp";
         }
         RequestDispatcher rd;
         rd = getServletContext().getRequestDispatcher("/" + targetURL);

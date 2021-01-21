@@ -33,86 +33,102 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     </head>
     <!-- body -->
-     
-        <!-- loader  -->
-         
-             
-        </div>
 
-        <div class="wrapper">
+    <!-- loader  -->
 
-            <%@include file="/header.jsp" %>
 
-            <div id="content">
+</div>
 
-                <!-- end header -->
-                <div class="contactus">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-8 offset-md-2">
-                                <div class="title">
-                                    <h2>Our Product</h2>
-                                </div>
-                            </div>
+<div class="wrapper">
+
+    <%@include file="/header.jsp" %>
+
+    <div id="content">
+
+        <!-- end header -->
+        <div class="contactus">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="title">
+                            <h2>Our Product</h2>
                         </div>
                     </div>
                 </div>
-                <%
-                    ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitureList");
-                %>
-                <div class="ourproduct">
-                    <div class="container">
-                        <div class="row product_style_3" ">
-                            <!-- product -->
-                            <%
-                                for (int i = 0; i < furnitureList.size(); i++) {
-                                    out.println("<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
-                                            + "<div class='full product'>"
-                                            + "<div class='product_img'>"
-                                            + "<div class='center'>"
-                                            +"<img src=\"furniture/"+furnitureList.get(i).getFurnitureId()+".png\" alt='#'/>"
-                                            + "<div class='overlay_hover'>"                                          
-                                            + "<a class='add-bt'>Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
-                                            + "</div></div></div>"
-                                            + "<div class='product_detail text_align_center'>");
-                                    out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice() + "<span class='old_price'>$679.89</span></p>");
-                                    out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
-                                    out.println("</div></div></div>");
-                                }
-                            %>  
-
-
-                            <!-- end product -->
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <!--  footer --> 
-  <%@include file="/footer.jsp" %>
-                <!-- end footer -->
             </div>
+        </div>
+        <%
+            ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitureList");
+        %>
+        <div class="ourproduct">
+            <div class="container">
+                <div class="row product_style_3" ">
+                    <!-- product -->
 
+                    <div class='container'>       
+                        <form  method="GET" action="handleFurniture?action=search1">
+                                <input type="hidden" name="action" value="search1"/>
+                            <input name="search"  type="text" value=""/>
+                            <input type="submit" value="submit"/>
+                        </form>
+                    </div><br>
+                    <%
+                       // out.println("<div class='container'>");
+                        //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"submit\"/></form></div><br>");
+
+                        for (int i = 0; i < furnitureList.size(); i++) {
+                            out.println("<tr><br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
+                                    + "<div class='full product'>"
+                                    + "<div class='product_img'>"
+                                    + "<div class='center'>"
+                                    + "<img src=\"furniture/" + furnitureList.get(i).getFurnitureId() + ".png\" alt='#'/>"
+                                    + "<div class='overlay_hover'>"
+                                    + "<a class='add-bt'>Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
+                                    + "</div></div></div>"
+                                    + "<div class='product_detail text_align_center'>");
+                            out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice());
+                            out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
+                            out.println("</div></div></div></tr>");
+                        }
+                    %>  
+
+
+                    <!-- end product -->
+
+                </div>
+            </div>
         </div>
 
+        <!--  footer --> 
+        <%@include file="/footer.jsp" %>
+        <!-- end footer -->
+    </div>
+
+</div>
 
 
-        <script>
-            $(document).ready(function () {
-                $(".fancybox").fancybox({
-                    openEffect: "none",
-                    closeEffect: "none"
-                });
 
-                $(".zoom").hover(function () {
+<script>
+    $(document).ready(function () {
+        $(".fancybox").fancybox({
+            openEffect: "none",
+            closeEffect: "none"
+        });
 
-                    $(this).addClass('transition');
-                }, function () {
+        $(".zoom").hover(function () {
 
-                    $(this).removeClass('transition');
-                });
-            });
+            $(this).addClass('transition');
+        }, function () {
 
-        </script> 
-    </body>
+            $(this).removeClass('transition');
+        });
+    });
+
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+            $('tr:gt(0)').hide().filter(":contains('" + $('#search').val() + "')").show();
+        });
+    });
+</script> 
+</body>
 </html>

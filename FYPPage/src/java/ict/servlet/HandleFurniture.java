@@ -72,16 +72,26 @@ public class HandleFurniture extends HttpServlet {
             }
 
         } else if ("search".equalsIgnoreCase(action)) {
-            // call the query db to get retrieve for all customer
-            String name = request.getParameter("name");
-            if (name != null) {
+            String search = request.getParameter("search");
+            if (search != null) {
 
                 // set the result into the attribute
                 // redirect the result to the listFurnitures.jsp
-                ArrayList customers = db.queryCustByName(name);
+                ArrayList<FurnitureBean> furnitureList = db.queryCustByName(search);
                 RequestDispatcher rd;
-                rd = getServletContext().getRequestDispatcher("/listFurnitures.jsp");
-                request.setAttribute("customers", customers);
+                rd = getServletContext().getRequestDispatcher("/product.jsp");
+                request.setAttribute("furnitureList", furnitureList);
+                rd.forward(request, response);
+            }
+        } else if ("search1".equalsIgnoreCase(action)) {
+            // call the query db to get retrieve for all customer
+            String search = request.getParameter("search");
+            if (search != null) {
+
+                ArrayList<FurnitureBean> furnitureList = db.queryCustByName(search);
+                RequestDispatcher rd;
+                rd = getServletContext().getRequestDispatcher("/product.jsp");
+                request.setAttribute("furnitureList", furnitureList);
                 rd.forward(request, response);
             }
 

@@ -67,33 +67,32 @@
 
                     <div class='container'>       
                         <form  method="GET" action="handleFurniture?action=search1">
-                              <label>Search :</label>
+                            <label>Search :</label>
                             <input type="hidden" name="action" value="search1"/>
                             <input name="search"  type="text" value=""/>&nbsp
                             <input type="submit" class="btn btn-primary" value="search"/>
                         </form>
-                 
-  <br>
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Sofa</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Table</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Chair</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Electronics</a>
-        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Other</a>
-    </div>
- <br>
- 
+
+                        <br>
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=home"  >Sofa</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=home" role="tab" aria-controls="profile">Table</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=home" role="tab" aria-controls="messages">Chair</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=home" role="tab" aria-controls="settings">Electronics</a>
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=home" role="tab" aria-controls="settings">Other</a>
+                        </div>
+                        <br>
+
 
 
 
                     </div>                   
-                 
 
-                    
+
+
                     <%
-                       // out.println("<div class='container'>");
+                        // out.println("<div class='container'>");
                         //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
-
                         for (int i = 0; i < furnitureList.size(); i++) {
                             out.println("<tr><br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
                                     + "<div class='full product'>"

@@ -15,7 +15,7 @@ public class CreateFurnitureTable {
 
         FurnitureDB furnitureDB = new FurnitureDB(url, username, password);
         furnitureDB.createCustTable();
-        furnitureDB.addRecord("Antique Table", "599", "black", "Black Antique Table", 5, 10, "Black Antique Table");
+       furnitureDB.addRecord("Antique Table", "599", "black", "Black Antique Table", 5, 10, "Black Antique Table");
         furnitureDB.addRecord("Tea Table", "699", "dark wood", "Dark Wood Tea Table", 4, 15, "Dark Wood Tea Table");
         furnitureDB.addRecord("Wooden Table", "499", "white", "White Wooden Table", 5, 13, "White Wooden Table");
         furnitureDB.addRecord("Ironwood Table", "499", "walnut", "Walnut Ironwood Table", 5, 13, "Walnut Ironwood Table");

@@ -184,7 +184,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="title">
-                                <h2>Featured <strong class="black">Brands</strong></h2>
+                                <h2>Hot <strong class="black">Sale</strong></h2>
 
                             </div>
                         </div>
@@ -256,7 +256,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></div>
             <!-- end map -->
             <!--  footer -->
   <%@include file="/footer.jsp" %>

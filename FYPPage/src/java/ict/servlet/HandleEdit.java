@@ -64,7 +64,7 @@ public class HandleEdit extends HttpServlet {
 
             db.editRecord(c);
         } else {
-            db.addRecord(name, price, model, stock, descrip);
+            db.addRecord(name, price, model, descrip,0, stock,"");
 
             /*            boolean furnitures = db.addRecord(name, tel, age);
                         request.setAttribute("furnitures", furnitures);*/

@@ -67,13 +67,13 @@
 
                     <div class='container'>       
                         <form  method="GET" action="handleFurniture?action=search1">
-                            <label>Search :</label>
+                            <label><strong class="black">Search :</strong></label>
                             <input type="hidden" name="action" value="search1"/>
                             <input name="search"  type="text" value=""/>&nbsp
                             <input type="submit" class="btn btn-primary" value="search"/>
                         </form>
 
-                        <br>
+                        <br><label><strong class="black">Category</strong></label><br>
                         <div class="list-group" id="list-tab" name ="type" role="tablist">
                             <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
                             <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>

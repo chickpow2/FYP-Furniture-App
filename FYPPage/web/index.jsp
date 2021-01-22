@@ -276,7 +276,8 @@
     
    
     <!-- end google map js --> 
-    
+    <!-- Import the component -->
+
 </body>
 
 </html>

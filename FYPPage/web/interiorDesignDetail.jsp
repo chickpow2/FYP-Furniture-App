@@ -28,6 +28,16 @@
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+              <style>
+            model-viewer{
+                width:100%;
+                height:600px;
+                margin:0 auto;
+outline:none
+background-color:#000;
+            }
+        </style>
    </head>
    <!-- body -->
     
@@ -49,7 +59,7 @@
             <div class="row">
                <div class="col-md-8 offset-md-2">
                   <div class="title">
-                     <h2>About</h2>
+                     <h2>Interior Design</h2>
                     
                   </div>
                </div>
@@ -57,16 +67,16 @@
           </div>
 </div>
 
-
-
+           
+<model-viewer src="assets/kitchen.glb" auto-rotate camera-controls></model-viewer>
+ 
 <div class="about">
   <div class="container">
     <div class="row">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-          
         <div class="aboutimg">
-        <h3>About us</h3>
-        <p>Modern Furniture Ltd is a multinational conglomerate that designs and sells ready-to-assemble furniture, kitchen appliances and home accessories, among other useful goods and occasionally home services.  It was founded in Hong Kong in 2010 by nekcihc redwop. Modern has been expanding its business in 10 years. </p>
+        <h3>Kitchen Design</h3>
+        <p>The kitchen is probably the most used room in your house, so you want it to be a space you enjoy spending time in. And aside from functioning appliances, a kitchen design you'll love for years to come is of utmost importance. So whether you're renovating or simply looking for some inspiration, we found 90 kitchen design ideas that will help you optimize your own?and the best lessons to take from them. From country casual to sleek and modern?and literally everything in between</p>
         <a href="#">Read More</a>
         </div>
       </div>

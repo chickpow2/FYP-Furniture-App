@@ -68,7 +68,7 @@ background-color:#000;
 </div>
 
            
-<model-viewer src="assets/kitchen.glb" auto-rotate camera-controls></model-viewer>
+<model-viewer src="assets/familyroom.glb" auto-rotate camera-controls></model-viewer>
  
 <div class="about">
   <div class="container">

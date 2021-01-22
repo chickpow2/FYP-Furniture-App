@@ -68,7 +68,7 @@ background-color:#000;
 </div>
 
            
-<model-viewer src="assets/familyroom.glb" auto-rotate camera-controls></model-viewer>
+<model-viewer src="assets/1.glb" auto-rotate camera-controls></model-viewer>
  
 <div class="about">
   <div class="container">
@@ -82,7 +82,7 @@ background-color:#000;
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
-        <figure><img src="interior_design/modern-kitchen-design.jpg"/></figure>
+        <figure><img src="interior_design/1.jpg"/></figure>
         </div>
       </div>
     </div>

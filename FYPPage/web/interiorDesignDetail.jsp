@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>niture</title>
+      <title>Modern Furniture</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -76,13 +76,13 @@ background-color:#000;
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
         <h3>Kitchen Design</h3>
-        <p>The kitchen is probably the most used room in your house, so you want it to be a space you enjoy spending time in. And aside from functioning appliances, a kitchen design you'll love for years to come is of utmost importance. So whether you're renovating or simply looking for some inspiration, we found 90 kitchen design ideas that will help you optimize your own?and the best lessons to take from them. From country casual to sleek and modern?and literally everything in between</p>
+        <p>The kitchen is probably the most used room in your house, so you want it to be a space you enjoy spending time in. And aside from functioning appliances, a kitchen design you'll love for years to come is of utmost importance. So whether you're renovating or simply looking for some inspiration, we found 90 kitchen design ideas that will help you optimize your own?and the best lessons to take from them. From country casual to sleek and modern and literally everything in between</p>
         <a href="#">Read More</a>
         </div>
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
-        <figure><img src="images/Avangarda_klu.jpg"/></figure>
+        <figure><img src="interior_design/modern-kitchen-design.jpg"/></figure>
         </div>
       </div>
     </div>

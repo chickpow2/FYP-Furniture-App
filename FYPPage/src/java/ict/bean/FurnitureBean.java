@@ -13,7 +13,7 @@ public class FurnitureBean implements Serializable {
     private int stock;
     private String detailDescription;
     private String type;
-    
+    private String image;
 
 
     public FurnitureBean() {
@@ -28,6 +28,14 @@ public class FurnitureBean implements Serializable {
         this.rating = rating;
         this.stock = stock;
         this.detailDescription = detailDescription;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 

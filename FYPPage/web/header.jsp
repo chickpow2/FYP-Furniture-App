@@ -74,8 +74,8 @@
                                             <a href="#"><img style="margin-right: 15px;" src="icon/5.png" width="35" height="35" alt="AR Function" /></a> <!-- for AR function -->
                                         </li>
                         <li><a href="login.jsp"><img style="margin-right: 15px;" src="icon/1.png" alt="#" /></a></li>
-                        <li class="tytyu" ><a href="#"><img style="margin-right: 15px;" src="icon/2.png" alt="#" /></a></li>
-                        <li><a href="#"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a></li>
+                
+                        <li><a href="handleFurniture?action=shoppingCart"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a></li>
 
                          <li>
                            <button type="button" id="sidebarCollapse">

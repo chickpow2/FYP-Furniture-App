@@ -94,7 +94,12 @@ public class HandleFurniture extends HttpServlet {
                 request.setAttribute("furnitureList", furnitureList);
                 rd.forward(request, response);
             }
-
+        } else if ("shoppingCart".equalsIgnoreCase(action)) {
+            ArrayList<FurnitureBean> furnitureList = db.queryCust();
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");
+            request.setAttribute("furnitureList", furnitureList);
+            rd.forward(request, response);
         } else if ("type".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for all customer
             String type = request.getParameter("type");
@@ -105,7 +110,8 @@ public class HandleFurniture extends HttpServlet {
                 rd = getServletContext().getRequestDispatcher("/product.jsp");
                 request.setAttribute("furnitureList", furnitureList);
                 rd.forward(request, response);
-            }}else if ("getEditFurniture".equalsIgnoreCase(action)) {
+            }
+        } else if ("getEditFurniture".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
             String id = request.getParameter("id");
 

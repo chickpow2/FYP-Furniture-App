@@ -100,7 +100,7 @@
                                     + "<div class='center'>"
                                     + "<img src=\"furniture/" + furnitureList.get(i).getFurnitureId() + ".png\" alt='#'/>"
                                     + "<div class='overlay_hover'>"
-                                    + "<a class='add-bt'>Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
+                                    + "<a class='add-bt' href=\"handleFurniture?action=shoppingCart\">Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"
                                     + "<div class='product_detail text_align_center'>");
                             out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice());

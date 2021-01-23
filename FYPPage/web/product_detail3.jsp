@@ -74,7 +74,7 @@
                             </div>
                             <div class="detail-contant">  
                                 <p><%=c.getDescription()%>
-                                    <br><span class="stock"><%=c.getStock()%> in stock</span>
+                                    <br><br><span class="stock"><%=c.getStock()%> in stock</span>
                                 </p>
                                 <form class="cart" method="post" action="handleFurniture?action=shoppingCart">
                                     <div class="quantity">

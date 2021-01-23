@@ -67,11 +67,58 @@ public class FurnitureDB {
             cnnct = getConnection();  // the connection 
             stmnt = cnnct.createStatement();  // create statement
             String sql
-                    = "CREATE TABLE FURNITURE("
-                    + "furnitureId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
-                    + "name VARCHAR(25), price VARCHAR(10), model VARCHAR(255),type VARCHAR(25),"
-                    + "description VARCHAR(255), RATING INTEGER, STOCK INTEGER, "
-                    + "DETAILDESCRIPTION VARCHAR(255))";
+                    = "CREATE TABLE FURNITURE1("
+                    + "furnitureId INTEGER CONSTRAINT PK_FURNITURE1 PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
+                    + "name VARCHAR(25), price VARCHAR(10), model VARCHAR(2555),"
+                    + "RATING INTEGER, STOCK INTEGER,"
+                    + "DETAILDESCRIPTION VARCHAR(2555),type VARCHAR(25),IMAGE VARCHAR(2999),description VARCHAR(2555))";
+            stmnt.execute(sql);
+            stmnt.close();
+            cnnct.close();
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void InsertFurnitureData() {
+        Connection cnnct = null;
+        Statement stmnt = null;
+        try {
+            cnnct = getConnection();  // the connection 
+            stmnt = cnnct.createStatement();  // create statement
+            String sql
+                    = "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('sofa', '5999', 'www.', 3, 3, 'The Logan Bi-Sectional balances comfort with a refined, modern style. The back cushions have a unique, channel-stitch detail which creates a subtle play of light and form. Compartmentalized cushions filled with loose-spun poly help to give the feel and comfort of down while maintaining a clean, crisp shape. Every sectional includes 2 sets of legs, allowing you to walnut finished wood legs to suit your style. The sectional is cleverly designed to allow the chaise to be positioned on the left or the right, so it can adapt to any room layout.', 'sofa', NULL, 'size');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('carpet', '123', NULL, 5, 4, 'Pro esports players spend full-time hours training at a computer workstation. To stay fresh over long sitting sessions, most use high-end gaming chairs. The best models offer rich ergonomic features, pleasing aesthetics, and superb durability. Even if you’re not an esports pro, these chairs are relevant. As office chairs, these models will help you feel better, sit longer, and be more productive.', 'other', NULL, 'Pro esports players spend full-time hours training at a computer workstation. To stay fresh over long sitting sessions, most use high-end gaming chairs. The best models offer rich ergonomic features, pleasing aesthetics, and superb durability. Even if you’re not an esports pro, these chairs are relevant. As office chairs, these models will help you feel better, sit longer, and be more productive.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('wooden chair', '2233', '', 4, 5, 'The best way to know the qualities of a good computing chair is to test one out. That requires using it full-time for at least a few months. Luckily, top esports pros have already done that work for us. Esports players spend around 10-12 hours of training at their computers every day. That has given gaming chair manufacturers lots of user data to work with. No other type of seating has undergone as much user testing over the past decade', 'chair', NULL, 'The best way to know the qualities of a good computing chair is to test one out. That requires using it full-time for at least a few months. Luckily, top esports pros have already done that work for us. Esports players spend around 10-12 hours of training at their computers every day. That has given gaming chair manufacturers lots of user data to work with. No other type of seating has undergone as much user testing over the past decade');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('foldable table', '1111', NULL, 5, 7, 'That’s how we know these gaming chairs hold up well under full-time sitting loads. To keep players performing at their best, these chairs are proven to support good posture and movement while sitting. That helps help players to sit for longer periods — while gaming at peak performance.', 'table', NULL, 'That’s how we know these gaming chairs hold up well under full-time sitting loads. To keep players performing at their best, these chairs are proven to support good posture and movement while sitting. That helps help players to sit for longer periods — while gaming at peak performance.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('lamp', '3120', NULL, 3, 5, 'All gaming chairs come with tall backrests and adjustable support pillows. Pro esports chairs stand apart from cheap models with four essential features.  First, 4D armrests adjust in four directions, giving a full range of support for the arms. Second, a multifunction tilt-lock lets you tilt and lock the seat at angles. Third, cold-cured foam padding provides consistent support. Finally, premium upholstery ensures optimal breathability and durability. The result is consistent, comfortable support that looks and works like new for years.', 'electronic', NULL, 'All gaming chairs come with tall backrests and adjustable support pillows. Pro esports chairs stand apart from cheap models with four essential features.  First, 4D armrests adjust in four directions, giving a full range of support for the arms. Second, a multifunction tilt-lock lets you tilt and lock the seat at angles. Third, cold-cured foam padding provides consistent support. Finally, premium upholstery ensures optimal breathability and durability. The result is consistent, comfortable support that looks and works like new for years.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('e-sport chair', '3223', NULL, 4, 4, 'These features serve the needs of the world’s best competitive esports players. They are also a great option for non-gamers. Those include office workers, content creators, and others who spend long periods sitting.', 'chair', NULL, 'These features serve the needs of the world’s best competitive esports players. They are also a great option for non-gamers. Those include office workers, content creators, and others who spend long periods sitting.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('painting', '900', NULL, 3, 2, 'Under full-time sitting conditions, these models excel. Dense foam padding on pro chairs holds up well under heavy use. Pro-class cover fabrics provide optimal breathability without getting clammy. Most important are the adjustments that let players change position on the fly. Changing positions keeps the body in motion while sitting', 'other', NULL, 'Under full-time sitting conditions, these models excel. Dense foam padding on pro chairs holds up well under heavy use. Pro-class cover fabrics provide optimal breathability without getting clammy. Most important are the adjustments that let players change position on the fly. Changing positions keeps the body in motion while sitting');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('Antique Table', '599', 'black', 5, 10, 'That improves circulation and oxygen intake while helping to distribute stress across various muscle groups. As a result, players can stay fresh over longer sessions, without needing to pause gameplay.', 'table', NULL, 'That improves circulation and oxygen intake while helping to distribute stress across various muscle groups. As a result, players can stay fresh over longer sessions, without needing to pause gameplay.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('Tea Table', '699', 'dark wood', 4, 15, 'The time players spend at a computer is intense and mentally taxing. Success in esports demands fine motor skills. Players need elite speed, precision, aim, and hand-eye-coordination. Some games demand as many as 400 actions per minute. That means 400 separate decisions or clicks in under sixty seconds.', 'table', NULL, 'The time players spend at a computer is intense and mentally taxing. Success in esports demands fine motor skills. Players need elite speed, precision, aim, and hand-eye-coordination. Some games demand as many as 400 actions per minute. That means 400 separate decisions or clicks in under sixty seconds.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('Wooden Table', '499', 'white', 5, 13, 'Over long periods, these intense demands wear players down. As a result, burnout and mental breakdowns are common. Most pro players start in their teens and retire in their mid-20s.', 'table', NULL, 'Over long periods, these intense demands wear players down. As a result, burnout and mental breakdowns are common. Most pro players start in their teens and retire in their mid-20s.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('Ironwood Table', '499', 'walnut', 5, 13, 'That’s why the most successful teams maintain holistic training programs. Players have physical training routines, strict diet guidelines, and proper ergonomic workstations. As the foundation of each pro workstation is a good ergonomic computing chair.', 'table', NULL, 'That’s why the most successful teams maintain holistic training programs. Players have physical training routines, strict diet guidelines, and proper ergonomic workstations. As the foundation of each pro workstation is a good ergonomic computing chair.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('Iron Garden Table', '499', 'brown', 5, 14, 'Pro gamers know that a healthy, comfortable body ensures a sharp mind while at a computer. When away from the PC, all computer users need proper rest, nutrition, and exercise. When sat down full-time for work, the quality of the chair has a huge impact on performance. Even for non-gamers, pro chairs yield potent health, wellness, and productivity benefits.', 'table', NULL, 'Pro gamers know that a healthy, comfortable body ensures a sharp mind while at a computer. When away from the PC, all computer users need proper rest, nutrition, and exercise. When sat down full-time for work, the quality of the chair has a huge impact on performance. Even for non-gamers, pro chairs yield potent health, wellness, and productivity benefits.');\n"
+                    + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
+                    + "	VALUES ('Antique Mini Table', '499', 'brown', 4, 10, 'Students who do their schoolwork in a gaming chair will be able to focus for longer periods. Office workers can improve mood, vitality, and performance. In fact, everyone who sits full-time at a computer can benefit by using a pro esports gaming chair. That’s because a good gaming chair will let you sit longer, work harder and be more productive.', 'table', NULL, 'Students who do their schoolwork in a gaming chair will be able to focus for longer periods. Office workers can improve mood, vitality, and performance. In fact, everyone who sits full-time at a computer can benefit by using a pro esports gaming chair. That’s because a good gaming chair will let you sit longer, work harder and be more productive.');\n"
+                    + "";
             stmnt.execute(sql);
             stmnt.close();
             cnnct.close();
@@ -142,10 +189,13 @@ public class FurnitureDB {
                 cb.setName(rs.getString(2));
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
-                cb.setDescription(rs.getString(5));
-                cb.setRating(rs.getInt(6));
-                cb.setStock(rs.getInt(7));
-                cb.setDetailDescription(rs.getString(8));
+                cb.setRating(rs.getInt(5));
+                cb.setStock(rs.getInt(6));
+
+                cb.setDetailDescription(rs.getString(7));
+                cb.setType(rs.getString(8));
+                cb.setImage(rs.getString(9));
+                cb.setDescription(rs.getString(10));
             }
 
             pStmnt.close();
@@ -179,10 +229,11 @@ public class FurnitureDB {
                 cb.setName(rs.getString(2));
                 cb.setPrice(rs.getString(3));
                 cb.setModel(rs.getString(4));
-                cb.setDescription(rs.getString(5));
-                cb.setRating(rs.getInt(6));
-                cb.setStock(rs.getInt(7));
-                cb.setDetailDescription(rs.getString(8));
+                cb.setRating(rs.getInt(5));
+                cb.setStock(rs.getInt(6));
+                cb.setDetailDescription(rs.getString(7));
+                cb.setImage(rs.getString(8));
+                cb.setDescription(rs.getString(9));
                 list.add(cb);
             }
             return list;
@@ -256,7 +307,8 @@ public class FurnitureDB {
         }
         return null;
     }
- public ArrayList queryCustByType(String type) {
+
+    public ArrayList queryCustByType(String type) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         try {
@@ -302,6 +354,7 @@ public class FurnitureDB {
         }
         return null;
     }
+
     public ArrayList queryCustByTel(String tel) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;

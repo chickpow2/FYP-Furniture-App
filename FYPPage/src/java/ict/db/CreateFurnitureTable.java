@@ -14,8 +14,8 @@ public class CreateFurnitureTable {
         String password = "APP";
 
         FurnitureDB furnitureDB = new FurnitureDB(url, username, password);
-        //furnitureDB.createCustTable();
-        furnitureDB.InsertFurnitureData();
+        furnitureDB.createCustTable();
+        //furnitureDB.InsertFurnitureData();
 
     }
 }

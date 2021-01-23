@@ -57,15 +57,15 @@ public class HandleInteriorDesign extends HttpServlet {
                     + "interiordesign.jsp");
             rd.forward(request, response);
         } else if ("interiorDesignDetail".equalsIgnoreCase(action)) {
-                        String id = request.getParameter("id");
-            // call the query db to get retrieve for all customer
-            InteriorDesignBean interior = db.queryCustByID(id);
+            // call the query db to get retrieve for a customer witht the id
+            String id = request.getParameter("id");
+
             // set the result into the attribute
-            request.setAttribute("interior", interior);
-            // redirect the result to the listFurnitures.jsp
+            // forward the result to the editFurniture.jsp
+            InteriorDesignBean customer = db.queryCustByID(id);
             RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/"
-                    + "interiordesign.jsp");
+            rd = getServletContext().getRequestDispatcher("/interiorDesignDetail.jsp");
+            request.setAttribute("c", customer);
             rd.forward(request, response);
         } 
          else {

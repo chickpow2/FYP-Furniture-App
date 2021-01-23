@@ -21,11 +21,12 @@ public class furniture_select_activity extends AppCompatActivity {
         Furniture a = new Furniture("chair", 520, "https://github.com/chickpow2/furniture_model/raw/master/scale_chair1.glb");
         Furniture b = new Furniture("sofa", 1000, "https://github.com/chickpow2/furniture_model/raw/master/sofa_05.glb");
         Furniture c = new Furniture("Dining Table and Chair Set", 1000, "https://github.com/chickpow2/furniture_model/raw/master/tablechair_1.glb");
-        Furniture d = new Furniture("displayDrawer", 1000, "https://github.com/chickpow2/furniture_model/raw/master/displayDrawer.glb");
+        Furniture d = new Furniture("bookcase", 1000, "https://github.com/chickpow2/furniture_model/raw/master/bookcase1.glb");
         Furniture e = new Furniture("Hi-Fi", 1000, "https://github.com/chickpow2/furniture_model/raw/master/hifi.glb");
-        Furniture f = new Furniture("Desks With Drawer", 1000, "https://github.com/chickpow2/furniture_model/raw/master/DesksWithDrawer.glb");
-        Furniture g = new Furniture("AL sofa", 1000, "https://github.com/chickpow2/furniture_model/raw/master/sofa_2_01.glb");
-        Furniture h = new Furniture("barDesk", 1000, "https://github.com/chickpow2/furniture_model/raw/master/barDesk.glb");
+        Furniture f = new Furniture("bed set", 1000, "https://github.com/chickpow2/furniture_model/raw/master/bedset1.glb");
+        Furniture g = new Furniture("AL sofa", 1000, "https://github.com/chickpow2/furniture_model/raw/master/sofa2_2.glb");
+        Furniture h = new Furniture("kitchen", 1000, "https://github.com/chickpow2/furniture_model/raw/master/kitchen.glb");
+
 
 
 

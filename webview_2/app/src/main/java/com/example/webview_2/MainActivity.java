@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         this.setContentView(R.layout.activity_main);
         webView = (WebView) findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("http://10.0.2.2:8080/FYPPage/index.jsp");
+        webView.loadUrl("http://10.0.2.2:8080/FYPPage/redirect.jsp");
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
     }

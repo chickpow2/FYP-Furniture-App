@@ -71,7 +71,7 @@ outline:none
 </div>
 
            
-<model-viewer src="assets/1.glb" auto-rotate camera-controls></model-viewer>
+      <model-viewer src="assets/<%out.print(c.getID());%>.glb" auto-rotate camera-controls></model-viewer>
                                             
 
   
@@ -80,9 +80,9 @@ outline:none
     <div class="row">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
-        <h3><%out.print(c.getTitle());%></h3>
-        <p><%out.print(c.getDescription());%></p>
-        <a href="#">Read More</a>
+        <h3><%out.print(c.getDescription());%></h3>
+        <p><%out.print(c.getTitle());%></p>
+        <a href="handleInterior?action=interiorDesign">Read More</a>
         </div>
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -93,7 +93,7 @@ outline:none
     </div>
   </div>
 </div>
-      <%}%>
+
       <!--  footer --> 
       <%@include file="/footer.jsp" %>
       <!-- end footer -->

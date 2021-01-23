@@ -62,15 +62,7 @@
 <div class="blog">
   <div class="container">
     <div class="row">
-       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                    <div class="news-box">
-                        <a href="interiorDesignDetail.jsp"><figure><img src="images/blol.jpg" alt="img" /></figure>
-                        <h3>Best Teble</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                   </a>
-                    </div>
-                </div>
+
 
                                            <%
                     ArrayList<InteriorDesignBean> interior = (ArrayList<InteriorDesignBean>) request.getAttribute("interior");%>
@@ -78,7 +70,7 @@
                                     InteriorDesignBean c = interior.get(i);%>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="news-box">
-                        <a href="interiorDesignDetail.jsp"><figure><img src="interior_design/<%out.print(c.getID());%>.jpg" alt="img" /></figure>
+                        <a href="handleInterior?action=interiorDesignDetail&id=<%out.print(c.getID());%>"><figure><img src="interior_design/<%out.print(c.getID());%>.jpg" alt="img" /></figure>
                         <h3><%out.print(c.getDescription());%></h3>
                         <span> March 20</span><span>Comment</span>
                         <p><%out.print(c.getTitle());%></p></a>

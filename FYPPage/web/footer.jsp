@@ -18,11 +18,12 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 
                                     <ul class="lik">
-                                        <li> <a href="index.jsp">Home</a></li>
-                                        <li> <a href="about.jsp">About</a></li>
-                                        <li> <a href="product.jsp">Product</a></li>
-                                        <li> <a href="blog.jsp">Blog</a></li>
-                                        <li> <a href="contact.jsp">Contact us</a></li>
+            <li> <a href="about.jsp">About</a></li>
+            <li> <a href="handleFurniture?action=productList">Product</a></li>
+            <li> <a href="handleFurniture?action=shoppingCart">Shopping Cart</a></li>
+            <li> <a href="blog.jsp">Blog</a></li>
+            <li> <a href="handleInterior?action=interiorDesign">Interior Design</a></li>
+            <li> <a href="contact.jsp">Contact us</a></li>
                                     </ul>
                                 </div>
 

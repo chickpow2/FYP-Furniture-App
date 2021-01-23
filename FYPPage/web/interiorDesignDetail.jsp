@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<%@page import="ict.db.InteriorDesignDB"%>
+<%@page import="ict.bean.InteriorDesignBean"%>
 <html lang="en">
    <head>
       <!-- basic -->
@@ -35,14 +38,14 @@
                 height:600px;
                 margin:0 auto;
 outline:none
-background-color:#000;
+
             }
         </style>
    </head>
    <!-- body -->
     
       <!-- loader  -->
-       
+          <jsp:useBean id="c" scope="request" class="ict.bean.InteriorDesignBean" /> 
           
       </div>
 
@@ -69,26 +72,28 @@ background-color:#000;
 
            
 <model-viewer src="assets/1.glb" auto-rotate camera-controls></model-viewer>
- 
+                                            
+
+  
 <div class="about">
   <div class="container">
     <div class="row">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
-        <h3>Kitchen Design</h3>
-        <p>The kitchen is probably the most used room in your house, so you want it to be a space you enjoy spending time in. And aside from functioning appliances, a kitchen design you'll love for years to come is of utmost importance. So whether you're renovating or simply looking for some inspiration, we found 90 kitchen design ideas that will help you optimize your own?and the best lessons to take from them. From country casual to sleek and modern and literally everything in between</p>
+        <h3><%out.print(c.getTitle());%></h3>
+        <p><%out.print(c.getDescription());%></p>
         <a href="#">Read More</a>
         </div>
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
-        <figure><img src="interior_design/1.jpg"/></figure>
+        <figure><img src="interior_design/<%out.print(c.getID());%>.jpg"/></figure>
         </div>
       </div>
     </div>
   </div>
 </div>
-      
+      <%}%>
       <!--  footer --> 
       <%@include file="/footer.jsp" %>
       <!-- end footer -->

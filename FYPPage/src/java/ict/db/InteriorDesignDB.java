@@ -91,7 +91,7 @@ public class InteriorDesignDB {
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, MODEL, DESCRIPTION, RATING, STOCK, DETAILDESCRIPTION)  VALUES  (?,?,?,?,?,?,?)"; //v 
+            String preQueryStatement = "INSERT  INTO  INTERIORDESIGN(NAME, PRICE, MODEL, DESCRIPTION, RATING, STOCK, DETAILDESCRIPTION)  VALUES  (?,?,?,?,?,?,?)"; //v 
             pStmnt = cnnct.prepareStatement(preQueryStatement); //SET NAME=? ,PRICE=? ,MODEL=?
 
             pStmnt.setString(1, name); //?
@@ -126,7 +126,7 @@ public class InteriorDesignDB {
         try {
             //1.  get Connection
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE FURNITUREID=?";
+            String preQueryStatement = "SELECT * FROM  INTERIORDESIGN WHERE ID=?";
             //2.  get the prepare Statement
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //3. update the placehoder with id
@@ -136,16 +136,9 @@ public class InteriorDesignDB {
             rs = pStmnt.executeQuery();
             if (rs.next()) {
                 cb = new InteriorDesignBean();
-                // set the record detail to the customer bean
-                cb = new InteriorDesignBean();
-                cb.setFurnitureId(rs.getString(1));
-                cb.setName(rs.getString(2));
-                cb.setPrice(rs.getString(3));
-                cb.setModel(rs.getString(4));
-                cb.setDescription(rs.getString(5));
-                cb.setRating(rs.getInt(6));
-                cb.setStock(rs.getInt(7));
-                cb.setDetailDescription(rs.getString(8));
+                cb.setID(rs.getString(1));
+                cb.setDescription(rs.getString(2));
+                cb.setTitle(rs.getString(3));
             }
 
             pStmnt.close();
@@ -204,13 +197,13 @@ public class InteriorDesignDB {
         }
         return null;
     }
-
+/*
     public ArrayList queryCustByName(String name) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE NAME LIKE ?";
+            String preQueryStatement = "SELECT * FROM  INTERIORDESIGN WHERE NAME LIKE ?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, "%" + name + "%");
             //Statement s = cnnct.createStatement();
@@ -259,7 +252,7 @@ public class InteriorDesignDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "DELETE FROM FURNITURE WHERE FURNITUREID=?";
+            String preQueryStatement = "DELETE FROM INTERIORDESIGN WHERE INTERIORDESIGNID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, custId);
 
@@ -294,7 +287,7 @@ public class InteriorDesignDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,MODEL=? , STOCK=?, DESCRIPTION=? WHERE FURNITUREID=?";
+            String preQueryStatement = "UPDATE INTERIORDESIGN SET NAME=? ,PRICE=? ,MODEL=? , STOCK=?, DESCRIPTION=? WHERE INTERIORDESIGNID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, cb.getName());
@@ -329,13 +322,13 @@ public class InteriorDesignDB {
         }
         return 0;
     }
-
+*/
     public int dropCustTable() {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "DROP TABLE FURNITURE";
+            String preQueryStatement = "DROP TABLE INTERIORDESIGN";
             Statement s = cnnct.createStatement();
             int rs = s.executeUpdate(preQueryStatement);
             return rs;

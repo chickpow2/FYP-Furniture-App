@@ -68,7 +68,7 @@
                 <div class="map_section">
                      <div id="map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2610.095004610292!2d114.25492747149816!3d22.307073290445317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340403efc96dcf71%3A0x155421d8c0f5fab8!2z6aaZ5riv55-l5bCI6Kit6KiI5a246Zmi!5e0!3m2!1szh-TW!2shk!4v1609218548942!5m2!1szh-TW!2shk" width="950" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                     </div>
+                     </div>              
                    </div>
                </div>
                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 padddd">
@@ -141,7 +141,7 @@
       }
     </script>
    <!-- google map js -->
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+     <!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>-->
       <!-- end google map js -->
 
    </body>

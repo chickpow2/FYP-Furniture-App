@@ -98,7 +98,7 @@
                             //out.println("<p class='product_price'>$" + ShoppingCartList.get(i).getUserID());
                             out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId())-1).getName() + "</p>");
                             
-                           //total += Integer.parseInt(furnitureList.get(i).getPrice());
+                           total += Integer.parseInt(furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId())-1).getPrice());
                            //out.println("$"+total);
                 
                              

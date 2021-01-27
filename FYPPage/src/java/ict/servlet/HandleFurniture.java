@@ -5,7 +5,9 @@
 package ict.servlet;
 
 import ict.bean.FurnitureBean;
-import ict.db.FurnitureDB;
+import ict.bean.ShoppingCartBean;
+import ict.bean.*;
+import ict.db.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HandleFurniture extends HttpServlet {
 
     private FurnitureDB db;
+    private ShoppingCartDB scdb;
 
     @Override
     public void init() {
@@ -95,10 +99,19 @@ public class HandleFurniture extends HttpServlet {
                 rd.forward(request, response);
             }
         } else if ("shoppingCart".equalsIgnoreCase(action)) {
-            ArrayList<FurnitureBean> furnitureList = db.queryCust();
+            /* ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");
             request.setAttribute("furnitureList", furnitureList);
+            rd.forward(request, response);*/
+            ////////////////////////////////////////////////////////////////////
+            HttpSession session = request.getSession(true); //v
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
+            //ArrayList<ShoppingCartBean> furnitureList = scdb.queryCustByID1(ui.getUsername());
+            ArrayList<ShoppingCartBean> furnitureList = scdb.queryCustByID1("abc"); 
+            request.setAttribute("furnitureList", furnitureList);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");
             rd.forward(request, response);
         } else if ("type".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for all customer

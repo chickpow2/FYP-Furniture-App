@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="ict.bean.FurnitureBean"%>
+<%@page import="ict.db.*"%>
+<%@page import="ict.bean.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +59,8 @@
             </div>
         </div>
         <%
-            ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitureList");
+            //ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitureList");
+            //ArrayList<ShoppingCartBean> ShoppingCartList = (ArrayList<ShoppingCartBean>) request.getAttribute("furnitureList");
         %>
         <div class="ourproduct">
             <div class="container">
@@ -79,23 +81,28 @@
 
 
                     <%
+                        int total=0;
                         // out.println("<div class='container'>");
                         //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
-                        for (int i = 0; i < furnitureList.size(); i++) {
+                       /* for (int i = 0; i < ShoppingCartList.size(); i++) {
                             out.println("<br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
                                     + "<div class='full product'>"
                                     + "<div class='product_img'>"
                                     + "<div class='center'>"
-                                    + "<img src=\"furniture/" + furnitureList.get(i).getFurnitureId() + ".png\" alt='#'/>"
+                                    + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnitureId() + ".png\" alt='#'/>"
                                     + "<div class='overlay_hover'>"
-                                    + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
+                                    + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"
                                     + "<div class='product_detail text_align_center'>");
-                            out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice());
-                            out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
+                            //out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId())).getPrice());
+                           // out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
+                            
+                           total += Integer.parseInt(furnitureList.get(i).getPrice());
+                           //out.println("$"+total);
                             out.println("</div></div></div>");
-                        }
+                        }*/
                     %>  
+                      
                     <div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>
                     <div class='full product'>
                     <div class='product_img'>
@@ -104,7 +111,9 @@
 <img src="icon/plus.png" alt='#'/>
 <div class='overlay_hover'>
     <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
-</div></div></div></div></div>
+    
+
+</div> </div></div></div></div><% out.println("$Total: "+total);%>
                     <!-- end product -->
 
                 </div>

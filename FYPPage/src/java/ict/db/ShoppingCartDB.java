@@ -30,7 +30,7 @@ public class ShoppingCartDB {
 
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BorrowDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ShoppingCartDB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return DriverManager.getConnection(url, username, password);
@@ -67,14 +67,12 @@ public class ShoppingCartDB {
             cnnct = getConnection();  // the connection 
             stmnt = cnnct.createStatement();  // create statement
             String sql
-                    = "CREATE TABLE BORROW("
-                    + "BRWID INTEGER CONSTRAINT PK_BORROW PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
-                    + "STDID VARCHAR(25),"
-                    + "EQUIPID VARCHAR(25),"
-                    + "BRWITEM VARCHAR(25),"
-                    + "BRWDATE DATE,"
-                    + "OVDDATE DATE,"
-                    + "STATUS VARCHAR(25) DEFAULT 'WAITING')";
+                    = "CREATE TABLE SHOPPINGCART("
+                    + "CARTID INTEGER CONSTRAINT PK_SHOPPINGCART PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
+                    + "FURNITUREID VARCHAR(25),"
+                    + "USERID VARCHAR(25),"
+                    + "ITEM VARCHAR(25))";
+
             stmnt.execute(sql);
             stmnt.close();
             cnnct.close();
@@ -94,7 +92,7 @@ public class ShoppingCartDB {
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  BORROW (furnitureId.userID.item) VALUES  (?,?,?)";
+            String preQueryStatement = "INSERT  INTO  SHOPPINGCART (furnitureId.userID.item) VALUES  (?,?,?)";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, furnitureId);
@@ -123,7 +121,7 @@ public class ShoppingCartDB {
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  BORROW (STDID,EQUIPID,BRWITEM,OVDDATE,STATUS,BRWDATE) VALUES  (?,?,?,?,?,?)";
+            String preQueryStatement = "INSERT  INTO  SHOPPINGCART (STDID,EQUIPID,BRWITEM,OVDDATE,STATUS,BRWDATE) VALUES  (?,?,?,?,?,?)";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, sid);
@@ -158,7 +156,7 @@ public class ShoppingCartDB {
         try {
             cnnct = getConnection();
             String preQueryStatement = "SELECT {fn timestampdiff(SQL_TSI_DAY, BRWDATE, OVDDATE)} as DAYS "
-                    + "FROM BORROW "
+                    + "FROM SHOPPINGCART "
                     + "WHERE EQUIPID = ? ";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, id);
@@ -195,7 +193,7 @@ public class ShoppingCartDB {
         try {
             cnnct = getConnection();
             String preQueryStatement = "SELECT {fn timestampdiff(SQL_TSI_DAY, BRWDATE, OVDDATE)} as DAYS "
-                    + "FROM BORROW "
+                    + "FROM SHOPPINGCART "
                     + "WHERE EQUIPID = ? ";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, id);
@@ -223,15 +221,15 @@ public class ShoppingCartDB {
         return count;
     }
 
-    public ArrayList<BorrowBean> queryStudent(String id) {
+    public ArrayList<ShoppingCartBean> queryStudent(String id) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
 
-        BorrowBean bb = null;
-        ArrayList<BorrowBean> bbName = null;
+        ShoppingCartBean bb = null;
+        ArrayList<ShoppingCartBean> bbName = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM BORROW WHERE STDID = ?";
+            String preQueryStatement = "SELECT * FROM SHOPPINGCART WHERE STDID = ?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, id);
 
@@ -239,14 +237,14 @@ public class ShoppingCartDB {
             rs = pStmnt.executeQuery();
             bbName = new ArrayList();
             while (rs.next()) {
-                bb = new BorrowBean();
-                bb.setBrwID(rs.getString(1));
-                bb.setStdID(rs.getString(2));
-                bb.setEquipID(rs.getString(3));
-                bb.setBrwItem(rs.getString(4));
-                bb.setBrwDate(rs.getString(5));
-                bb.setOvedDate(rs.getString(6));
-                bb.setStatus(rs.getString(7));
+                bb = new ShoppingCartBean();
+                bb.setCartID(rs.getString(1));
+                bb.setUserID(rs.getString(2));
+                bb.setFurnitureId(rs.getString(3));
+                bb.setItem(rs.getString(4));
+                
+                
+                
                 bbName.add(bb);
             }
 
@@ -263,15 +261,15 @@ public class ShoppingCartDB {
         return bbName;
     }
 
-    public ArrayList<BorrowBean> overdueItemStudent(String id) {
+    public ArrayList<ShoppingCartBean> overdueItemStudent(String id) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
 
-        BorrowBean bb = null;
-        ArrayList<BorrowBean> bbName = null;
+        ShoppingCartBean bb = null;
+        ArrayList<ShoppingCartBean> bbName = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM BORROW "
+            String preQueryStatement = "SELECT * FROM SHOPPINGCART "
                     + "WHERE OVDDATE<=CURRENT_DATE AND STATUS != 'Borrowed' AND STDID = ? "
                     + "ORDER BY OVDDATE DESC";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
@@ -281,14 +279,14 @@ public class ShoppingCartDB {
             rs = pStmnt.executeQuery();
             bbName = new ArrayList();
             while (rs.next()) {
-                bb = new BorrowBean();
-                bb.setBrwID(rs.getString(1));
-                bb.setStdID(rs.getString(2));
-                bb.setEquipID(rs.getString(3));
-                bb.setBrwItem(rs.getString(4));
-                bb.setBrwDate(rs.getString(5));
-                bb.setOvedDate(rs.getString(6));
-                bb.setStatus(rs.getString(7));
+                bb = new ShoppingCartBean();
+                bb.setCartID(rs.getString(1));
+                bb.setUserID(rs.getString(2));
+                bb.setFurnitureId(rs.getString(3));
+                bb.setItem(rs.getString(4));
+                
+                
+                
                 bbName.add(bb);
             }
             pStmnt.close();
@@ -304,15 +302,15 @@ public class ShoppingCartDB {
         return bbName;
     }
 
-    public BorrowBean queryCustByID(String id) {
+    public ShoppingCartBean queryCustByID(String id) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
 
-        BorrowBean cb = null;
+        ShoppingCartBean cb = null;
         try {
             //1.  get Connection
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW WHERE BRWID=?";
+            String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE BRWID=?";
             //2.  get the prepare Statement
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //3. update the placehoder with id
@@ -321,14 +319,14 @@ public class ShoppingCartDB {
             //4. execute the query and assign to the result 
             rs = pStmnt.executeQuery();
             if (rs.next()) {
-                cb = new BorrowBean();
-                cb.setBrwID(rs.getString(1));
-                cb.setStdID(rs.getString(2));
-                cb.setEquipID(rs.getString(3));
-                cb.setBrwItem(rs.getString(4));
-                cb.setBrwDate(rs.getString(5));
-                cb.setOvedDate(rs.getString(6));
-                cb.setStatus(rs.getString(7));
+                cb = new ShoppingCartBean();
+                cb.setCartID(rs.getString(1));
+                cb.setUserID(rs.getString(2));
+                cb.setFurnitureId(rs.getString(3));
+                cb.setItem(rs.getString(4));
+                
+                
+                
             }
 
             pStmnt.close();
@@ -349,7 +347,8 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW WHERE STDID=? ORDER BY OVDDATE DESC";
+           // String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE STDID=? ORDER BY OVDDATE DESC";
+           String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE USERID='abc'"; //changed to 1 
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, name);
             //Statement s = cnnct.createStatement();
@@ -358,14 +357,14 @@ public class ShoppingCartDB {
             ArrayList list = new ArrayList();
 
             while (rs.next()) {
-                BorrowBean cb = new BorrowBean();
-                cb.setBrwID(rs.getString(1));
-                cb.setStdID(rs.getString(2));
-                cb.setEquipID(rs.getString(3));
-                cb.setBrwItem(rs.getString(4));
-                cb.setBrwDate(rs.getString(5));
-                cb.setOvedDate(rs.getString(6));
-                cb.setStatus(rs.getString(7));
+                ShoppingCartBean cb = new ShoppingCartBean();
+                cb.setCartID(rs.getString(1));
+                cb.setUserID(rs.getString(2));
+                cb.setFurnitureId(rs.getString(3));
+                cb.setItem(rs.getString(4));
+                
+                
+                
                 list.add(cb);
             }
             return list;
@@ -398,7 +397,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW WHERE OVDDATE<=CURRENT_DATE ORDER BY OVDDATE DESC";
+            String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE OVDDATE<=CURRENT_DATE ORDER BY OVDDATE DESC";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //Statement s = cnnct.createStatement();
             ResultSet rs = pStmnt.executeQuery();
@@ -406,14 +405,14 @@ public class ShoppingCartDB {
             ArrayList list = new ArrayList();
 
             while (rs.next()) {
-                BorrowBean cb = new BorrowBean();
-                cb.setBrwID(rs.getString(1));
-                cb.setStdID(rs.getString(2));
-                cb.setEquipID(rs.getString(3));
-                cb.setBrwItem(rs.getString(4));
-                cb.setBrwDate(rs.getString(5));
-                cb.setOvedDate(rs.getString(6));
-                cb.setStatus(rs.getString(7));
+                ShoppingCartBean cb = new ShoppingCartBean();
+                cb.setCartID(rs.getString(1));
+                cb.setUserID(rs.getString(2));
+                cb.setFurnitureId(rs.getString(3));
+                cb.setItem(rs.getString(4));
+                
+                
+                
                 list.add(cb);
             }
             return list;
@@ -446,7 +445,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW WHERE OVDDATE<=CURRENT_DATE AND STATUS='Overdue' AND STDID = ?";
+            String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE OVDDATE<=CURRENT_DATE AND STATUS='Overdue' AND STDID = ?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, id);
             //Statement s = cnnct.createStatement();
@@ -455,14 +454,14 @@ public class ShoppingCartDB {
             ArrayList list = new ArrayList();
 
             while (rs.next()) {
-                BorrowBean cb = new BorrowBean();
-                cb.setBrwID(rs.getString(1));
-                cb.setStdID(rs.getString(2));
-                cb.setEquipID(rs.getString(3));
-                cb.setBrwItem(rs.getString(4));
-                cb.setBrwDate(rs.getString(5));
-                cb.setOvedDate(rs.getString(6));
-                cb.setStatus(rs.getString(7));
+                ShoppingCartBean cb = new ShoppingCartBean();
+                cb.setCartID(rs.getString(1));
+                cb.setUserID(rs.getString(2));
+                cb.setFurnitureId(rs.getString(3));
+                cb.setItem(rs.getString(4));
+                
+                
+                
                 list.add(cb);
             }
             return list;
@@ -495,7 +494,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW WHERE STATUS = 'Waiting'";
+            String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE STATUS = 'Waiting'";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //Statement s = cnnct.createStatement();
             ResultSet rs = pStmnt.executeQuery();
@@ -503,14 +502,14 @@ public class ShoppingCartDB {
             ArrayList list = new ArrayList();
 
             while (rs.next()) {
-                BorrowBean cb = new BorrowBean();
-                cb.setBrwID(rs.getString(1));
-                cb.setStdID(rs.getString(2));
-                cb.setEquipID(rs.getString(3));
-                cb.setBrwItem(rs.getString(4));
-                cb.setBrwDate(rs.getString(5));
-                cb.setOvedDate(rs.getString(6));
-                cb.setStatus(rs.getString(7));
+                ShoppingCartBean cb = new ShoppingCartBean();
+                cb.setCartID(rs.getString(1));
+                cb.setUserID(rs.getString(2));
+                cb.setFurnitureId(rs.getString(3));
+                cb.setItem(rs.getString(4));
+                
+                
+                
                 list.add(cb);
             }
             return list;
@@ -543,7 +542,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW";
+            String preQueryStatement = "SELECT * FROM  SHOPPINGCART";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             //Statement s = cnnct.createStatement();
             ResultSet rs = pStmnt.executeQuery();
@@ -551,9 +550,9 @@ public class ShoppingCartDB {
             ArrayList list = new ArrayList();
 
             while (rs.next()) {
-                BorrowBean cb = new BorrowBean();
-                cb.setBrwID(rs.getString(1));
-                cb.setBrwItem(rs.getString(2));
+                ShoppingCartBean cb = new ShoppingCartBean();
+                cb.setCartID(rs.getString(1));
+                cb.setItem(rs.getString(2));
                 cb.setOvedDate(rs.getString(3));
                 cb.setStatus(rs.getString(4));
                 list.add(cb);
@@ -588,7 +587,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW WHERE BRWITEM LIKE ?";
+            String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE BRWITEM LIKE ?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, "%" + name + "%");
             //Statement s = cnnct.createStatement();
@@ -597,9 +596,9 @@ public class ShoppingCartDB {
             ArrayList list = new ArrayList();
 
             while (rs.next()) {
-                BorrowBean cb = new BorrowBean();
-                cb.setBrwID(rs.getString(1));
-                cb.setBrwItem(rs.getString(2));
+                ShoppingCartBean cb = new ShoppingCartBean();
+                cb.setCartID(rs.getString(1));
+                cb.setItem(rs.getString(2));
                 cb.setOvedDate(rs.getString(3));
                 cb.setStatus(rs.getString(4));
                 list.add(cb);
@@ -634,7 +633,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  BORROW WHERE AVAILABILITY=?";
+            String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE AVAILABILITY=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, tel);
             //Statement s = cnnct.createStatement();
@@ -643,7 +642,7 @@ public class ShoppingCartDB {
             ArrayList list = new ArrayList();
 
             while (rs.next()) {
-                BorrowBean cb = new BorrowBean();
+                ShoppingCartBean cb = new ShoppingCartBean();
                 /*cb.setCustid(rs.getString(1));
                 cb.setName(rs.getString(2));
                 cb.setTel(rs.getString(3));
@@ -680,7 +679,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "DELETE FROM BORROW WHERE BRWID=?";
+            String preQueryStatement = "DELETE FROM SHOPPINGCART WHERE BRWID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, custId);
 
@@ -710,12 +709,12 @@ public class ShoppingCartDB {
         return 0;
     }
 
-    public int editRecord(BorrowBean cb) {
+    public int editRecord(ShoppingCartBean cb) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE BORROW SET STDID=? ,BRWITEM=? ,OVDDATE=?,STATUS=? WHERE BRWID=?";
+            String preQueryStatement = "UPDATE SHOPPINGCART SET STDID=? ,BRWITEM=? ,OVDDATE=?,STATUS=? WHERE BRWID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, cb.getStdID());
@@ -755,7 +754,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE BORROW SET STATUS='Borrowing' WHERE BRWID=?";
+            String preQueryStatement = "UPDATE SHOPPINGCART SET STATUS='Borrowing' WHERE BRWID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, custId);
 
@@ -790,7 +789,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE BORROW SET STATUS='DECLINE' WHERE BRWID=?";
+            String preQueryStatement = "UPDATE SHOPPINGCART SET STATUS='DECLINE' WHERE BRWID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, custId);
 
@@ -825,7 +824,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "DROP TABLE BORROW";
+            String preQueryStatement = "DROP TABLE SHOPPINGCART";
             Statement s = cnnct.createStatement();
             int rs = s.executeUpdate(preQueryStatement);
             return rs;

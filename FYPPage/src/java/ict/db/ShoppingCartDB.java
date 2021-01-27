@@ -348,10 +348,12 @@ public class ShoppingCartDB {
         try {
             cnnct = getConnection();
            // String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE STDID=? ORDER BY OVDDATE DESC";
-           String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE USERID='abc'"; //changed to 1 
+          String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE USERID='abc'"; //changed to 1 
+                    //String preQueryStatement = "SELECT * FROM  SHOPPINGCART WHERE USERID=''"; //cannot get the user id
+           //String preQueryStatement = "SELECT * FROM  SHOPPINGCART"; //changed to 1 
             pStmnt = cnnct.prepareStatement(preQueryStatement);
-            pStmnt.setString(1, name);
-            //Statement s = cnnct.createStatement();
+            //pStmnt.setString(1, name); //warning 
+            Statement s = cnnct.createStatement();
             ResultSet rs = pStmnt.executeQuery();
 
             ArrayList list = new ArrayList();
@@ -359,8 +361,8 @@ public class ShoppingCartDB {
             while (rs.next()) {
                 ShoppingCartBean cb = new ShoppingCartBean();
                 cb.setCartID(rs.getString(1));
-                cb.setUserID(rs.getString(2));
-                cb.setFurnitureId(rs.getString(3));
+                cb.setUserID(rs.getString(3));
+                cb.setFurnitureId(rs.getString(2));
                 cb.setItem(rs.getString(4));
                 
                 

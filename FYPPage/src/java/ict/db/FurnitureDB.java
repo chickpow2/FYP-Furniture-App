@@ -67,8 +67,8 @@ public class FurnitureDB {
             cnnct = getConnection();  // the connection 
             stmnt = cnnct.createStatement();  // create statement
             String sql
-                    = "CREATE TABLE FURNITURE1("
-                    + "furnitureId INTEGER CONSTRAINT PK_FURNITURE1 PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
+                    = "CREATE TABLE FURNITURE("
+                    + "furnitureId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
                     + "name VARCHAR(25), price VARCHAR(10), model VARCHAR(2555),"
                     + "RATING INTEGER, STOCK INTEGER,"
                     + "DETAILDESCRIPTION VARCHAR(2555),type VARCHAR(25),IMAGE VARCHAR(2999),description VARCHAR(2555))";

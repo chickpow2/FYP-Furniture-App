@@ -86,18 +86,18 @@ public class ShoppingCartDB {
         }
     }
 
-    public boolean addRecord(String cartID,String furnitureId,String userID,String item) {
+    public boolean addRecord(String furnitureId,String userID) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  SHOPPINGCART (furnitureId.userID.item) VALUES  (?,?,?)";
+            String preQueryStatement = "INSERT  INTO  SHOPPINGCART (furnitureId,userID) VALUES  (?,?)";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, furnitureId);
-            pStmnt.setString(1, userID);
-            pStmnt.setString(1, item);
+            pStmnt.setString(2, userID);
+
             int rowCount = pStmnt.executeUpdate();
             if (rowCount >= 1) {
                 isSuccess = true;

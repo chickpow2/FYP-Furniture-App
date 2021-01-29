@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="title">
-                            <h2>Shopping Cart</h2>
+                            <h2>Product</h2>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                                     + "<div class='center'>"
                                     + "<img src=\"furniture/" + furnitureList.get(i).getFurnitureId() + ".png\" alt='#'/>"
                                     + "<div class='overlay_hover'>"
-                                    + "<a class='add-bt' href=\"handleFurniture?action=shoppingCart\">Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
+                                    + "<a class='add-bt' href=\"handleFurniture?action=putToCart&id=" + furnitureList.get(i).getFurnitureId() + "\">Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"
                                     + "<div class='product_detail text_align_center'>");
                             out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice());

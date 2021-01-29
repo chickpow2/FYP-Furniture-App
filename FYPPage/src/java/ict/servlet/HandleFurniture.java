@@ -153,7 +153,24 @@ public class HandleFurniture extends HttpServlet {
             request.setAttribute("c", customer);
             rd.forward(request, response);
 
-        } else if ("productList".equalsIgnoreCase(action)) {
+        } else if ("putToCart".equalsIgnoreCase(action)) {
+            // call the query db to get retrieve for a customer witht the id
+            String id = request.getParameter("id");
+
+  HttpSession session = request.getSession(true); //v
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
+            scdb.addRecord(id,ui.getUsername());
+            ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
+            request.setAttribute("shoppingCartList", shoppingCartList);// V
+            ArrayList furnitures = db.queryCust();
+            request.setAttribute("furnitures", furnitures);// V
+            RequestDispatcher rd;// V
+            rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
+            rd.forward(request, response);// V
+
+        } 
+        
+        else if ("productList".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/product.jsp");

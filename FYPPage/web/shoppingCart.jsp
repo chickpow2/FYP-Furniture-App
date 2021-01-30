@@ -66,23 +66,12 @@
             <div class="container">
                 <div class="row product_style_3" ">
                     <!-- product -->
-
                     <div class='container'>       
-
-
-
                         <br>
-
-
-
-
                     </div>                   
-
-
-
                     <%
-                        int total=0;
-                         //out.println("<div class='container'>");
+                        int total = 0;
+                        //out.println("<div class='container'>");
                         //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
                         for (int i = 0; i < ShoppingCartList.size(); i++) {
                             out.println("<br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
@@ -94,47 +83,34 @@
                                     + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"
                                     + "<div class='product_detail text_align_center'>");
-                            out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId())-1).getPrice());
+                            out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice());
                             //out.println("<p class='product_price'>$" + ShoppingCartList.get(i).getUserID());
-                            out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId())-1).getName() + "</p>");
-                            
-                           total += Integer.parseInt(furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId())-1).getPrice());
-                           //out.println("$"+total);
-                
-                             
-                      
-                        
+                            out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getName() + "</p>");
+
+                            total += Integer.parseInt(furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice());
+                            //out.println("$"+total);
+
                             out.println("</div></div></div>");
                         }
                     %>  
-                      
                     <div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>
-                    <div class='full product'>
-                    <div class='product_img'>
-                    <div class='center'>
-                        
-<img src="icon/plus.png" alt='#'/>
-<div class='overlay_hover'>
-    <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
-    
-
-</div> </div></div></div></div><br><div class='container'><% out.println("$Total: "+total+"<br>");%>
-<br><input type="submit" class="btn btn-primary" value="Purchase"/></div><br>
+                        <div class='full product'>
+                            <div class='product_img'>
+                                <div class='center'>
+                                    <img src="icon/plus.png" alt='#'/>
+                                    <div class='overlay_hover'>
+                                        <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
+                                    </div> </div></div></div></div><br><div class='container'><% out.println("$Total: " + total + "<br>");%>
+                        <br><input type="submit" class="btn btn-primary" value="Purchase"/></div><br>
                     <!-- end product -->
-
                 </div>
             </div>
         </div>
-
         <!--  footer --> 
         <%@include file="/footer.jsp" %>
         <!-- end footer -->
     </div>
-
 </div>
-
-
-
 <script>
     $(document).ready(function () {
         $(".fancybox").fancybox({

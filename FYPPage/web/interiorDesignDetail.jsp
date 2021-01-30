@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="ict.db.*"%>
+<%@page import="ict.bean.*"%>
 
-<%@page import="ict.db.InteriorDesignDB"%>
-<%@page import="ict.bean.InteriorDesignBean"%>
 <html lang="en">
    <head>
       <!-- basic -->
@@ -46,7 +47,7 @@ outline:none
     
       <!-- loader  -->
           <jsp:useBean id="c" scope="request" class="ict.bean.InteriorDesignBean" /> 
-          
+ 
       </div>
 
      <div class="wrapper">
@@ -88,12 +89,50 @@ outline:none
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="aboutimg">
         <figure><img src="interior_design/<%out.print(c.getID());%>.jpg"/></figure>
+                            <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+                    <div class="brand">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="title">
+                                <h2>Furniture <strong class="black">Placed</strong></h2>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                   <%
+                    ArrayList<FurnitureBean> furnitures = (ArrayList<FurnitureBean>) request.getAttribute("furnitures");%>
+                <div class="container-fluid">
+                    <div class="brand-bg">
+                        <div class="row">
+                            <%  for (int i = 0; i < 4; i++) {
+                                    FurnitureBean d = furnitures.get(i);%>
+
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                                
+                                <div class="brand-box">
+                               <%out.println("<a href=\"handleFurniture?action=ShowOneFurniture&id=" + d.getFurnitureId() + "\">");%>
+                                <%out.println("<i><img src=\"furniture/"+d.getFurnitureId()+".png\"/></i>");%>
+                                   
+                                    <h3><%out.println(d.getName());%></h3>
+                                    <span>$<%out.println(d.getPrice());%></span></a>  
+                                
+                                </div>           
+                            </div>
+                            <%}%></div></div></div>
+                            
       <!--  footer --> 
       <%@include file="/footer.jsp" %>
       <!-- end footer -->

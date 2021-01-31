@@ -39,73 +39,74 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     </head>
-    <!-- body -->
-
-    <!-- loader  -->
 
     <body>
-    <div class="wrapper">
+        <div class="wrapper">
 
-        <%@include file="/header.jsp" %>
+            <%@include file="/header.jsp" %>
 
-        <div id="content">
+            <div id="content">
 
-            <!-- end header -->
-            <div class="contactus">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <div class="title">
-                                <h2>Shopping Cart</h2>
+                <!-- end header -->
+                <div class="contactus">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <div class="title">
+                                    <h2>Continue Purchase</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="ourproduct">
-                <div class="container">
-                    <div class="row product_style_3" >
-                        <%
-                            ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitures");
-                            ArrayList<ShoppingCartBean> ShoppingCartList = (ArrayList<ShoppingCartBean>) request.getAttribute("shoppingCartList");
-                        %>
-                        <div class='container'>       
-                            <br>
-                        </div>                   
-                        <%
-                            int total = 0;
-                            //out.println("<div class='container'>");
-                            //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
-                            for (int i = 0; i < ShoppingCartList.size(); i++) {
-                                out.println("<br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
-                                        + "<div class='full product'>"
-                                        + "<div class='product_img'>"
-                                        + "<div class='center'>"
-                                        + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnitureId() + ".png\" alt='#'/>"
-                                        + "<div class='overlay_hover'>"
-                                        + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnitureId() + "\"</a>"
-                                        + "</div></div></div>"
-                                        + "<div class='product_detail text_align_center'>");
-                                out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice());
-                                //out.println("<p class='product_price'>$" + ShoppingCartList.get(i).getUserID());
-                                out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getName() + "</p>");
-
-                                total += Integer.parseInt(furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice());
-                                //out.println("$"+total);
-
-                                out.println("</div></div></div>");
-                            }
-                        %>  
-                        <div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>
-                            <div class='full product'>
-                                <div class='product_img'>
-                                    <div class='center'>
-                                        <img src="icon/plus.png" alt='#'/>
-                                        <div class='overlay_hover'>
-                                            <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
-                                        </div> </div></div></div></div><br><div class='container'><% out.println("$Total: " + total + "<br>");%>
-                            <br><input type="submit" class="btn btn-primary" value="Purchase"/></div><br>
-
+                <div class="ourproduct">
+                    <div class="container">
+                        <div class="row product_style_3">
+                            <div class='container'>       
+                                <br>
+                            </div>
+                            <div class='center'>
+                                    <div class="card" style="width: 90%">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Shipping Orption</h3>
+                                            <p>
+                                                <input type="radio" name="shipping" id="shipping1" value="tbm">Take By Myself
+                                                <input type="radio" name="shipping" id="shipping2" value="delivery">Delivery
+                                            </p>
+                                            <p id="placeAddress"></p>
+                                            <hr style="width: 80%;"/>
+                                            <h3 class="card-title">Payment</h3>
+                                            <p>Credit card number *<br><input type="text" name="ccnum" id="ccnum" style="width: 90%"/></p>
+                                            <p>
+                                                Expiry date *<br/>
+                                                <select name="month" id="month" required>
+                                                    <option value="January">January</option>
+                                                    <option value="February">February</option>
+                                                    <option value="March">March</option>
+                                                    <option value="April">April</option>
+                                                    <option value="May">May</option>
+                                                    <option value="June">June</option>
+                                                    <option value="July">July</option>
+                                                    <option value="August">August</option>
+                                                    <option value="September">September</option>
+                                                    <option value="October">October</option>
+                                                    <option value="November">November</option>
+                                                    <option value="December">December</option>
+                                                </select>
+                                                <input type="text" name="year" id="year" placeholder="Year" onkeypress="return onlyNumberKey(event)">
+                                            </p>
+                                            <p>
+                                                CVC/CVV2 * <br>
+                                                <input type="text" name="cvc" id="cvc" onkeypress="return onlyNumberKey(event)">
+                                            </p>
+                                            <p>
+                                                Cardholders name * <br>
+                                                <input type="text" name="ccname" id="ccname" onkeypress="return onlyNumberKey(event)" style="width: 90%">
+                                            </p>
+                                        </div>
+                                    </div>
+                            </div>
+                            <br><a href="ShoppingCartRecord?action=order" class="btn btn-primary" onclick="return  checkSubmit();">Purchase</a></div><br>
                     </div>
                 </div>
             </div>
@@ -135,6 +136,37 @@
                 $('tr:gt(0)').hide().filter(":contains('" + $('#search').val() + "')").show();
             });
         });
+
+        $(document).ready(function () {
+            $('#shipping2').click(function () {
+                $("#placeAddress").html("<h5>Address :</h5><p><input type='text' id='address' name='address' /></p>");
+            });
+            $('#shipping1').click(function () {
+                $("#placeAddress").html("<p></p>");
+            });
+        });
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        function checkSubmit() {
+            var shipping1 = document.getElementById("shipping1");
+            var shipping2 = document.getElementById("shipping2");
+            var address = document.getElementById("address");
+            var ccnum = document.getElementById("ccnum");
+            var month = document.getElementById("month");
+            var year = document.getElementById("year");
+            var cvc = document.getElementById("cvc");
+            var ccname = document.getElementById("ccname");
+            if (shipping1.checked === false && shipping2.checked === false || shipping2.checked === true && address.value.length === 0
+                    || ccnum.value.length === 0 || year.value.length === 0 || cvc.value.length === 0 || ccname.value.length === 0) {
+                alert("Missing some information");
+                return false;
+            } 
+        }
     </script>
 </body>
 </html>

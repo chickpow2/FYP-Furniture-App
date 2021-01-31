@@ -16,6 +16,6 @@ public class CreateUserTable {
 
         UserDB userDB = new UserDB(url, username, password);
         //userDB.createUserInfoTable();
-        userDB.addUser("abc", "123","Staff","12345678","18");
+        userDB.addUser("abc", "123","Staff","12345678");
     }
 }

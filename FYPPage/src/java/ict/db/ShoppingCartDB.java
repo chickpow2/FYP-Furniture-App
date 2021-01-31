@@ -681,7 +681,7 @@ public class ShoppingCartDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "DELETE FROM SHOPPINGCART WHERE BRWID=?";
+            String preQueryStatement = "DELETE FROM SHOPPINGCART WHERE FURNITUREID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, custId);
 
@@ -827,6 +827,39 @@ public class ShoppingCartDB {
         try {
             cnnct = getConnection();
             String preQueryStatement = "DROP TABLE SHOPPINGCART";
+            Statement s = cnnct.createStatement();
+            int rs = s.executeUpdate(preQueryStatement);
+            return rs;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return 0;
+    }
+    
+    public int dropAllRecord() {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "DELETE FROM SHOPPINGCART";
             Statement s = cnnct.createStatement();
             int rs = s.executeUpdate(preQueryStatement);
             return rs;

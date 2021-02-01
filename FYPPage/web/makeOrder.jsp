@@ -106,7 +106,7 @@
                                         </div>
                                     </div>
                             </div>
-                            <br><a href="ShoppingCartRecord?action=order" class="btn btn-primary" onclick="return  checkSubmit();">Purchase</a></div><br>
+                            <br><a href="handleFurniture?action=receipt" class="btn btn-primary" onclick="return  checkSubmit();">Purchase</a></div><br>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,6 @@
             <%@include file="/footer.jsp" %>
             <!-- end footer -->
         </div>
-    </div>
     <script>
         $(document).ready(function () {
             $(".fancybox").fancybox({

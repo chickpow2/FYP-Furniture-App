@@ -35,7 +35,7 @@ public class HandleFurniture extends HttpServlet {
         String dbPassword = this.getServletContext().getInitParameter("dbPassword");
         String dbUrl = this.getServletContext().getInitParameter("dbUrl");
         db = new FurnitureDB(dbUrl, dbUser, dbPassword);
-        scdb= new ShoppingCartDB(dbUrl, dbUser, dbPassword);
+        scdb = new ShoppingCartDB(dbUrl, dbUser, dbPassword);
     }
 
     /**
@@ -100,7 +100,7 @@ public class HandleFurniture extends HttpServlet {
                 rd.forward(request, response);
             }
         } else if ("shoppingCart".equalsIgnoreCase(action)) {
-                       /* HttpSession session = request.getSession(true); //v
+            /* HttpSession session = request.getSession(true); //v
             UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
@@ -117,7 +117,7 @@ public class HandleFurniture extends HttpServlet {
             RequestDispatcher rd;// V
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
-            
+
         } else if ("type".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for all customer
             String type = request.getParameter("type");
@@ -157,9 +157,9 @@ public class HandleFurniture extends HttpServlet {
             // call the query db to get retrieve for a customer witht the id
             String id = request.getParameter("id");
 
-  HttpSession session = request.getSession(true); //v
+            HttpSession session = request.getSession(true); //v
             UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
-            scdb.addRecord(id,ui.getUsername());
+            scdb.addRecord(id, ui.getUsername());
             ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
             request.setAttribute("shoppingCartList", shoppingCartList);// V
             ArrayList furnitures = db.queryCust();
@@ -168,14 +168,23 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
-        } 
-        
-        else if ("productList".equalsIgnoreCase(action)) {
+        } else if ("productList".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/product.jsp");
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);
+        } else if ("receipt".equalsIgnoreCase(action)) {
+            HttpSession session = request.getSession(true); //v
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
+            ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
+            request.setAttribute("orderList", shoppingCartList);// V
+            ArrayList furnitures = db.queryCust();
+            request.setAttribute("Furnitures", furnitures);// V
+            RequestDispatcher rd;// V
+            rd = getServletContext().getRequestDispatcher("/receipt.jsp");// V
+            rd.forward(request, response);// V
+
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

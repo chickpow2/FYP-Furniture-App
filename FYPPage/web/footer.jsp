@@ -23,7 +23,7 @@
             <li> <a href="handleFurniture?action=shoppingCart">Shopping Cart</a></li>
             <li> <a href="blog.jsp">Blog</a></li>
             <li> <a href="handleInterior?action=interiorDesign">Interior Design</a></li>
-            <li> <a href="contact.jsp">Contact us</a></li>
+            
                                     </ul>
                                 </div>
 
@@ -41,18 +41,19 @@
                     </div>
                     <div class="container">
                          <div class="newtt">
-                                    <p>Write down your email to subscibe and get the latest news!
-                                        <br>Modern Furniture</p>
+                                    <p style='color:red;font-size:1vw'>Click below to tell Anythings you want!
+                                        
                                 </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="new">
-                                    <h3>Newsletter</h3>
-                                    <form class="newtetter">
-                                        <input class="tetter" placeholder="Your email" type="text" name="Your email">
-                                        <button class="submit">Subscribe</button>
+                                   
+                                    <form class="newtetter" action="contact.jsp">
+                                       <!-- <input class="tetter" placeholder="Your email" type="text" name="Your email">
+                                       --> <button class="submit" >Here wating for your opinion!</button>
                                     </form>
-                                </div>
+                                    </p>
+                               </div>
                             </div>
                             <div class="col-md-12">
                            

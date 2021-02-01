@@ -47,7 +47,7 @@
             <li> <a href="handleFurniture?action=shoppingCart">Shopping Cart</a></li>
             <li> <a href="blog.jsp">Blog</a></li>
             <li> <a href="handleInterior?action=interiorDesign">Interior Design</a></li>
-            <li> <a href="contact.jsp">Contact us</a></li>
+            <li> <a href="maplocate.jsp">Shop Location</a></li>
 
         </ul>
 
@@ -72,6 +72,10 @@
                     <div class="col-lg-9">
                         <div class="right_header_info">
                             <ul>
+                                <li>
+                                    <a href="handleFurniture?action=limitproductList"><img style="margin-right: 15px;" src="icon/20sale.png" width="100" height="100" alt="20%off" /></a> <!-- for AR function -->
+                                </li>
+                                
                                 <li>
                                     <a href="#"><img style="margin-right: 15px;" src="icon/5.png" width="35" height="35" alt="AR Function" /></a> <!-- for AR function -->
                                 </li>

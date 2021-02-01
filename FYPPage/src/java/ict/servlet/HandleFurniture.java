@@ -152,6 +152,18 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/product_detail3.jsp");
             request.setAttribute("c", customer);
             rd.forward(request, response);
+            
+            } else if ("limitShowOneFurniture".equalsIgnoreCase(action)) {
+            // call the query db to get retrieve for a customer witht the id
+            String id = request.getParameter("id");
+
+            // set the result into the attribute
+            // forward the result to the editFurniture.jsp
+            FurnitureBean customer = db.queryCustByID(id);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/limitproduct_detail3.jsp");
+            request.setAttribute("c", customer);
+            rd.forward(request, response);
 
         } else if ("putToCart".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
@@ -168,7 +180,20 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
+<<<<<<< HEAD
         } else if ("productList".equalsIgnoreCase(action)) {
+=======
+        } 
+        else if ("limitproductList".equalsIgnoreCase(action)) {
+            ArrayList<FurnitureBean> furnitureList = db.queryCust();
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/limitproduct.jsp");
+            request.setAttribute("furnitureList", furnitureList);
+            rd.forward(request, response);
+        }
+        
+        else if ("productList".equalsIgnoreCase(action)) {
+>>>>>>> 6da3fb9a3a9878cb947a1a7682e03a2e04caa0d0
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/product.jsp");

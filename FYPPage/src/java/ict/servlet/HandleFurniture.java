@@ -180,9 +180,7 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
-<<<<<<< HEAD
-        } else if ("productList".equalsIgnoreCase(action)) {
-=======
+
         } 
         else if ("limitproductList".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
@@ -193,7 +191,7 @@ public class HandleFurniture extends HttpServlet {
         }
         
         else if ("productList".equalsIgnoreCase(action)) {
->>>>>>> 6da3fb9a3a9878cb947a1a7682e03a2e04caa0d0
+
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/product.jsp");

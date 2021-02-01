@@ -18,7 +18,7 @@ public class furniture_select_activity extends AppCompatActivity {
         setContentView(R.layout.activity_furniture_select);
         ArrayList<Furniture> panel1 = new ArrayList<>();
 //can use getJson
-        Furniture a = new Furniture("chair", 520, "https://github.com/chickpow2/furniture_model/raw/master/scale_chair1.glb");
+        Furniture a = new Furniture("chair", 520, "https://github.com/chickpow2/furniture_model/raw/master/scale_chair2.glb");
         Furniture b = new Furniture("sofa", 1000, "https://github.com/chickpow2/furniture_model/raw/master/sofa_05.glb");
         Furniture c = new Furniture("Dining Table and Chair Set", 1000, "https://github.com/chickpow2/furniture_model/raw/master/tablechair_1.glb");
         Furniture d = new Furniture("bookcase", 1000, "https://github.com/chickpow2/furniture_model/raw/master/bookcase1.glb");

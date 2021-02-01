@@ -4,7 +4,9 @@
  */
 package ict.servlet;
 
+import ict.bean.FurnitureBean;
 import ict.bean.InteriorDesignBean;
+import ict.db.FurnitureDB;
 import ict.db.InteriorDesignDB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "HandleInterior", urlPatterns = {"/handleInterior"})
 public class HandleInteriorDesign extends HttpServlet {
 
+    private FurnitureDB fdb;
     private InteriorDesignDB db;
 
     @Override
@@ -31,6 +34,7 @@ public class HandleInteriorDesign extends HttpServlet {
         String dbPassword = this.getServletContext().getInitParameter("dbPassword");
         String dbUrl = this.getServletContext().getInitParameter("dbUrl");
         db = new InteriorDesignDB(dbUrl, dbUser, dbPassword);
+        fdb = new FurnitureDB(dbUrl, dbUser, dbPassword);
     }
 
     /**
@@ -57,18 +61,17 @@ public class HandleInteriorDesign extends HttpServlet {
                     + "interiordesign.jsp");
             rd.forward(request, response);
         } else if ("interiorDesignDetail".equalsIgnoreCase(action)) {
-            // call the query db to get retrieve for a customer witht the id
+
             String id = request.getParameter("id");
 
-            // set the result into the attribute
-            // forward the result to the editFurniture.jsp
             InteriorDesignBean customer = db.queryCustByID(id);
+            request.setAttribute("c", customer);
+            ArrayList<FurnitureBean> furnitures = fdb.queryCust(); //cannot get 
+            request.setAttribute("furnitures", furnitures);// V
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/interiorDesignDetail.jsp");
-            request.setAttribute("c", customer);
             rd.forward(request, response);
-        } 
-         else {
+        } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");
         } //no other else if 

@@ -93,19 +93,18 @@ public class UserDB {
         return isValid;
     }
     
-    public boolean addUser(String username, String password, String position, String tel, String age) {
+    public boolean addUser(String username, String password, String position, String tel) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  userinfo(USERNAME, PASSWORD, POSITION, TEL, AGE) VALUES  (?,?,?,?,?)";
+            String preQueryStatement = "INSERT  INTO  userinfo(USERNAME, PASSWORD, POSITION, TEL) VALUES  (?,?,?,?)";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, username);
             pStmnt.setString(2, password);
             pStmnt.setString(3, position);
             pStmnt.setString(4, tel);
-            pStmnt.setString(5, age);
 
             int rowCount = pStmnt.executeUpdate();
             if (rowCount >= 1) {

@@ -67,9 +67,12 @@ public class OrderRecordDB {
             stmnt = cnnct.createStatement();  // create statement
             String sql
                     = "CREATE TABLE ORDER("
-                    + "orderId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY, "
+                    + "orderId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEYGENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
                     + "sendDate Date, orderDate Date,"
-                    + "status VARCHAR(255))";
+                    + "status VARCHAR(255),"
+                    + "shippingOption VARCHAR(255)"
+                    + "Payment VARCHAR(255)"
+                    + "ttlPrice VARCHAR(255))";
             stmnt.execute(sql);
             stmnt.close();
             cnnct.close();
@@ -93,7 +96,7 @@ public class OrderRecordDB {
             String sql
                     = "CREATE TABLE ORDERRECORD("
                     + "orderId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY, "
-                    + "furnId VARCHAR(10), furnName VARCHAR(100))";
+                    + "furnId VARCHAR(10))";
             stmnt.execute(sql);
             stmnt.close();
             cnnct.close();
@@ -113,7 +116,7 @@ public class OrderRecordDB {
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  ORDER (USERID,SENDDATE,ORDERDATE,STATUS) VALUES  (?,?,?,?)";
+            String preQueryStatement = "INSERT  INTO  ORDER (USERID,SENDDATE,ORDERDATE,STATUS,SHIPPINGORPTION,PAYMENT,TTLPRICE) VALUES  (?,?,?,?,?,?,?)";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, userid);
@@ -143,7 +146,7 @@ public class OrderRecordDB {
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  ORDERRECORD (ORDERID,FURNID,FURNNAME) VALUES  (?,?,?)";
+            String preQueryStatement = "INSERT  INTO  ORDERRECORD (ORDERID,FURNID) VALUES  (?,?)";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, orderId);

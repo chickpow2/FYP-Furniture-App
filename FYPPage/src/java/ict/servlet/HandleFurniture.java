@@ -152,8 +152,8 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/product_detail3.jsp");
             request.setAttribute("c", customer);
             rd.forward(request, response);
-            
-            } else if ("limitShowOneFurniture".equalsIgnoreCase(action)) {
+
+        } else if ("limitShowOneFurniture".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
             String id = request.getParameter("id");
 
@@ -180,17 +180,13 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
-
-        } 
-        else if ("limitproductList".equalsIgnoreCase(action)) {
+        } else if ("limitproductList".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/limitproduct.jsp");
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);
-        }
-        
-        else if ("productList".equalsIgnoreCase(action)) {
+        } else if ("productList".equalsIgnoreCase(action)) {
 
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
@@ -208,6 +204,29 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/receipt.jsp");// V
             rd.forward(request, response);// V
 
+        } else if ("sort".equalsIgnoreCase(action)) {
+            String type = request.getParameter("type");
+            ArrayList<FurnitureBean> furnitureList = null;
+            
+            switch (type) {
+                case "asc":
+                    furnitureList = db.queryFurnitureByPrice();
+                    break;
+                case "desc":
+                    furnitureList = db.queryFurnitureByPriceDesc();
+                    break;
+                case "ascName":
+                    furnitureList = db.queryFurnitureByName();
+                    break;
+                case "descName":
+                    furnitureList = db.queryFurnitureByNameDesc();
+                    break;
+            }
+
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/product.jsp");
+            request.setAttribute("furnitureList", furnitureList);
+            rd.forward(request, response);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

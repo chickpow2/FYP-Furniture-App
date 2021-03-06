@@ -69,7 +69,7 @@ public class FurnitureDB {
             String sql
                     = "CREATE TABLE FURNITURE("
                     + "furnitureId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
-                    + "name VARCHAR(25), price VARCHAR(10), model VARCHAR(2555),"
+                    + "name VARCHAR(25), price INTEGER, model VARCHAR(2555),"
                     + "RATING INTEGER, STOCK INTEGER,"
                     + "DETAILDESCRIPTION VARCHAR(2555),type VARCHAR(25),IMAGE VARCHAR(2999),description VARCHAR(2555))";
             stmnt.execute(sql);
@@ -93,19 +93,19 @@ public class FurnitureDB {
             stmnt = cnnct.createStatement();  // create statement
             String sql
                     = "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
-                    + "	VALUES ('sofa', '5999', 'www.', 3, 3, 'The Logan Bi-Sectional balances comfort with a refined, modern style. The back cushions have a unique, channel-stitch detail which creates a subtle play of light and form. Compartmentalized cushions filled with loose-spun poly help to give the feel and comfort of down while maintaining a clean, crisp shape. Every sectional includes 2 sets of legs, allowing you to walnut finished wood legs to suit your style. The sectional is cleverly designed to allow the chaise to be positioned on the left or the right, so it can adapt to any room layout.', 'sofa', NULL, 'size');"
+                    + "	VALUES ('Sofa', '5999', 'www.', 3, 3, 'The Logan Bi-Sectional balances comfort with a refined, modern style. The back cushions have a unique, channel-stitch detail which creates a subtle play of light and form. Compartmentalized cushions filled with loose-spun poly help to give the feel and comfort of down while maintaining a clean, crisp shape. Every sectional includes 2 sets of legs, allowing you to walnut finished wood legs to suit your style. The sectional is cleverly designed to allow the chaise to be positioned on the left or the right, so it can adapt to any room layout.', 'sofa', NULL, 'size');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
-                    + "	VALUES ('carpet', '123', NULL, 5, 4, 'Pro esports players spend full-time hours training at a computer workstation. To stay fresh over long sitting sessions, most use high-end gaming chairs. The best models offer rich ergonomic features, pleasing aesthetics, and superb durability. Even if you’re not an esports pro, these chairs are relevant. As office chairs, these models will help you feel better, sit longer, and be more productive.', 'other', NULL, 'Pro esports players spend full-time hours training at a computer workstation. To stay fresh over long sitting sessions, most use high-end gaming chairs. The best models offer rich ergonomic features, pleasing aesthetics, and superb durability. Even if you’re not an esports pro, these chairs are relevant. As office chairs, these models will help you feel better, sit longer, and be more productive.');"
+                    + "	VALUES ('Carpet', '123', NULL, 5, 4, 'Pro esports players spend full-time hours training at a computer workstation. To stay fresh over long sitting sessions, most use high-end gaming chairs. The best models offer rich ergonomic features, pleasing aesthetics, and superb durability. Even if you’re not an esports pro, these chairs are relevant. As office chairs, these models will help you feel better, sit longer, and be more productive.', 'other', NULL, 'Pro esports players spend full-time hours training at a computer workstation. To stay fresh over long sitting sessions, most use high-end gaming chairs. The best models offer rich ergonomic features, pleasing aesthetics, and superb durability. Even if you’re not an esports pro, these chairs are relevant. As office chairs, these models will help you feel better, sit longer, and be more productive.');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
-                    + "	VALUES ('wooden chair', '2233', '', 4, 5, 'The best way to know the qualities of a good computing chair is to test one out. That requires using it full-time for at least a few months. Luckily, top esports pros have already done that work for us. Esports players spend around 10-12 hours of training at their computers every day. That has given gaming chair manufacturers lots of user data to work with. No other type of seating has undergone as much user testing over the past decade', 'chair', NULL, 'The best way to know the qualities of a good computing chair is to test one out. That requires using it full-time for at least a few months. Luckily, top esports pros have already done that work for us. Esports players spend around 10-12 hours of training at their computers every day. That has given gaming chair manufacturers lots of user data to work with. No other type of seating has undergone as much user testing over the past decade');"
+                    + "	VALUES ('Wooden chair', '2233', '', 4, 5, 'The best way to know the qualities of a good computing chair is to test one out. That requires using it full-time for at least a few months. Luckily, top esports pros have already done that work for us. Esports players spend around 10-12 hours of training at their computers every day. That has given gaming chair manufacturers lots of user data to work with. No other type of seating has undergone as much user testing over the past decade', 'chair', NULL, 'The best way to know the qualities of a good computing chair is to test one out. That requires using it full-time for at least a few months. Luckily, top esports pros have already done that work for us. Esports players spend around 10-12 hours of training at their computers every day. That has given gaming chair manufacturers lots of user data to work with. No other type of seating has undergone as much user testing over the past decade');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
-                    + "	VALUES ('foldable table', '1111', NULL, 5, 7, 'That’s how we know these gaming chairs hold up well under full-time sitting loads. To keep players performing at their best, these chairs are proven to support good posture and movement while sitting. That helps help players to sit for longer periods — while gaming at peak performance.', 'table', NULL, 'That’s how we know these gaming chairs hold up well under full-time sitting loads. To keep players performing at their best, these chairs are proven to support good posture and movement while sitting. That helps help players to sit for longer periods — while gaming at peak performance.');"
+                    + "	VALUES ('Foldable table', '1111', NULL, 5, 7, 'That’s how we know these gaming chairs hold up well under full-time sitting loads. To keep players performing at their best, these chairs are proven to support good posture and movement while sitting. That helps help players to sit for longer periods — while gaming at peak performance.', 'table', NULL, 'That’s how we know these gaming chairs hold up well under full-time sitting loads. To keep players performing at their best, these chairs are proven to support good posture and movement while sitting. That helps help players to sit for longer periods — while gaming at peak performance.');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
-                    + "	VALUES ('lamp', '3120', NULL, 3, 5, 'All gaming chairs come with tall backrests and adjustable support pillows. Pro esports chairs stand apart from cheap models with four essential features.  First, 4D armrests adjust in four directions, giving a full range of support for the arms. Second, a multifunction tilt-lock lets you tilt and lock the seat at angles. Third, cold-cured foam padding provides consistent support. Finally, premium upholstery ensures optimal breathability and durability. The result is consistent, comfortable support that looks and works like new for years.', 'electronic', NULL, 'All gaming chairs come with tall backrests and adjustable support pillows. Pro esports chairs stand apart from cheap models with four essential features.  First, 4D armrests adjust in four directions, giving a full range of support for the arms. Second, a multifunction tilt-lock lets you tilt and lock the seat at angles. Third, cold-cured foam padding provides consistent support. Finally, premium upholstery ensures optimal breathability and durability. The result is consistent, comfortable support that looks and works like new for years.');"
+                    + "	VALUES ('Lamp', '3120', NULL, 3, 5, 'All gaming chairs come with tall backrests and adjustable support pillows. Pro esports chairs stand apart from cheap models with four essential features.  First, 4D armrests adjust in four directions, giving a full range of support for the arms. Second, a multifunction tilt-lock lets you tilt and lock the seat at angles. Third, cold-cured foam padding provides consistent support. Finally, premium upholstery ensures optimal breathability and durability. The result is consistent, comfortable support that looks and works like new for years.', 'electronic', NULL, 'All gaming chairs come with tall backrests and adjustable support pillows. Pro esports chairs stand apart from cheap models with four essential features.  First, 4D armrests adjust in four directions, giving a full range of support for the arms. Second, a multifunction tilt-lock lets you tilt and lock the seat at angles. Third, cold-cured foam padding provides consistent support. Finally, premium upholstery ensures optimal breathability and durability. The result is consistent, comfortable support that looks and works like new for years.');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
-                    + "	VALUES ('e-sport chair', '3223', NULL, 4, 4, 'These features serve the needs of the world’s best competitive esports players. They are also a great option for non-gamers. Those include office workers, content creators, and others who spend long periods sitting.', 'chair', NULL, 'These features serve the needs of the world’s best competitive esports players. They are also a great option for non-gamers. Those include office workers, content creators, and others who spend long periods sitting.');"
+                    + "	VALUES ('E-sport chair', '3223', NULL, 4, 4, 'These features serve the needs of the world’s best competitive esports players. They are also a great option for non-gamers. Those include office workers, content creators, and others who spend long periods sitting.', 'chair', NULL, 'These features serve the needs of the world’s best competitive esports players. They are also a great option for non-gamers. Those include office workers, content creators, and others who spend long periods sitting.');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
-                    + "	VALUES ('painting', '900', NULL, 3, 2, 'Under full-time sitting conditions, these models excel. Dense foam padding on pro chairs holds up well under heavy use. Pro-class cover fabrics provide optimal breathability without getting clammy. Most important are the adjustments that let players change position on the fly. Changing positions keeps the body in motion while sitting', 'other', NULL, 'Under full-time sitting conditions, these models excel. Dense foam padding on pro chairs holds up well under heavy use. Pro-class cover fabrics provide optimal breathability without getting clammy. Most important are the adjustments that let players change position on the fly. Changing positions keeps the body in motion while sitting');"
+                    + "	VALUES ('Painting', '900', NULL, 3, 2, 'Under full-time sitting conditions, these models excel. Dense foam padding on pro chairs holds up well under heavy use. Pro-class cover fabrics provide optimal breathability without getting clammy. Most important are the adjustments that let players change position on the fly. Changing positions keeps the body in motion while sitting', 'other', NULL, 'Under full-time sitting conditions, these models excel. Dense foam padding on pro chairs holds up well under heavy use. Pro-class cover fabrics provide optimal breathability without getting clammy. Most important are the adjustments that let players change position on the fly. Changing positions keeps the body in motion while sitting');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
                     + "	VALUES ('Antique Table', '599', 'black', 5, 10, 'That improves circulation and oxygen intake while helping to distribute stress across various muscle groups. As a result, players can stay fresh over longer sessions, without needing to pause gameplay.', 'table', NULL, 'That improves circulation and oxygen intake while helping to distribute stress across various muscle groups. As a result, players can stay fresh over longer sessions, without needing to pause gameplay.');"
                     + "INSERT INTO APP.FURNITURE1 (\"NAME\", PRICE, MODEL, RATING, STOCK, DETAILDESCRIPTION, \"TYPE\", IMAGE, DESCRIPTION) \n"
@@ -187,7 +187,7 @@ public class FurnitureDB {
                 cb = new FurnitureBean();
                 cb.setFurnitureId(rs.getString(1));
                 cb.setName(rs.getString(2));
-                cb.setPrice(rs.getString(3));
+                cb.setPrice(rs.getInt(3));
                 cb.setModel(rs.getString(4));
                 cb.setRating(rs.getInt(5));
                 cb.setStock(rs.getInt(6));
@@ -227,7 +227,7 @@ public class FurnitureDB {
                 FurnitureBean cb = new FurnitureBean();
                 cb.setFurnitureId(rs.getString(1));
                 cb.setName(rs.getString(2));
-                cb.setPrice(rs.getString(3));
+                cb.setPrice(rs.getInt(3));
                 cb.setModel(rs.getString(4));
                 cb.setRating(rs.getInt(5));
                 cb.setStock(rs.getInt(6));
@@ -278,7 +278,7 @@ public class FurnitureDB {
                 FurnitureBean cb = new FurnitureBean();
                 cb.setFurnitureId(rs.getString(1));
                 cb.setName(rs.getString(2));
-                cb.setPrice(rs.getString(3));
+                cb.setPrice(rs.getInt(3));
                 cb.setModel(rs.getString(4));
                 cb.setDescription(rs.getString(5));
                 list.add(cb);
@@ -325,7 +325,7 @@ public class FurnitureDB {
                 FurnitureBean cb = new FurnitureBean();
                 cb.setFurnitureId(rs.getString(1));
                 cb.setName(rs.getString(2));
-                cb.setPrice(rs.getString(3));
+                cb.setPrice(rs.getInt(3));
                 cb.setModel(rs.getString(4));
                 cb.setDescription(rs.getString(5));
                 list.add(cb);
@@ -355,15 +355,14 @@ public class FurnitureDB {
         return null;
     }
 
-    public ArrayList queryCustByTel(String tel) {
+    public ArrayList queryFurnitureByPrice() {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE TEL=?";
+            String preQueryStatement = "SELECT * FROM FURNITURE ORDER BY price";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
-            pStmnt.setString(1, tel);
-            //Statement s = cnnct.createStatement();
+            //pStmnt.setString(1, action);
             ResultSet rs = pStmnt.executeQuery();
 
             ArrayList list = new ArrayList();
@@ -372,9 +371,13 @@ public class FurnitureDB {
                 FurnitureBean cb = new FurnitureBean();
                 cb.setFurnitureId(rs.getString(1));
                 cb.setName(rs.getString(2));
-                cb.setPrice(rs.getString(3));
+                cb.setPrice(rs.getInt(3));
                 cb.setModel(rs.getString(4));
-                cb.setDescription(rs.getString(5));
+                cb.setRating(rs.getInt(5));
+                cb.setStock(rs.getInt(6));
+                cb.setDetailDescription(rs.getString(7));
+                cb.setImage(rs.getString(8));
+                cb.setDescription(rs.getString(9));
                 list.add(cb);
             }
             return list;
@@ -402,6 +405,155 @@ public class FurnitureDB {
         return null;
     }
 
+    public ArrayList queryFurnitureByPriceDesc() {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM FURNITURE ORDER BY price desc";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            //pStmnt.setString(1, action);
+            ResultSet rs = pStmnt.executeQuery();
+
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                FurnitureBean cb = new FurnitureBean();
+                cb.setFurnitureId(rs.getString(1));
+                cb.setName(rs.getString(2));
+                cb.setPrice(rs.getInt(3));
+                cb.setModel(rs.getString(4));
+                cb.setRating(rs.getInt(5));
+                cb.setStock(rs.getInt(6));
+                cb.setDetailDescription(rs.getString(7));
+                cb.setImage(rs.getString(8));
+                cb.setDescription(rs.getString(9));
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
+
+    public ArrayList queryFurnitureByName() {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM FURNITURE ORDER BY name";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            //pStmnt.setString(1, action);
+            ResultSet rs = pStmnt.executeQuery();
+
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                FurnitureBean cb = new FurnitureBean();
+                cb.setFurnitureId(rs.getString(1));
+                cb.setName(rs.getString(2));
+                cb.setPrice(rs.getInt(3));
+                cb.setModel(rs.getString(4));
+                cb.setRating(rs.getInt(5));
+                cb.setStock(rs.getInt(6));
+                cb.setDetailDescription(rs.getString(7));
+                cb.setImage(rs.getString(8));
+                cb.setDescription(rs.getString(9));
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
+    
+    public ArrayList queryFurnitureByNameDesc() {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM FURNITURE ORDER BY name desc";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            //pStmnt.setString(1, action);
+            ResultSet rs = pStmnt.executeQuery();
+
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                FurnitureBean cb = new FurnitureBean();
+                cb.setFurnitureId(rs.getString(1));
+                cb.setName(rs.getString(2));
+                cb.setPrice(rs.getInt(3));
+                cb.setModel(rs.getString(4));
+                cb.setRating(rs.getInt(5));
+                cb.setStock(rs.getInt(6));
+                cb.setDetailDescription(rs.getString(7));
+                cb.setImage(rs.getString(8));
+                cb.setDescription(rs.getString(9));
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
     public int delRecord(String custId) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
@@ -446,7 +598,7 @@ public class FurnitureDB {
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, cb.getName());
-            pStmnt.setString(2, cb.getPrice());
+            pStmnt.setInt(2, cb.getPrice());
             pStmnt.setString(3, cb.getModel());
             pStmnt.setInt(4, cb.getStock());
             pStmnt.setString(5, cb.getDescription());

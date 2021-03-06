@@ -6,7 +6,7 @@ public class FurnitureBean implements Serializable {
 
     private String furnitureId;
     private String name;
-    private String price;
+    private int price;
     private String model;
     private String description;
     private int rating;
@@ -19,7 +19,7 @@ public class FurnitureBean implements Serializable {
     public FurnitureBean() {
     }
 
-    public FurnitureBean(String furnitureId, String name, String price, String model, String description, int rating, int stock, String detailDescription) {
+    public FurnitureBean(String furnitureId, String name, int price, String model, String description, int rating, int stock, String detailDescription) {
         this.furnitureId = furnitureId;
         this.name = name;
         this.price = price;
@@ -56,11 +56,11 @@ public class FurnitureBean implements Serializable {
         this.name = name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

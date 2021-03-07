@@ -92,10 +92,15 @@
                             <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
                         </div>
                         <br>
-
-
-
-
+                        
+                        <label><strong class="black">Sort</strong></label><br>
+                        <div class="list-group" id="list-tab" name ="type" role="tablist">
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+                        </div>
+                        <br>
                     </div>                   
 
 

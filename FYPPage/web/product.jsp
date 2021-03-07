@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ict.bean.FurnitureBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-  <%@page import ="java.util.Arrays"%>
+<%@page import ="java.util.Arrays"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        
+
         <%
             ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitureList");
         %>
@@ -74,14 +74,6 @@
                             <input name="search"  type="text" value=""/>&nbsp
                             <input type="submit" class="btn btn-primary" value="search"/>
                         </form>
-                        
-                        <form  method="GET" action="handleFurniture?action=search2">   <!-- search2 button 用作啟動排序搜尋的方式 !-->
-                            <label><strong class="black">Search2 :</strong></label>
-                            <input type="hidden" name="action" value="search2"/>
-                            <input name="search"  type="text" value=""/>&nbsp
-                            <input type="submit" class="btn btn-primary" value="search"/>
-                        </form>
-                        
 
                         <br><label><strong class="black">Category</strong></label><br>
                         <div class="list-group" id="list-tab" name ="type" role="tablist">
@@ -92,7 +84,7 @@
                             <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
                         </div>
                         <br>
-                        
+
                         <label><strong class="black">Sort</strong></label><br>
                         <div class="list-group" id="list-tab" name ="type" role="tablist">
                             <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
@@ -104,28 +96,12 @@
                     </div>                   
 
 
-                   
+
 
                     <%
                         // out.println("<div class='container'>");
                         //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
-                       String [] array = new String [furnitureList.size()]; //Testing
-                       String [] array2 = new String [furnitureList.size()]; //Testing
-                       String [] accendingAlphapetArray = new String [furnitureList.size()]; //英文字母由 A-->Z 方式排
-                       
                         for (int i = 0; i < furnitureList.size(); i++) {
-                 //           out.println(furnitureList.size());
-                         
-                         array[i] =  furnitureList.get(i).getName(); //Test
-                         array2[i] =  furnitureList.get(i).getPrice(); //Test
-                         accendingAlphapetArray[i] =    //嘗試將所有家俬的資料打包 
-                                 furnitureList.get(i).getName() + " " + furnitureList.get(i).getPrice() + 
-                                 "<img src=\"furniture/" + furnitureList.get(i).getFurnitureId() + ".png\" alt='#'/>" 
-                                  +( "<a class='add-bt' href=\"handleFurniture?action=putToCart&id=" + furnitureList.get(i).getFurnitureId() )
-                                + ("\">Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>");
-                                 
-                       //  Arrays.sort(array);
-                            // String a =  furnitureList.get(i).getName();
                             out.println("<tr><br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
                                     + "<div class='full product'>"
                                     + "<div class='product_img'>"
@@ -137,56 +113,30 @@
                                     + "<div class='product_detail text_align_center'>");
                             out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice());
                             out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
-                            
                             out.println("</div></div></div></tr>");
-                           
                         }
-                        
-                        Arrays.sort(array);//Test
-                        Arrays.sort(array2);//Test
-                        Arrays.sort(accendingAlphapetArray); //進行排序動作
-                        
-                        for (int i=0 ; i <array.length; i++){ //Test array
-                        out.println(array[i]);
-                        }
-                        out.println("<p></p>"); 
-                        for (int i=0 ; i <array.length; i++){ //Test array2
-                        out.println(array2[i]);
-                        }
-                        out.println("<p></p>");
-                        
-                        for (int i=0 ; i <array.length; i++){ //將以英文A-->Z方式呈現
-                        out.println("<tr><br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
-                                    + "<div class='full product'>"
-                                    + "<div class='product_img'>" //+ "<div class='overlay_hover'>"
-                                    + "<div class='center'>" +  accendingAlphapetArray[i] + "</div></div></div></div></tr>");
-                     //   out.println(array3[i]);
-                        out.println("<p></p>");
-                        }
-                        out.println("<p></p>");
-                    // out.println(Arrays.toString(array));
                     %>  
 
 
                     <!-- end product -->
-       
+
                 </div>
-                    
+
             </div>
-                    
+
         </div>
-         <!--  footer (Dont remove this part cause all of the logo and words of footer will going to left and idk why happen that)--> 
-        
-            <footer>
+        <!--  footer (Dont remove this part cause all of the logo and words of footer will going to left and idk why happen that)--> 
+
+        <footer>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-            <li style="display:none;"> <a href="about.jsp">About</a></li>
+                <li style="display:none;"> <a href="about.jsp">About</a></li>
             </div>
-            </footer>
+        </footer>
         <!-- end footer (Dont remove this part cause all of the logo and words of footer will going to left and idk why happen that)-->
-        
+
         <%@include file="/footer.jsp" %>
     </div>
-                    
+
 
 </div>
 

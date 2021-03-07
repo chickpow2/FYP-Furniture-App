@@ -11,6 +11,7 @@ import ict.db.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -88,6 +89,20 @@ public class HandleFurniture extends HttpServlet {
                 request.setAttribute("furnitureList", furnitureList);
                 rd.forward(request, response);
             }
+            
+            } else if ("limitsearch".equalsIgnoreCase(action)) {
+            String search = request.getParameter("search");
+            if (search != null) {
+
+                // set the result into the attribute
+                // redirect the result to the listFurnitures.jsp
+                ArrayList<FurnitureBean> furnitureList = db.queryCustByName(search);
+                RequestDispatcher rd;
+                rd = getServletContext().getRequestDispatcher("/product.jsp");
+                request.setAttribute("furnitureList", furnitureList);
+                rd.forward(request, response);
+            }
+            
         } else if ("search1".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for all customer
             String search = request.getParameter("search");
@@ -99,6 +114,20 @@ public class HandleFurniture extends HttpServlet {
                 request.setAttribute("furnitureList", furnitureList);
                 rd.forward(request, response);
             }
+            
+        } else if ("search2".equalsIgnoreCase(action)) {
+            // call the query db to get retrieve for all customer
+            String search = request.getParameter("search");
+            if (search != null) {
+
+                ArrayList<FurnitureBean> furnitureList = db.queryCustByName(search);
+                
+                RequestDispatcher rd;
+                rd = getServletContext().getRequestDispatcher("/product.jsp");
+                request.setAttribute("furnitureList", furnitureList);
+                rd.forward(request, response);
+            }    
+            
         } else if ("shoppingCart".equalsIgnoreCase(action)) {
             /* HttpSession session = request.getSession(true); //v
             UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
@@ -180,9 +209,7 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
-<<<<<<< HEAD
-        } else if ("productList".equalsIgnoreCase(action)) {
-=======
+
         } 
         else if ("limitproductList".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
@@ -193,7 +220,7 @@ public class HandleFurniture extends HttpServlet {
         }
         
         else if ("productList".equalsIgnoreCase(action)) {
->>>>>>> 6da3fb9a3a9878cb947a1a7682e03a2e04caa0d0
+
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/product.jsp");

@@ -28,12 +28,14 @@
                                 </div>
 
                                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                    <center>
                                     <ul class="sociel">
                                         <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
                                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
                                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
                                         <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
                                     </ul>
+                                    </center>
                                 </div>
                             </div>
 

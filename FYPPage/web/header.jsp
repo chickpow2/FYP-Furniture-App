@@ -48,6 +48,7 @@
             <li> <a href="blog.jsp">Blog</a></li>
             <li> <a href="handleInterior?action=interiorDesign">Interior Design</a></li>
             <li> <a href="maplocate.jsp">Shop Location</a></li>
+            <li> <a href="subscribe.jsp">Subscribe Us</a></li>
 
         </ul>
 

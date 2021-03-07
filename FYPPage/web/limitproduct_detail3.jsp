@@ -77,12 +77,21 @@
                                 <p><%=c.getDescription()%>
                                     <br><br><span class="stock"><%=c.getStock()%> in stock</span>
                                 </p>
-                                <form class="cart" method="post" action="handleFurniture?action=shoppingCart">
+                                <!-- Useful part, below is hard code part
+                                <form class="cart" method="post" action="limitproductList.jsp">
                                     <div class="quantity">
                                         <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
                                     </div>
                                     <button type="submit" class="bt_main">Add to cart</button>
                                 </form>
+                                -->
+                                <form class="cart" method="post" >
+                                <div class="quantity">
+                                <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
+                                </div>
+                                <input  style="position:relative;top:25px;left:20px;" type="button" class="bt_main" value="Add to cart" onclick="location.href='handleFurniture?action=limitproductList'"  />
+                                </form>
+                                
                             </div>
                         </div>
                     </div>

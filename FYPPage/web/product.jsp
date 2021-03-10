@@ -74,25 +74,25 @@
                             <input name="search"  type="text" value=""/>&nbsp
                             <input type="submit" class="btn btn-primary" value="search"/>
                         </form>
-
+                        <br>
+                        <form method="GET" action="handleFurniture?action=categorySort">
+                            <input type="hidden" name="action" value="categorySort">
+                            <label><strong class="black">Category:</strong></label>
+                            <input type="radio" name="type" value="sofa">Sofa
+                            <input type="radio" name="type" value="table">Table
+                            <input type="radio" name="type" value="chair">Chair
+                            <input type="radio" name="type" value="electronic">Electronic
+                            <input type="radio" name="type" value="other">Other
+                            <br>
+                            <label><strong class="black">Sort:</strong></label>
+                            <input type="radio" name="sort" value="asc" checked>Price: Low to High
+                            <input type="radio" name="sort" value="desc">Price: High to Low
+                            <input type="radio" name="sort" value="ascName">Name: A to Z
+                            <input type="radio" name="sort" value="descName">Name: Z to A
+                            <input type="submit" class="btn btn-primary" value="sort"/>
+                        </form>
                         <br><label><strong class="black">Category</strong></label><br>
-                        <div class="list-group" id="list-tab" name ="type" role="tablist">
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
-                        </div>
-                        <br>
 
-                        <label><strong class="black">Sort</strong></label><br>
-                        <div class="list-group" id="list-tab" name ="type" role="tablist">
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
-                        </div>
-                        <br>
                     </div>                   
 
 

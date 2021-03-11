@@ -205,7 +205,7 @@
                                     + "<div class='product_detail text_align_center'>");
                             out.println("<p style='color:red;font-size:1vw'><b>After 20%!</b></p>");
                             
-                            out.println("<p class='product_price'>$" + Math.floor(Integer.parseInt (furnitureList.get(i).getPrice())*0.8 ));
+                          //  out.println("<p class='product_price'>$" + Math.floor(Integer.parseInt (furnitureList.get(i).getPrice())*0.8 ));
                           //  out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice()); //Normal prize
                             out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
                             out.println("</div></div></div></tr>");

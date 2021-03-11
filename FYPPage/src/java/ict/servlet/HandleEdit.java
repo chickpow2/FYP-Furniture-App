@@ -47,7 +47,7 @@ public class HandleEdit extends HttpServlet {
         // get the parameter from users
         String id = request.getParameter("id");
         String name = request.getParameter("name");
-        String price = request.getParameter("price");
+        int price = Integer.parseInt(request.getParameter("price"));
         String model = request.getParameter("model");
         int stock = Integer.parseInt(request.getParameter("stock"));
         String descrip = request.getParameter("descrip");

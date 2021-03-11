@@ -43,7 +43,48 @@
         <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
             </head>
     <!-- body -->
+<style>
+.dropbtn {
+    background-color: #808080;
+    color: white;
+    padding: 2px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
 
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 1000px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
     <!-- loader  -->
   <script type="text/javascript">
     $(document).ready(function () {
@@ -169,9 +210,46 @@
                             <label><strong class="black">Search :</strong></label>
                             <input type="hidden" name="action" value="limitsearch"/>
                             <input name="search"  type="text" value=""/>&nbsp
-                            <input type="submit" class="btn btn-primary" value="search"/>
+                            <input type="submit" class="dropbtn" value="search"/>
                         </form>
-
+                        
+                    <p>&nbsp</p>
+                    
+                         <div class="dropdown">
+                        <button class="btn btn-primary">Furniture Type</button>
+                        <div class="dropdown-content">
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=limittype&type=sofa"  value="sofa">Sofa</a>
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=limittype&type=table" role="tab" aria-controls="profile">Table</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=limittype&type=chair" role="tab" aria-controls="messages">Chair</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=limittype&type=electronic" role="tab" aria-controls="settings">Electronics</a>
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=limittype&type=other" role="tab" aria-controls="settings">Other</a>
+                        </div>
+                      </div>
+                       &nbsp
+                       <div class="dropdown">
+                        <button class="btn btn-primary">Sorting Way</button>
+                        <div class="dropdown-content">
+                        <div class="list-group" id="list-tab" name ="type" role="tablist">
+                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
+                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+                        </div>
+                        </div>
+                      </div>  
+                        
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      <p>&nbsp</p>
+                      
                         <br><label><strong class="black">Category</strong></label><br>
                         <div class="list-group" id="list-tab" name ="type" role="tablist">
                             <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=limittype&type=sofa"  value="sofa">Sofa</a>
@@ -182,7 +260,7 @@
                         </div>
                         <br>
 
-
+                   
 
 
                     </div>                   
@@ -203,6 +281,7 @@
                                    // 備用+ "<a class='add-bt' href=\"handleFurniture?action=putToCart&id=" + furnitureList.get(i).getFurnitureId() + "\">Add to cart<a href=\"handleFurniture?action=limitShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"  
                                     + "<div class='product_detail text_align_center'>");
+                            out.println("<p class='product_price'>$" + String.format("%.1f",(furnitureList.get(i).getPrice())*0.8));
                             out.println("<p style='color:red;font-size:1vw'><b>After 20%!</b></p>");
                             
                           //  out.println("<p class='product_price'>$" + Math.floor(Integer.parseInt (furnitureList.get(i).getPrice())*0.8 ));

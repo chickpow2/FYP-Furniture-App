@@ -119,7 +119,7 @@
                             <input type="submit"  class="dropbtn"  value="search"/>
                             
                         </form>
-<<<<<<< HEAD
+
                        <p>&nbsp</p>
                         
                         <!--   <form  method="GET" action="handleFurniture?action=search2">   search2 button 用作啟動排序搜尋的方式 
@@ -187,7 +187,7 @@
                         </div>
                         <br>
                       -->
-=======
+
                         <br>
                         <form method="GET" action="handleFurniture?action=categorySort">
                             <input type="hidden" name="action" value="categorySort">
@@ -207,7 +207,7 @@
                         </form>
                         <br><label><strong class="black">Category</strong></label><br>
 
->>>>>>> b7c6bc57d438a015086dba0c5173a33b4e7aa92d
+
                     </div>                   
                
 
@@ -216,13 +216,12 @@
                     <%
                         // out.println("<div class='container'>");
                         //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
-<<<<<<< HEAD
+
                        String [] array = new String [furnitureList.size()]; //Testing
                        int [] array2 = new int [furnitureList.size()]; //Testing
                        String [] accendingAlphapetArray = new String [furnitureList.size()]; //英文字母由 A-->Z 方式排
                        
-=======
->>>>>>> b7c6bc57d438a015086dba0c5173a33b4e7aa92d
+
                         for (int i = 0; i < furnitureList.size(); i++) {
                             out.println("<tr><br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
                                     + "<div class='full product'>"
@@ -237,7 +236,7 @@
                             out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
                             out.println("</div></div></div></tr>");
                         }
-<<<<<<< HEAD
+
                       /*  
                     Arrays.sort(array);//Test
                         Arrays.sort(array2);//Test
@@ -263,8 +262,7 @@
                         out.println("<p></p>");
                     // out.println(Arrays.toString(array));
                     */
-=======
->>>>>>> b7c6bc57d438a015086dba0c5173a33b4e7aa92d
+
                     %>  
 
                   

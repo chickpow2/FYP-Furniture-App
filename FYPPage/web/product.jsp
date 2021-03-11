@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="ict.bean.FurnitureBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-  <%@page import ="java.util.Arrays"%>
+<%@page import ="java.util.Arrays"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-        
+
         <%
             ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitureList");
         %>
@@ -119,6 +119,7 @@
                             <input type="submit"  class="dropbtn"  value="search"/>
                             
                         </form>
+<<<<<<< HEAD
                        <p>&nbsp</p>
                         
                         <!--   <form  method="GET" action="handleFurniture?action=search2">   search2 button 用作啟動排序搜尋的方式 
@@ -186,31 +187,43 @@
                         </div>
                         <br>
                       -->
+=======
+                        <br>
+                        <form method="GET" action="handleFurniture?action=categorySort">
+                            <input type="hidden" name="action" value="categorySort">
+                            <label><strong class="black">Category:</strong></label>
+                            <input type="radio" name="type" value="sofa">Sofa
+                            <input type="radio" name="type" value="table">Table
+                            <input type="radio" name="type" value="chair">Chair
+                            <input type="radio" name="type" value="electronic">Electronic
+                            <input type="radio" name="type" value="other">Other
+                            <br>
+                            <label><strong class="black">Sort:</strong></label>
+                            <input type="radio" name="sort" value="asc" checked>Price: Low to High
+                            <input type="radio" name="sort" value="desc">Price: High to Low
+                            <input type="radio" name="sort" value="ascName">Name: A to Z
+                            <input type="radio" name="sort" value="descName">Name: Z to A
+                            <input type="submit" class="btn btn-primary" value="sort"/>
+                        </form>
+                        <br><label><strong class="black">Category</strong></label><br>
+
+>>>>>>> b7c6bc57d438a015086dba0c5173a33b4e7aa92d
                     </div>                   
                
 
-                   
+
 
                     <%
                         // out.println("<div class='container'>");
                         //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
+<<<<<<< HEAD
                        String [] array = new String [furnitureList.size()]; //Testing
                        int [] array2 = new int [furnitureList.size()]; //Testing
                        String [] accendingAlphapetArray = new String [furnitureList.size()]; //英文字母由 A-->Z 方式排
                        
+=======
+>>>>>>> b7c6bc57d438a015086dba0c5173a33b4e7aa92d
                         for (int i = 0; i < furnitureList.size(); i++) {
-                 //           out.println(furnitureList.size());
-                         
-                         array[i] =  furnitureList.get(i).getName(); //Test
-                         array2[i] =  furnitureList.get(i).getPrice(); //Test
-                         accendingAlphapetArray[i] =    //嘗試將所有家俬的資料打包 
-                                 furnitureList.get(i).getName() + " " + furnitureList.get(i).getPrice() + 
-                                 "<img src=\"furniture/" + furnitureList.get(i).getFurnitureId() + ".png\" alt='#'/>" 
-                                  +( "<a class='add-bt' href=\"handleFurniture?action=putToCart&id=" + furnitureList.get(i).getFurnitureId() )
-                                + ("\">Add to cart<a href=\"handleFurniture?action=ShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>");
-                                 
-                       //  Arrays.sort(array);
-                            // String a =  furnitureList.get(i).getName();
                             out.println("<tr><br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
                                     + "<div class='full product'>"
                                     + "<div class='product_img'>"
@@ -222,10 +235,9 @@
                                     + "<div class='product_detail text_align_center'>");
                             out.println("<p class='product_price'>$" + furnitureList.get(i).getPrice());
                             out.println("<p class='product_descr'>" + furnitureList.get(i).getName() + "</p>");
-                            
                             out.println("</div></div></div></tr>");
-                           
                         }
+<<<<<<< HEAD
                       /*  
                     Arrays.sort(array);//Test
                         Arrays.sort(array2);//Test
@@ -251,6 +263,8 @@
                         out.println("<p></p>");
                     // out.println(Arrays.toString(array));
                     */
+=======
+>>>>>>> b7c6bc57d438a015086dba0c5173a33b4e7aa92d
                     %>  
 
                   
@@ -259,24 +273,24 @@
                     
                     
                     <!-- end product -->
-       
+
                 </div>
-                    
+
             </div>
-                    
+
         </div>
-         <!--  footer (Dont remove this part cause all of the logo and words of footer will going to left and idk why happen that)--> 
-        
-            <footer>
+        <!--  footer (Dont remove this part cause all of the logo and words of footer will going to left and idk why happen that)--> 
+
+        <footer>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-            <li style="display:none;"> <a href="about.jsp">About</a></li>
+                <li style="display:none;"> <a href="about.jsp">About</a></li>
             </div>
-            </footer>
+        </footer>
         <!-- end footer (Dont remove this part cause all of the logo and words of footer will going to left and idk why happen that)-->
-        
+
         <%@include file="/footer.jsp" %>
     </div>
-                    
+
 
 </div>
 

@@ -355,6 +355,147 @@ public class FurnitureDB {
         return null;
     }
 
+    public ArrayList queryFurnitureByTypeDesc(String type) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE TYPE= ? order by price desc";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            pStmnt.setString(1, type);
+            //Statement s = cnnct.createStatement();
+            ResultSet rs = pStmnt.executeQuery();
+
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                FurnitureBean cb = new FurnitureBean();
+                cb.setFurnitureId(rs.getString(1));
+                cb.setName(rs.getString(2));
+                cb.setPrice(rs.getInt(3));
+                cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
+    
+    public ArrayList queryFurnitureByNameAsc(String type) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE TYPE= ? order by name";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            pStmnt.setString(1, type);
+            //Statement s = cnnct.createStatement();
+            ResultSet rs = pStmnt.executeQuery();
+
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                FurnitureBean cb = new FurnitureBean();
+                cb.setFurnitureId(rs.getString(1));
+                cb.setName(rs.getString(2));
+                cb.setPrice(rs.getInt(3));
+                cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
+    
+    public ArrayList queryFurnitureByNameDesc(String type) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE TYPE= ? order by name desc";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            pStmnt.setString(1, type);
+            //Statement s = cnnct.createStatement();
+            ResultSet rs = pStmnt.executeQuery();
+
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                FurnitureBean cb = new FurnitureBean();
+                cb.setFurnitureId(rs.getString(1));
+                cb.setName(rs.getString(2));
+                cb.setPrice(rs.getInt(3));
+                cb.setModel(rs.getString(4));
+                cb.setDescription(rs.getString(5));
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
+    
     public ArrayList queryFurnitureByPrice() {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;

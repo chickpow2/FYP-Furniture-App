@@ -57,7 +57,7 @@ public class HandleEdit extends HttpServlet {
         if (c != null) {
             c.setFurnitureId(id);
             c.setName(name);
-            c.setPrice(price);
+            c.setPrice(Integer.parseInt(price));
             c.setModel(model);
             c.setStock(stock);
             c.setDescription(descrip);

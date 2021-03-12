@@ -36,7 +36,7 @@
 <style>
 
 
-[class*="BT"]{width:250px;display:block;position:absolute;padding:0;border-color:#0fbbad;margin:0 0 10px;line-height:6px;border-style:solid;left:50%;margin-left:-125px;height:60px;}
+[class*="BT"]{width:260px;display:block;position:absolute;padding:0;border-color:#0fbbad;margin:0 0 10px;line-height:6px;border-style:solid;left:50%;margin-left:-125px;height:60px;}
 [class*="BT"] hover{position:absolute;z-index:5;width:246px;margin-left:-370px;  transition: all 0.3s ease-out 0s;    background: -moz-linear-gradient(45deg,  rgba(255,255,255,0) 0%, rgba(135,135,135,0.38) 50%, rgba(255,255,255,0) 100%); /* FF3.6+ */background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(135,135,135,0.38)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */background: -webkit-linear-gradient(45deg,  rgba(255,255,255,0) 0%,rgba(135,135,135,0.38) 50%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */background: -o-linear-gradient(45deg,  rgba(255,255,255,0) 0%,rgba(135,135,135,0.38) 50%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */background: -ms-linear-gradient(45deg,  rgba(255,255,255,0) 0%,rgba(135,135,135,0.38) 50%,rgba(255,255,255,0) 100%); /* IE10+ */background: linear-gradient(45deg,  rgba(255,255,255,0) 0%,rgba(135,135,135,0.38) 50%,rgba(255,255,255,0) 100%); /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */  height:60px;margin-top:-30px;}
 [class*="OH"]{overflow:hidden;}
 [class*="BR"]{border-width:2px;}
@@ -95,7 +95,7 @@ canvas{margin: 0;padding: 0;display:block;position:absolute;margin-top:-30px;}
                                 <button id="button" class="BT-OH-BR-R6-NF-FH-FP-TU-PT" style="background-color:#FFFF00;position:relative;top:65px;left:-130px;font-size:15px" onclick="window.location.href='handleFurniture?action=limitproductList'">
                                     <canvas id="canvas" width="246" height="60"></canvas> 
                                     <hover></hover>
-                                    <span>Click Here for Limit Sell !!</span>
+                                    <span>Limit Sell Here !!</span>
                                 </button>
                               </p>    
                                 </li>

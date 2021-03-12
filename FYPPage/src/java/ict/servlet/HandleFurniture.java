@@ -4,6 +4,7 @@
  */
 package ict.servlet;
 
+import com.google.gson.Gson;
 import ict.bean.FurnitureBean;
 import ict.bean.ShoppingCartBean;
 import ict.bean.*;
@@ -198,7 +199,6 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
-
         } else if ("limitproductList".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
@@ -206,14 +206,13 @@ public class HandleFurniture extends HttpServlet {
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);
 
-
         } else if ("productList".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/product.jsp");
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);
-            
+
         } else if ("receipt".equalsIgnoreCase(action)) {
             HttpSession session = request.getSession(true); //v
             UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
@@ -225,38 +224,54 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/receipt.jsp");// V
             rd.forward(request, response);// V
 
-        }else if ("categorySort".equalsIgnoreCase(action)) {
+        } else if ("categorySort".equalsIgnoreCase(action)) {
             String type = request.getParameter("type");
             String sort = request.getParameter("sort");
             ArrayList<FurnitureBean> furnitureList = null;
 
-            switch(sort) {
+            switch (sort) {
                 case "asc":
                     if (type != null) {
-                    furnitureList = db.queryCustByType(type);
-                    } else furnitureList = db.queryFurnitureByPrice();
+                        furnitureList = db.queryCustByType(type);
+                    } else {
+                        furnitureList = db.queryFurnitureByPrice();
+                    }
                     break;
                 case "desc":
-                    if(type != null) {
-                    furnitureList = db.queryFurnitureByTypeDesc(type);
-                    } else furnitureList = db.queryFurnitureByPriceDesc();
+                    if (type != null) {
+                        furnitureList = db.queryFurnitureByTypeDesc(type);
+                    } else {
+                        furnitureList = db.queryFurnitureByPriceDesc();
+                    }
                     break;
                 case "ascName":
-                    if(type != null) {
-                    furnitureList = db.queryFurnitureByNameAsc(type);
-                    } else furnitureList = db.queryFurnitureByName();
+                    if (type != null) {
+                        furnitureList = db.queryFurnitureByNameAsc(type);
+                    } else {
+                        furnitureList = db.queryFurnitureByName();
+                    }
                     break;
                 case "descName":
-                    if(type != null) {
-                    furnitureList = db.queryFurnitureByNameDesc(type);
-                    } else furnitureList = db.queryFurnitureByNameDesc();
+                    if (type != null) {
+                        furnitureList = db.queryFurnitureByNameDesc(type);
+                    } else {
+                        furnitureList = db.queryFurnitureByNameDesc();
+                    }
                     break;
             }
-            
+
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/product.jsp");
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);
+        } else if ("jsonData".equalsIgnoreCase(action)) {
+            ArrayList<FurnitureBean> heads = db.queryCust();
+
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+
+            String json = new Gson().toJson(heads);
+            out.print(json);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

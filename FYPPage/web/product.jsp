@@ -37,50 +37,50 @@
 
     <!-- loader  -->
 
-<style>
-.dropbtn {
-    background-color: #808080;
-    color: white;
-    padding: 2px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-}
+    <style>
+        .dropbtn {
+            background-color: #808080;
+            color: white;
+            padding: 2px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
 
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 1000px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 1000px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+        .dropdown-content a:hover {background-color: #f1f1f1}
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-</style>
-    
-    
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+
+
 
 </div>
 
@@ -116,18 +116,24 @@
                             <label><strong class="black"><h2>Search :</h2></strong></label>
                             <input type="hidden" name="action" value="search1"/>
                             <input name="search"  type="text" value=""/>&nbsp
+<<<<<<< HEAD
                             <input type="submit"  class="dropbtn"  value="search" style="width:100px"/>
                             
+=======
+                            <input type="submit"  class="dropbtn"  value="search"/>
+
+>>>>>>> fa1d9d6062a41faeaaa0e2789307446632550d9c
                         </form>
 
-                       <p>&nbsp</p>
-                        
+                        <p>&nbsp</p>
+
                         <!--   <form  method="GET" action="handleFurniture?action=search2">   search2 button 用作啟動排序搜尋的方式 
                             <label><strong class="black">Search2 :</strong></label>
                             <input type="hidden" name="action" value="search2"/>
                             <input name="search"  type="text" value=""/>&nbsp
                             <input type="submit" class="btn btn-primary" value="search"/>
                         </form>!-->
+<<<<<<< HEAD
                       <!--
                       <div class="dropdown">
                         <button class="btn btn-primary">Furniture Type</button>
@@ -184,9 +190,60 @@
                             <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
                             <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
                             <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+=======
+
+                        <div class="dropdown">
+                            <button class="btn btn-primary">Furniture Type</button>
+                            <div class="dropdown-content">
+                                <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
+                                <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
+                                <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
+                                <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
+                                <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
+                            </div>
+>>>>>>> fa1d9d6062a41faeaaa0e2789307446632550d9c
                         </div>
-                        <br>
-                      -->
+                        &nbsp
+                        <div class="dropdown">
+                            <button class="btn btn-primary">Sorting Way</button>
+                            <div class="dropdown-content">
+                                <div class="list-group" id="list-tab" name ="type" role="tablist">
+                                    <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
+                                    <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
+                                    <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
+                                    <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+                                </div>
+                            </div>
+                        </div>  
+
+                        <p>&nbsp</p>
+                        <p>&nbsp</p>
+                        <p>&nbsp</p>
+
+
+
+                        <!--  If you guys dont want to using drop down list
+                          <br><label><strong class="black">Category</strong></label><br>
+                          <div class="list-group" id="list-tab" name ="type" role="tablist">
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
+                          </div>
+                          <br>
+                          
+                          
+                          
+                          <label><strong class="black">Sort</strong></label><br>
+                          <div class="list-group" id="list-tab" name ="type" role="tablist">
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+                          </div>
+                          <br>
+                        -->
 
                         <br>
                         <fieldset style="border: 3px solid #0fbbad; width: 950px; height:240px;border-radius:8px" >
@@ -216,20 +273,18 @@
                     
                         <br><label><strong class="black">Category</strong></label><br>
 
-
+                        <p>&nbsp</p>          <p>&nbsp</p>
                     </div>                   
-               
+
 
 
 
                     <%
                         // out.println("<div class='container'>");
                         //out.println("<form  method=\"GET\" action=\"handleFurniture?action=search1\"><label>Search :</label>&nbsp<input id=\"search\" name=\"search\" />&nbsp <input type=\"submit\" class=\"btn btn-primary\" value=\"search\"/></form></div><br>");
-
-                       String [] array = new String [furnitureList.size()]; //Testing
-                       int [] array2 = new int [furnitureList.size()]; //Testing
-                       String [] accendingAlphapetArray = new String [furnitureList.size()]; //英文字母由 A-->Z 方式排
-                       
+                        String[] array = new String[furnitureList.size()]; //Testing
+                        int[] array2 = new int[furnitureList.size()]; //Testing
+                        String[] accendingAlphapetArray = new String[furnitureList.size()]; //英文字母由 A-->Z 方式排
 
                         for (int i = 0; i < furnitureList.size(); i++) {
                             out.println("<tr><br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
@@ -246,7 +301,7 @@
                             out.println("</div></div></div></tr>");
                         }
 
-                      /*  
+                        /*  
                     Arrays.sort(array);//Test
                         Arrays.sort(array2);//Test
                         Arrays.sort(accendingAlphapetArray); //進行排序動作
@@ -270,15 +325,15 @@
                         }
                         out.println("<p></p>");
                     // out.println(Arrays.toString(array));
-                    */
+                         */
 
                     %>  
 
-                  
-                    
-                   
-                    
-                    
+
+
+
+
+
                     <!-- end product -->
 
                 </div>

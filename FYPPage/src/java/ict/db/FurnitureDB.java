@@ -313,7 +313,7 @@ public class FurnitureDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE TYPE= ?";
+            String preQueryStatement = "SELECT * FROM  FURNITURE WHERE TYPE= ? order by price asc";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
             pStmnt.setString(1, type);
             //Statement s = cnnct.createStatement();

@@ -155,14 +155,7 @@
                       <p>&nbsp</p>
                       <p>&nbsp</p>
                       <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
+
                       
                       
                       <!--  If you guys dont want to using drop down list
@@ -207,7 +200,7 @@
                         </form>
                         <br><label><strong class="black">Category</strong></label><br>
 
-
+          <p>&nbsp</p>          <p>&nbsp</p>
                     </div>                   
                
 

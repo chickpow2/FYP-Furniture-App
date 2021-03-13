@@ -2,11 +2,11 @@
 
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
 
-      <meta http-equiv = "refresh" content = "3; url = handleFurniture?action=list" />
-   </head>
-   <body>
+        <meta http-equiv = "refresh" content = "3; url = handleFurniture?action=list" />
+    </head>
+    <body>
 
-   </body>
+    </body>
 </html>

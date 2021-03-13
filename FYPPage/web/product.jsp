@@ -116,13 +116,13 @@
                             <label><strong class="black"><h2>Search :</h2></strong></label>
                             <input type="hidden" name="action" value="search1"/>
                             <input name="search"  type="text" value=""/>&nbsp
-<<<<<<< HEAD
+
                             <input type="submit"  class="dropbtn"  value="search" style="width:100px"/>
                             
-=======
-                            <input type="submit"  class="dropbtn"  value="search"/>
 
->>>>>>> fa1d9d6062a41faeaaa0e2789307446632550d9c
+                          
+
+
                         </form>
 
                         <p>&nbsp</p>
@@ -133,7 +133,7 @@
                             <input name="search"  type="text" value=""/>&nbsp
                             <input type="submit" class="btn btn-primary" value="search"/>
                         </form>!-->
-<<<<<<< HEAD
+
                       <!--
                       <div class="dropdown">
                         <button class="btn btn-primary">Furniture Type</button>

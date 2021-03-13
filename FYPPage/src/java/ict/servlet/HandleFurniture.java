@@ -224,7 +224,41 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/receipt.jsp");// V
             rd.forward(request, response);// V
 
-        } else if ("categorySort".equalsIgnoreCase(action)) {
+        } else if ("sort".equalsIgnoreCase(action)) { //for price and name sort only
+            String type = request.getParameter("type");
+            ArrayList<FurnitureBean> furnitureList = null;
+
+            switch (type) {
+                case "asc":
+                    furnitureList = db.queryFurnitureByPrice();
+                    break;
+                case "desc":
+                    furnitureList = db.queryFurnitureByPriceDesc();
+                    break;
+                case "ascName":
+                    furnitureList = db.queryFurnitureByName();
+                    break;
+                case "descName":
+                    furnitureList = db.queryFurnitureByNameDesc();
+                    break;
+            }
+
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/product.jsp");
+            request.setAttribute("furnitureList", furnitureList);
+            rd.forward(request, response);
+        }  else if ("type".equalsIgnoreCase(action)) { // for type sort only
+            // call the query db to get retrieve for all customer
+            String type = request.getParameter("type");
+            if (type != null) {
+
+                ArrayList<FurnitureBean> furnitureList = db.queryCustByType(type);
+                RequestDispatcher rd;
+                rd = getServletContext().getRequestDispatcher("/product.jsp");
+                request.setAttribute("furnitureList", furnitureList);
+                rd.forward(request, response);
+            }
+        } else if ("categorySort".equalsIgnoreCase(action)) { //for type, price, name sort at the same time
             String type = request.getParameter("type");
             String sort = request.getParameter("sort");
             ArrayList<FurnitureBean> furnitureList = null;

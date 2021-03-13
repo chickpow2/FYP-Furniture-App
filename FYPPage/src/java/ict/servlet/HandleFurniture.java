@@ -4,7 +4,7 @@
  */
 package ict.servlet;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import ict.bean.FurnitureBean;
 import ict.bean.ShoppingCartBean;
 import ict.bean.*;
@@ -270,8 +270,8 @@ public class HandleFurniture extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
 
-            String json = new Gson().toJson(heads);
-            out.print(json);
+          //  String json = new Gson().toJson(heads);
+        //    out.print(json);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

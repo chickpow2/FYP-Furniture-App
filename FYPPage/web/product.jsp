@@ -118,9 +118,9 @@
                             <input name="search"  type="text" value=""/>&nbsp
 
                             <input type="submit"  class="dropbtn"  value="search" style="width:100px"/>
-                            
 
-                          
+
+
 
 
                         </form>
@@ -134,94 +134,34 @@
                             <input type="submit" class="btn btn-primary" value="search"/>
                         </form>!-->
 
-                      <!--
-                      <div class="dropdown">
-                        <button class="btn btn-primary">Furniture Type</button>
-                        <div class="dropdown-content">
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
-                        </div>
-                      </div>
-                       &nbsp
-                       <div class="dropdown">
-                        <button class="btn btn-primary">Sorting Way</button>
-                        <div class="dropdown-content">
-                        <div class="list-group" id="list-tab" name ="type" role="tablist">
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
-                        </div>
-                        </div>
-                      </div>  
-                        
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      <p>&nbsp</p>
-                      --!>
-                      
-                      <!--  If you guys dont want to using drop down list
-                        <br><label><strong class="black">Category</strong></label><br>
-                        <div class="list-group" id="list-tab" name ="type" role="tablist">
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
-                        </div>
-                        <br>
-                        
-                        
-                        
-                        <label><strong class="black">Sort</strong></label><br>
-                        <div class="list-group" id="list-tab" name ="type" role="tablist">
-                            <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
-                            <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
-=======
-
+                        <!--
                         <div class="dropdown">
-                            <button class="btn btn-primary">Furniture Type</button>
-                            <div class="dropdown-content">
-                                <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
-                                <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
-                                <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
-                                <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
-                                <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
-                            </div>
->>>>>>> fa1d9d6062a41faeaaa0e2789307446632550d9c
+                          <button class="btn btn-primary">Furniture Type</button>
+                          <div class="dropdown-content">
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
+                          </div>
                         </div>
-                        &nbsp
-                        <div class="dropdown">
-                            <button class="btn btn-primary">Sorting Way</button>
-                            <div class="dropdown-content">
-                                <div class="list-group" id="list-tab" name ="type" role="tablist">
-                                    <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
-                                    <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
-                                    <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
-                                    <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
-                                </div>
-                            </div>
+                         &nbsp
+                         <div class="dropdown">
+                          <button class="btn btn-primary">Sorting Way</button>
+                          <div class="dropdown-content">
+                          <div class="list-group" id="list-tab" name ="type" role="tablist">
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+                          </div>
+                          </div>
                         </div>  
-
+                          
                         <p>&nbsp</p>
                         <p>&nbsp</p>
-                        <p>&nbsp</p>
-
-
-
+                        --!>
+                        
                         <!--  If you guys dont want to using drop down list
                           <br><label><strong class="black">Category</strong></label><br>
                           <div class="list-group" id="list-tab" name ="type" role="tablist">
@@ -232,8 +172,53 @@
                               <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
                           </div>
                           <br>
-                          
-                          
+                                                                            
+                          <label><strong class="black">Sort</strong></label><br>
+                          <div class="list-group" id="list-tab" name ="type" role="tablist">
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+  
+                          <div class="dropdown">
+                              <button class="btn btn-primary">Furniture Type</button>
+                              <div class="dropdown-content">
+                                  <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
+                                  <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
+                                  <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
+                                  <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
+                                  <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
+                              </div>
+                          </div>
+                          &nbsp
+                          <div class="dropdown">
+                              <button class="btn btn-primary">Sorting Way</button>
+                              <div class="dropdown-content">
+                                  <div class="list-group" id="list-tab" name ="type" role="tablist">
+                                      <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=sort&type=asc">Price: Low to High</a>
+                                      <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=desc">Price: High to Low</a>
+                                      <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=ascName">Name: A to Z</a>
+                                      <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=sort&type=descName">Name: Z to A</a>
+                                  </div>
+                              </div>
+                          </div>  
+  
+                          <p>&nbsp</p>
+                          <p>&nbsp</p>
+                          <p>&nbsp</p>
+  
+  
+  
+                        <!--  If you guys dont want to using drop down list
+                          <br><label><strong class="black">Category</strong></label><br>
+                          <div class="list-group" id="list-tab" name ="type" role="tablist">
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=sofa"  value="sofa">Sofa</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=table" role="tab" aria-controls="profile">Table</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=chair" role="tab" aria-controls="messages">Chair</a>
+                              <a  class="list-group-item list-group-item-action"   href="handleFurniture?action=type&type=electronic" role="tab" aria-controls="settings">Electronics</a>
+                              <a  class="list-group-item list-group-item-action"  href="handleFurniture?action=type&type=other" role="tab" aria-controls="settings">Other</a>
+                          </div>
+                          <br>                       
                           
                           <label><strong class="black">Sort</strong></label><br>
                           <div class="list-group" id="list-tab" name ="type" role="tablist">
@@ -245,35 +230,48 @@
                           <br>
                         -->
 
+
                         <br>
                         <fieldset style="border: 3px solid #0fbbad; width: 950px; height:240px;border-radius:8px" >
                             <br>
                             <form method="GET" action="handleFurniture?action=categorySort" style="font-size:25px;">
-                            <input type="hidden" name="action" value="categorySort">
-                            <label><strong class="black">Category:</strong></label>
-                            <input type="radio" name="type" value="sofa" checked style="height:25px; width:25px;">Sofa
-                            <input type="radio" name="type" value="table" style="height:25px; width:25px;">Table
-                            <input type="radio" name="type" value="chair" style="height:25px; width:25px;">Chair
-                            <input type="radio" name="type" value="electronic" style="height:25px; width:25px;">Electronic
-                            <input type="radio" name="type" value="other" style="height:25px; width:25px;">Other
-                            <br>
-                            <label><strong class="black">Sort:</strong></label>
-                            <input type="radio" name="sort" value="asc" checked style="height:25px; width:25px;">Price: Low to High
-                            <input type="radio" name="sort" value="desc" style="height:25px; width:25px;">Price: High to Low
-                            <input type="radio" name="sort" value="ascName" style="height:25px; width:25px;">Name: A to Z
-                            <input type="radio" name="sort" value="descName" style="height:25px; width:25px;">Name: Z to A
-                            <br>
-                            <input type="submit" class="btn btn-primary" value="Sort" style="width:100px"/>
-                            <input type="reset"   class="btn btn-primary" value="Clear" style="width:100px"/>
-                        </form>
-                     
-                        </fieldset>
-                   
-                      
-                    
-                        <br><label><strong class="black">Category</strong></label><br>
+                                <input type="hidden" name="action" value="categorySort">
+                                <!--
+                                        <label><strong class="black">Category:</strong></label>
+                                        <input type="radio" name="type" value="sofa" checked style="height:25px; width:25px;">Sofa
+                                        <input type="radio" name="type" value="table" style="height:25px; width:25px;">Table
+                                        <input type="radio" name="type" value="chair" style="height:25px; width:25px;">Chair
+                                        <input type="radio" name="type" value="electronic" style="height:25px; width:25px;">Electronic
+                                        <input type="radio" name="type" value="other" style="height:25px; width:25px;">Other
+                                        <br>
+                                        <label><strong class="black">Sort:</strong></label>
+                                        <input type="radio" name="sort" value="asc" checked style="height:25px; width:25px;">Price: Low to High
+                                        <input type="radio" name="sort" value="desc" style="height:25px; width:25px;">Price: High to Low
+                                        <input type="radio" name="sort" value="ascName" style="height:25px; width:25px;">Name: A to Z
+                                        <input type="radio" name="sort" value="descName" style="height:25px; width:25px;">Name: Z to A
+                                        <br>
+                                
+                                -->
+                                Category:
+                                <select name="sort">
+                                    <option value="asc">Price: Low to High</option>
+                                    <option value="desc">Price: High to Low</option>
+                                    <option value="ascName">Name: A to Z</option>
+                                    <option value="descName">Name: Z to A</option>
+                                </select>
+                                <select name="type" onchange="this.form.submit()">
+                                    <option hidden disabled selected value> -- select a category -- </option>
+                                    <option value="sofa">Sofa</option>
+                                    <option value="table">Table</option>
+                                    <option value="chair">Chair</option>
+                                    <option value="electronic">Electronic</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </form>
 
-                        <p>&nbsp</p>          <p>&nbsp</p>
+                        </fieldset>
+
+                        <p>&nbsp</p><p>&nbsp</p>
                     </div>                   
 
 

@@ -138,15 +138,21 @@ public class HandleFurniture extends HttpServlet {
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);*/
             ////////////////////////////////////////////////////////////////////
-            HttpSession session = request.getSession(true); //v
-            UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
-            ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
-            request.setAttribute("shoppingCartList", shoppingCartList);// V
-            ArrayList furnitures = db.queryCust();
-            request.setAttribute("furnitures", furnitures);// V
-            RequestDispatcher rd;// V
-            rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
-            rd.forward(request, response);// V
+            if (!isAuthenticated(request)) {
+                HttpSession session = request.getSession(true); //v
+                UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
+                ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
+                request.setAttribute("shoppingCartList", shoppingCartList);// V
+                ArrayList furnitures = db.queryCust();
+                request.setAttribute("furnitures", furnitures);// V
+                RequestDispatcher rd;// V
+                rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
+                rd.forward(request, response);// V
+            }else{
+                RequestDispatcher rd;// V
+                rd = getServletContext().getRequestDispatcher("/login.jsp");// V
+                rd.forward(request, response);
+            }
 
         } else if ("getEditFurniture".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
@@ -247,7 +253,7 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/product.jsp");
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);
-        }  else if ("type".equalsIgnoreCase(action)) { // for type sort only
+        } else if ("type".equalsIgnoreCase(action)) { // for type sort only
             // call the query db to get retrieve for all customer
             String type = request.getParameter("type");
             if (type != null) {
@@ -304,12 +310,22 @@ public class HandleFurniture extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
 
-          //  String json = new Gson().toJson(heads);
-        //    out.print(json);
+            //  String json = new Gson().toJson(heads);
+            //    out.print(json);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");
         } //no other else if 
+    }
+
+    private boolean isAuthenticated(HttpServletRequest request) {
+        boolean result = false;
+        HttpSession session = request.getSession();
+        //get the UserInfo from session
+        if (session.getAttribute("userInfo") != null) {
+            result = true;
+        }
+        return result;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

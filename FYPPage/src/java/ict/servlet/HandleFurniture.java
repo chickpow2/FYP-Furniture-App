@@ -139,6 +139,10 @@ public class HandleFurniture extends HttpServlet {
             rd.forward(request, response);*/
             ////////////////////////////////////////////////////////////////////
             if (!isAuthenticated(request)) {
+                RequestDispatcher rd;// V
+                rd = getServletContext().getRequestDispatcher("/login.jsp");// V
+                rd.forward(request, response);
+            } else {
                 HttpSession session = request.getSession(true); //v
                 UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
                 ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
@@ -148,10 +152,6 @@ public class HandleFurniture extends HttpServlet {
                 RequestDispatcher rd;// V
                 rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
                 rd.forward(request, response);// V
-            }else{
-                RequestDispatcher rd;// V
-                rd = getServletContext().getRequestDispatcher("/login.jsp");// V
-                rd.forward(request, response);
             }
 
         } else if ("getEditFurniture".equalsIgnoreCase(action)) {

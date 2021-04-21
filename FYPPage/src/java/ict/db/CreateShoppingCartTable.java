@@ -5,7 +5,7 @@
  */
 package ict.db;
 
-public class CreateShoppingCartTable11 {
+public class CreateShoppingCartTable {
 
     public static void main(String arg[]) {
 

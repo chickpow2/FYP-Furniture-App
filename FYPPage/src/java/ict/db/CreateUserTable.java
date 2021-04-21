@@ -15,7 +15,7 @@ public class CreateUserTable {
         String password = "APP";
 
         UserDB userDB = new UserDB(url, username, password);
-        //userDB.createUserInfoTable();
+        userDB.createUserInfoTable();
         userDB.addUser("abc", "123","Staff","12345678");
     }
 }

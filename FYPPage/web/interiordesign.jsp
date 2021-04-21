@@ -72,7 +72,7 @@
                     <div class="news-box">
                         <a href="handleInterior?action=interiorDesignDetail&id=<%out.print(c.getID());%>"><figure><img src="interior_design/<%out.print(c.getID());%>.jpg" alt="img" /></figure>
                         <h3><%out.print(c.getDescription());%></h3>
-                        <span> March 20</span><span>Comment</span>
+                        
                         <p><%out.print(c.getTitle());%></p></a>
                     </div>
                 </div>

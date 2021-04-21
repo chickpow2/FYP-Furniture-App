@@ -5,7 +5,7 @@
  */
 package ict.db;
 
-public class CreateInteriorTable1 {
+public class CreateInteriorTable {
 
     public static void main(String arg[]) {
 

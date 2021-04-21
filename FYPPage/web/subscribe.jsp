@@ -29,8 +29,18 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
    </head>
+   <!-- body -->
+    
+      <!-- loader  -->
+       
+          
+      </div>
+
+     <div class="wrapper">
+
+   <%@include file="/header.jsp" %>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+
 
 form {
   border: 3px solid #f1f1f1;
@@ -86,7 +96,7 @@ h4 {
 
      <div class="wrapper">
 
-     <%@include file="/header.jsp" %>
+
      
 
       <!-- end header -->

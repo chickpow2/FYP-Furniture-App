@@ -103,9 +103,7 @@ canvas{margin: 0;padding: 0;display:block;position:absolute;margin-top:-30px;}
                                <!--     <a href="handleFurniture?action=limitproductList"><img style="margin-right: 15px;" src="icon/20sale.png" width="100" height="100" alt="20%off" /></a> --><!-- for AR function -->
                              <!--   </li>-->
                                 
-                                <li>
-                                    <a href="#"><img style="margin-right: 15px;" src="icon/5.png" width="35" height="35" alt="AR Function" /></a> <!-- for AR function -->
-                                </li>
+
                                 <li><a href="login.jsp"><img style="margin-right: 15px;" src="icon/1.png" alt="#" /></a></li>
 
                                 <li><a href="handleFurniture?action=shoppingCart"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a></li>

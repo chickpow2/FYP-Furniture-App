@@ -101,7 +101,7 @@
                                             + "<div class='product_detail text_align_center'>");
                                     out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice());
                                     out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getName() + "</p>");
-                                    total += Integer.parseInt(furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice());
+                                    total += furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice();
                                     out.println("</div></div></div>");
                                 }
                             %>

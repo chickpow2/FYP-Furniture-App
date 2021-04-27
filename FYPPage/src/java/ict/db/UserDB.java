@@ -93,6 +93,40 @@ public class UserDB {
         return isValid;
     }
     
+    public boolean existUser(String user) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        boolean exist = false;
+
+        try {
+            //1.  get Connection
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM  USERINFO WHERE username =  ?";
+            //2.  get the prepare Statement
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            //3. update the placehoder with id
+            pStmnt.setString(1, user);
+            ResultSet rs = null;
+            //4. execute the query and assign to the result 
+            rs = pStmnt.executeQuery();
+
+            if (rs.next()) {
+                exist = true;
+            }
+
+            pStmnt.close();
+            cnnct.close();
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return exist;
+    }
+    
     public boolean addUser(String username, String password, String position, String tel) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;

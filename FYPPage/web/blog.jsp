@@ -43,28 +43,10 @@ var tab1=document.getElementById("tab1");
 var tab2=document.getElementById("tab2");
 tab1.style.display=(tab1.style.display=="none"?"":"none");
 tab2.style.display=(tab2.style.display=="none"?"":"none");
+
 }
 
-function f2(){
-var tab3=document.getElementById("tab3");
-var tab4=document.getElementById("tab4");
-tab3.style.display=(tab3.style.display=="none"?"":"none");
-tab4.style.display=(tab4.style.display=="none"?"":"none");
-}
 
-function f3(){
-var tab5=document.getElementById("tab5");
-var tab6=document.getElementById("tab6");
-tab5.style.display=(tab5.style.display=="none"?"":"none");
-tab6.style.display=(tab6.style.display=="none"?"":"none");
-}
-
-function f4(){
-var tab7=document.getElementById("tab7");
-var tab8=document.getElementById("tab8");
-tab7.style.display=(tab7.style.display=="none"?"":"none");
-tab8.style.display=(tab8.style.display=="none"?"":"none");
-}
 
 function saveStorage(id){
     var data = document.getElementById(id).value;
@@ -74,18 +56,24 @@ function saveStorage(id){
     loadStorage('msg');
 }
 
+
+
 function loadStorage(id){
         var i ;
-        var result='<table border="0">';
+        var result='<table border="0" width=1070 >';
         
-    for( i=1;i<localStorage.length;i++)
+    for( i=0;i<localStorage.length;i++)
     {
+ 
         var key=localStorage.key(i);
         var value = localStorage.getItem(key);
         var date = new Date();
         date.setTime(key);
-        var datestr = date.toGMTString();
-        result +='<tr><td>'+'Customer ' +i+ ' Said: </td><td>'+value+'</td><td>'+ '(Release on ' +datestr+ ')' + '</td></tr>';
+        var datestr = date.toLocaleString();
+        result +='<tr><td >'+ '<h3 style="color:blue" ><img src="images/customerLogo.png" width=70 height=70/> Customer ' +(i+1)+ ' Said:</h3><br><h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ' + value + '</h3>'+ '<h3 align = "right"> (Release on ' +datestr+ ')</h3>' + '<hr></td></tr>';
+       
+        document.querySelector('#cmd').value = 'Comment(' + localStorage.length + ')';
+   
     
     }
     
@@ -94,14 +82,25 @@ function loadStorage(id){
     target.innerHTML = result;
 }
 
+
+
+
+
+
+
 function clearStorage(id){
     localStorage.clear();
     alert("Data has been deleted");
     loadStorage('msg');
+    
+     document.querySelector('#cmd').value = 'Comment(' + (localStorage.length) + ')';
 }
+
 
 </script>
 
+<body onload="document.getElementById('readbt').click();">    
+    
 <div class="wrapper">
 
     <%@include file="/header.jsp" %>
@@ -121,125 +120,143 @@ function clearStorage(id){
             </div>
         </div>
     </div>
+    <br>
+    <br>
+   <p align = "center" style="font-size:50px;"><b><u>Theme : Table</b></u></p>
+   
+    
+    <div id="myCarousel" class="carousel slide banner_Client" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container">
+                                <div class="carousel-caption text">
+                                    <div class="row">
+                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                                            <div class="img_bg">
+                                                <strong class="black_nolmal"><h1 align="left"><b><u>Leaves Table</u></b> <br><br>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters </h1></p></strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                            <div class="img_bg">
+                                                <figure><img src="images/Dining1.jpg" /></figure>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="carousel-caption text">
+                                    <div class="row">
+                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                                            <div class="img_bg">
+                                                <strong class="black_nolmal"><h1 align="left"><b><u>Light Bamboo Dining Table</u><br><br></b>Gateleg tables have been around for centuries ? with the space-saving design it's no wonder why. We gave this table a straightforward, Scandinavian look and added a few drawers for cutlery and napkins.
+                            Table with drop-leaves seats 2-4; makes it possible to adjust the table size according to need.</h1></strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                            <div class="img_bg">
+                                                <figure><img src="images/Dining2.jpg" /></figure>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="carousel-caption text">
+                                    <div class="row">
+                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                                            <div class="img_bg">
+                                                <strong class="black_nolmal"> <h1 align="left"><b><u>Moon Dining Table</b></u><br><br>Bring the warmth of wood into any part of your home with LISABO living room furniture. Natural wood grain gives each table and bench a unique pattern. And though the solid birch legs and ash veneer tops are naturally durable, we added a hardwearing lacquer coating that's even more resistant to the bumps and thumps of everyday life.
+                                                </h1></strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                            <div class="img_bg">
+                                                <figure><img src="images/Dining3.jpg"  /></figure>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="carousel-caption text">
+                                    <div class="row">
+                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                                            <div class="img_bg">
+                                                <strong class="black_nolmal"><h1 align="left"><b><u> Rectangular Table</b></u><br><br>Mix and match your choice of table top and legs or choose this ready-made combination. Strong and light-weight, made with a technique that uses less raw materials, reducing the impact on the environment.</h1></strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                            <div class="img_bg">
+                                                <figure><img src="images/Dining4.jpg" /></figure>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+    
+    
     <div class="blog">
         <div class="container">
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
+                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12 margin">
                     <div class="news-box">
-                        <figure><img src="images/blol.jpg" alt="img" /></figure>
-                        <h3>Wood Table</h3>
-                        <span> March 20</span><span>
+                       
+                        
+                        <span>
                           
-                        <input type="button" onclick="f1()" value="Comment" style="background: none;border: none;color:#0fbbad"/>
+                            <center><input type="button" onclick="f1()" id="cmd"   value="Comment(0)" style="cursor: pointer;background: none;border: none;color:#0fbbad;font-size: 24px;"/></center> <!-- show comment number  and remember add to use case diagram!-->
                         <table border=0 id="tab1"  style="display:none;">
                         <tr>
                             <td></td>
                         </tr>
                         </table>
-                        <table border=1 id="tab2" style="display:none; background-color: Transparent;border: none;">
+                        <table border=0 id="tab2"  style="display:none; background-color: Transparent;border: none;">
                         <tr>
                         <td>
-                            <textarea id="dome" cols="60" rows="10"></textarea>
-                            <input type="button" value="Save" onclick="saveStorage('dome');">
-                            <input type="button" value="Clear" onclick="clearStorage('msg');">
-                            <input type="button" value="Read" onclick="loadStorage('msg');">
+                            <textarea id="dome" cols="60" rows="10" placeholder="Enter With Your Comments !!!" style="width:1100px;height:120px;font-size: 24px;"></textarea>
+                            <input type="button" value="Send" style="border:3px solid ;cursor: pointer;width:250px;margin:50px;background-color:lightblue ;border-color: #4CAF50;font-color:#0fbbad;font-size: 24px;float: left;" onclick="saveStorage('dome');">
+                            
+                            <input type="button" value="Commend Record" style="background: none;border: none;color:#0fbbad;font-size: 24px;visibility:hidden;" id="readbt" onclick="loadStorage('msg');">
+                            
+                            <input type="button" value="Clear All Comment" style="border:3px solid black ;cursor: pointer;width:250px;margin:50px;background-color:red ;font-color:#0fbbad;font-size: 24px;float: right;" onclick="clearStorage('msg');">
                             <p id="msg"></p>
                         </td>
                         </tr>
                         </table>
+                        
+                        
+                        
                         <br>
                        
                         </span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters </p>
+                        
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                    <div class="news-box">
-                        <figure><img src="images/blog.jpg" alt="img" /></figure>
-                        <h3>LISABO</h3>
-                        <span> March 20</span>
-                        <span>
-                         <input type="button" onclick="f2();" value="Comment" style="background: none;border: none;color:#0fbbad"/>
-                        <table border=0 id="tab3"  style="display:none;">
-                        <tr>
-                            <td></td>
-                        </tr>
-                        </table>
-                        <table border=1 id="tab4" style="display:none; background-color: Transparent;border: none;">
-                        <tr>
-                        <td>
-                            <textarea id="dome" cols="60" rows="10"></textarea>
-                            <input type="button" value="Save" onclick="saveStorage('dome');">
-                            <input type="button" value="Clear" onclick="clearStorage('msg');">
-                            <input type="button" value="Read" onclick="loadStorage('msg');">
-                            <p id="msg"></p>
-                        </td>
-                        </tr>
-                        </table>
-                        <br>   
-                        </span>
-                        <p>Gateleg tables have been around for centuries ? with the space-saving design it?s no wonder why. We gave this table a straightforward, Scandinavian look and added a few drawers for cutlery and napkins.
-                            Table with drop-leaves seats 2-4; makes it possible to adjust the table size according to need.</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
-                    <div class="news-box">
-                        <figure><img src="furniture/13.png" alt="img" /></figure>
-                        <h3>Tossberg</h3>
-                        <span> March 20</span>
-                        <span>
-                            <input type="button" onclick="f3();" value="Comment" style="background: none;border: none;color:#0fbbad"/>
-                        <table border=0 id="tab5"  style="display:none;">
-                        <tr>
-                            <td></td>
-                        </tr>
-                        </table>
-                        <table border=1 id="tab6" style="display:none; background-color: Transparent;border: none;">
-                        <tr>
-                        <td>
-                            <textarea id="dome" cols="60" rows="10"></textarea>
-                            <input type="button" value="Save" onclick="saveStorage('dome');">
-                            <input type="button" value="Clear" onclick="clearStorage('msg');">
-                            <input type="button" value="Read" onclick="loadStorage('msg');">
-                            <p id="msg"></p>
-                        </td>
-                        </tr>
-                        </table>
-                        <br>
-                            
-                        </span>
-                        <p>Bring the warmth of wood into any part of your home with LISABO living room furniture. Natural wood grain gives each table and bench a unique pattern. And though the solid birch legs and ash veneer tops are naturally durable, we added a hardwearing lacquer coating that?s even more resistant to the bumps and thumps of everyday life.</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                    <div class="news-box">
-                        <figure><img src="images/1.jpg" alt="img" /></figure>
-                        <h3>Stand Desk</h3>
-                        <span> March 20</span>
-                        <span>
-                        <input type="button" onclick="f4();" value="Comment" style="background: none;border: none;color:#0fbbad"/>
-                        <table border=0 id="tab7"  style="display:none;">
-                        <tr>
-                            <td></td>
-                        </tr>
-                        </table>
-                        <table border=1 id="tab8" style="display:none; background-color: Transparent;border: none;">
-                        <tr>
-                        <td>
-                            <textarea id="dome" cols="60" rows="10"></textarea>
-                            <input type="button" value="Save" onclick="saveStorage('dome');">
-                            <input type="button" value="Clear" onclick="clearStorage('msg');">
-                            <input type="button" value="Read" onclick="loadStorage('msg');">
-                            <p id="msg"></p>
-                        </td>
-                        </tr>
-                        </table>
-                        <br>    
-                            
-                        </span>
-                        <p>Mix and match your choice of table top and legs or choose this ready-made combination. Strong and light-weight, made with a technique that uses less raw materials, reducing the impact on the environment.</p>
-                    </div>
-                </div>
+
+
+
             </div>
         </div>
     </div>

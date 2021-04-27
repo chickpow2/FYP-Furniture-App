@@ -33,6 +33,9 @@
                     <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
+                <a href="register.jsp" class="btn btn-primary active" role="button" aria-pressed="true" style="float: right">
+                    Don't Have A Account? Register
+                </a>
             </div>
         </form>
 

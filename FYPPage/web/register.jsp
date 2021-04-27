@@ -46,6 +46,9 @@
                     <input type="text" class="form-control" name="phone" placeholder="Phone Number">
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
+                <a href="login.jsp" class="btn btn-primary active" role="button" aria-pressed="true" style="float: right">
+                    Already Have A Account? Login
+                </a>
             </div>
         </form>
 

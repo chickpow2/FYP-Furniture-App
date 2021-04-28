@@ -17,22 +17,39 @@
                 height: 40%;
             }
         </style>
+        <script>
+            function checking() {
+                var email = document.getElementById("email").value;
+                var pwd = document.getElementById("pwd").value;
+
+                if (email.length === 0 || pwd.length === 0) {
+                    alert("Email Adress And Password Cannot be Empty !");
+                } else if (email.length === 0) {
+                    alert("Email Adress Cannot be Empty !");
+                } else if (pwd.length === 0) {
+                    alert("Password Cannot be Empty !");
+                } else {
+                    document.getElementById("login").submit();
+                }
+
+            }
+        </script>
     </head>
     <body>
 
-        <form action="Login" method="POST" class="form_center card">
+        <form id="login" action="Login" method="POST" class="form_center card">
             <input type="hidden" name="action" value="authenticate"/>
             <center><img src="images/MFL_h.png" alt="#"></center>
             <div class="card-body">
                 <div class="form-group">
-                    <label>Email address</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username">
+                    <label>Email Address</label>
+                    <input type="text" class="form-control" id="email" name="username" placeholder="Email Address">
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control" id="pwd" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="button" class="btn btn-primary"onclick="return checking()" >Login</button>
                 <a href="register.jsp" class="btn btn-primary active" role="button" aria-pressed="true" style="float: right">
                     Don't Have A Account? Register
                 </a>

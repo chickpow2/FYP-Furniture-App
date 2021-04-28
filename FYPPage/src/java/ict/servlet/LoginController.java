@@ -7,6 +7,7 @@ package ict.servlet;
 import ict.bean.UserInfo;
 import ict.db.UserDB;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
+
 @WebServlet(name = "LoginController", urlPatterns = {"/Login"})
 public class LoginController extends HttpServlet {
 
@@ -64,8 +65,9 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         String targetURL;
         // hard code username and password is abc and 123 
-    //    if ("abc".equals(username) && "123".equals(password)) {
-        if(this.userDb.isValidUser(username, password)){
+        //    if ("abc".equals(username) && "123".equals(password)) {
+        PrintWriter out = response.getWriter();
+        if (this.userDb.isValidUser(username, password)) {
             // obtain session from request
             HttpSession session = request.getSession(true);
             UserInfo bean = new UserInfo();
@@ -73,13 +75,16 @@ public class LoginController extends HttpServlet {
             bean.setPassword(password);
             // store the userInfo to the session	
             session.setAttribute("userInfo", bean);
-            targetURL = "/redirect.jsp";
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Login Success ! Now Direct To The Main Page !');");
+            out.println("location='redirect.jsp';");
+            out.println("</script>");
         } else {
-            targetURL = "/login.jsp";
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Invalid Account !');");
+            out.println("location='login.jsp';");
+            out.println("</script>");
         }
-        RequestDispatcher rd;
-        rd = getServletContext().getRequestDispatcher("/" + targetURL);
-        rd.forward(request, response);
     }
 
     private boolean isAuthenticated(HttpServletRequest request) {

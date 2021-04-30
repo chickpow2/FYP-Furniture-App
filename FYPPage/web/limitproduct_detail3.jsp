@@ -62,7 +62,7 @@
                             </div>
                             <div class="product-detail-side">
                                 <p style='color:red;font-size:1vw'><b>After 20% OFF!</b></p>
-                                <span class="new-price">$<%=Math.floor(Integer.parseInt (c.getPrice())*0.8)%></span>
+                                <span class="new-price">$<%=(String.format("%.1f",(c.getPrice())*0.8))%></span>
                                 <span class="rating">
                                     <%for (int i = 0; i < c.getRating(); i++) {%>
                                     <i class="fa fa-star" aria-hidden="true"></i>

@@ -205,6 +205,24 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
+<<<<<<< HEAD
+        }  else if ("limitputToCart".equalsIgnoreCase(action)) {
+            // call the query db to get retrieve for a customer witht the id
+            String id = request.getParameter("id");
+
+            HttpSession session = request.getSession(true); //v
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
+            scdb.addRecord(id, ui.getUsername());
+            ArrayList<ShoppingCartBean> limitshoppingCartList = scdb.queryCustByID1(ui.getUsername());
+            request.setAttribute("shoppingCartList", limitshoppingCartList);// V
+            ArrayList limitfurnitures = db.queryCust();
+            request.setAttribute("furnitures", limitfurnitures);// V
+            RequestDispatcher rd;// V
+            rd = getServletContext().getRequestDispatcher("/limitShoppingCart.jsp");// V
+            rd.forward(request, response);// V
+
+        }  else if ("limitproductList".equalsIgnoreCase(action)) {
+=======
         } else if ("RemoveFromCart".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
             String id = request.getParameter("id"); //warning!!
@@ -223,6 +241,7 @@ public class HandleFurniture extends HttpServlet {
         }
         
         else if ("limitproductList".equalsIgnoreCase(action)) {
+>>>>>>> 306fee366188f0f9a36ddcc0df1c6113acf4cb2c
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/limitproduct.jsp");
@@ -247,7 +266,21 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/receipt.jsp");// V
             rd.forward(request, response);// V
 
-        } else if ("sort".equalsIgnoreCase(action)) { //for price and name sort only
+        } else if ("limitreceipt".equalsIgnoreCase(action)) {
+            HttpSession session = request.getSession(true); //v
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
+            ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
+            request.setAttribute("orderList", shoppingCartList);// V
+            ArrayList limitfurnitures = db.queryCust();
+            request.setAttribute("Furnitures", limitfurnitures);// V
+            RequestDispatcher rd;// V
+            rd = getServletContext().getRequestDispatcher("/limitreceipt.jsp");// V
+            rd.forward(request, response);// V
+
+        }
+        
+        
+        else if ("sort".equalsIgnoreCase(action)) { //for price and name sort only
             String type = request.getParameter("type");
             ArrayList<FurnitureBean> furnitureList = null;
 
@@ -321,7 +354,86 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/product.jsp");
             request.setAttribute("furnitureList", furnitureList);
             rd.forward(request, response);
-        } else if ("jsonData".equalsIgnoreCase(action)) {
+        } 
+        //limit sorting below
+          else if ("limitsort".equalsIgnoreCase(action)) { //for price and name sort only
+            String type = request.getParameter("type");
+            ArrayList<FurnitureBean> limitfurnitureList = null;
+
+            switch (type) {
+                case "asc":
+                    limitfurnitureList = db.queryFurnitureByPrice();
+                    break;
+                case "desc":
+                    limitfurnitureList = db.queryFurnitureByPriceDesc();
+                    break;
+                case "ascName":
+                    limitfurnitureList = db.queryFurnitureByName();
+                    break;
+                case "descName":
+                    limitfurnitureList = db.queryFurnitureByNameDesc();
+                    break;
+            }
+
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/limitproduct.jsp");
+            request.setAttribute("furnitureList", limitfurnitureList);
+            rd.forward(request, response);
+        } else if ("limittype".equalsIgnoreCase(action)) { // for type sort only
+            // call the query db to get retrieve for all customer
+            String type = request.getParameter("limittype");
+            if (type != null) {
+
+                ArrayList<FurnitureBean> limitfurnitureList = db.queryCustByType(type);
+                RequestDispatcher rd;
+                rd = getServletContext().getRequestDispatcher("/limitproduct.jsp");
+                request.setAttribute("furnitureList", limitfurnitureList);
+                rd.forward(request, response);
+            }
+        } else if ("limitcategorySort".equalsIgnoreCase(action)) { //for type, price, name sort at the same time
+            String type = request.getParameter("limittype");
+            String sort = request.getParameter("limitsort");
+            ArrayList<FurnitureBean> limitfurnitureList = null;
+
+            switch (sort) {
+                case "asc":
+                    if (type != null) {
+                        limitfurnitureList = db.queryCustByType(type);
+                    } else {
+                        limitfurnitureList = db.queryFurnitureByPrice();
+                    }
+                    break;
+                case "desc":
+                    if (type != null) {
+                        limitfurnitureList = db.queryFurnitureByTypeDesc(type);
+                    } else {
+                        limitfurnitureList = db.queryFurnitureByPriceDesc();
+                    }
+                    break;
+                case "ascName":
+                    if (type != null) {
+                        limitfurnitureList = db.queryFurnitureByNameAsc(type);
+                    } else {
+                        limitfurnitureList = db.queryFurnitureByName();
+                    }
+                    break;
+                case "descName":
+                    if (type != null) {
+                        limitfurnitureList = db.queryFurnitureByNameDesc(type);
+                    } else {
+                        limitfurnitureList = db.queryFurnitureByNameDesc();
+                    }
+                    break;
+            }
+
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/limitproduct.jsp");
+            request.setAttribute("furnitureList", limitfurnitureList);
+            rd.forward(request, response);
+        } 
+        
+        
+        else if ("jsonData".equalsIgnoreCase(action)) {
             ArrayList<FurnitureBean> heads = db.queryCust();
 
             response.setContentType("text/html;charset=UTF-8");
@@ -329,6 +441,22 @@ public class HandleFurniture extends HttpServlet {
 
             //  String json = new Gson().toJson(heads);
             //    out.print(json);
+        } else if ("staffList".equalsIgnoreCase(action)) {
+            ArrayList furnitures = db.queryCust();
+            
+            request.setAttribute("furnitures", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/StaffItemList.jsp");
+            rd.forward(request, response);
+        }else if ("editFurnitures".equalsIgnoreCase(action)) {
+            String id = request.getParameter("id");
+            
+            FurnitureBean furnitures = db.queryCustByID(id);
+            
+            request.setAttribute("c", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/StaffManageItem.jsp");
+            rd.forward(request, response);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

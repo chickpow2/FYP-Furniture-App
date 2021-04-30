@@ -132,22 +132,23 @@ public class FurnitureDB {
         }
     }
 
-    public boolean addRecord(String name, String price, String model, String description, int rating, int stock, String detail) {
+    public boolean addRecord(String name, int price, String model, int rating, int stock, String type, String description, String detail) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, MODEL, DESCRIPTION, RATING, STOCK, DETAILDESCRIPTION)  VALUES  (?,?,?,?,?,?,?)"; //v 
+            String preQueryStatement = "INSERT  INTO  FURNITURE(NAME, PRICE, MODEL, DESCRIPTION, RATING, STOCK, DETAILDESCRIPTION, TYPE)  VALUES  (?,?,?,?,?,?,?,?)"; //v 
             pStmnt = cnnct.prepareStatement(preQueryStatement); //SET NAME=? ,PRICE=? ,MODEL=?
 
             pStmnt.setString(1, name); //?
-            pStmnt.setString(2, price);
+            pStmnt.setInt(2, price);
             pStmnt.setString(3, model);
             pStmnt.setString(4, description);
             pStmnt.setInt(5, rating);//?
             pStmnt.setInt(6, stock);
             pStmnt.setString(7, detail);
+            pStmnt.setString(8, type);
             int rowCount = pStmnt.executeUpdate();
             if (rowCount >= 1) {
                 isSuccess = true;
@@ -191,7 +192,6 @@ public class FurnitureDB {
                 cb.setModel(rs.getString(4));
                 cb.setRating(rs.getInt(5));
                 cb.setStock(rs.getInt(6));
-
                 cb.setDetailDescription(rs.getString(7));
                 cb.setType(rs.getString(8));
                 cb.setImage(rs.getString(9));
@@ -232,8 +232,9 @@ public class FurnitureDB {
                 cb.setRating(rs.getInt(5));
                 cb.setStock(rs.getInt(6));
                 cb.setDetailDescription(rs.getString(7));
-                cb.setImage(rs.getString(8));
-                cb.setDescription(rs.getString(9));
+                cb.setType(rs.getString(8));
+                cb.setImage(rs.getString(9));
+                cb.setDescription(rs.getString(10));
                 list.add(cb);
             }
             return list;
@@ -735,15 +736,20 @@ public class FurnitureDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,MODEL=? , STOCK=?, DESCRIPTION=? WHERE FURNITUREID=?";
+            String preQueryStatement = "UPDATE FURNITURE SET NAME=? ,PRICE=? ,MODEL=? ,RATING=? ,STOCK=?, "
+                    + "DETAILDESCRIPTION=? ,TYPE=? ,IMAGE=? ,DESCRIPTION=? WHERE FURNITUREID=?";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, cb.getName());
             pStmnt.setInt(2, cb.getPrice());
             pStmnt.setString(3, cb.getModel());
-            pStmnt.setInt(4, cb.getStock());
-            pStmnt.setString(5, cb.getDescription());
-            pStmnt.setString(6, cb.getFurnitureId());
+            pStmnt.setInt(4, cb.getRating());
+            pStmnt.setInt(5, cb.getStock());
+            pStmnt.setString(6, cb.getDetailDescription());
+            pStmnt.setString(7, cb.getType());
+            pStmnt.setString(8, cb.getImage());
+            pStmnt.setString(9, cb.getDescription());
+            pStmnt.setString(10, cb.getFurnitureId());
             //Statement s = cnnct.createStatement();
             int rs = pStmnt.executeUpdate();
             return rs;

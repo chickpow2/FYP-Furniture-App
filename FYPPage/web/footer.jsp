@@ -3,7 +3,13 @@
     Created on : 2021年1月20日, 下午10:40:17
     Author     : solidcat
 --%>
-
+<style>
+    
+ul {
+  text-align: center;
+  list-style: inside;
+}
+</style>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
             <footer>
                 <div class="footer">
@@ -15,8 +21,8 @@
                                 
                                 </div>
 
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-
+                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12">
+                                    
                                     <ul class="lik">
             <li> <a href="about.jsp">About</a></li>
             <li> <a href="handleFurniture?action=productList">Product</a></li>
@@ -25,9 +31,10 @@
             <li> <a href="handleInterior?action=interiorDesign">Interior Design</a></li>
             
                                     </ul>
+
                                 </div>
 
-                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                <div class="col-xl-12 col-lg-3 col-md-3 col-sm-12">
                                     <center>
                                     <ul class="sociel">
                                         <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>

@@ -312,6 +312,22 @@ public class HandleFurniture extends HttpServlet {
 
             //  String json = new Gson().toJson(heads);
             //    out.print(json);
+        } else if ("staffList".equalsIgnoreCase(action)) {
+            ArrayList furnitures = db.queryCust();
+            
+            request.setAttribute("furnitures", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/StaffItemList.jsp");
+            rd.forward(request, response);
+        }else if ("editFurnitures".equalsIgnoreCase(action)) {
+            String id = request.getParameter("id");
+            
+            FurnitureBean furnitures = db.queryCustByID(id);
+            
+            request.setAttribute("c", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/StaffManageItem.jsp");
+            rd.forward(request, response);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

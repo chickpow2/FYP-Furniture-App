@@ -103,7 +103,7 @@
                                     <div class='overlay_hover'>
                                         <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
                                     </div> </div></div></div></div><br><div class='container'><% out.println("$Total: " + total + "<br>");%>
-                        <br><a href="makeOrder.jsp" class="btn btn-primary">Purchase</a></div><br>
+                        <br><%if(total!=0){%><a href="makeOrder.jsp" class="btn btn-primary">Purchase</a><%}%></div><br>
                     <!-- end product -->
                 </div>
             </div>

@@ -90,7 +90,7 @@ canvas{margin: 0;padding: 0;display:block;position:absolute;margin-top:-30px;}
                     <div class="col-lg-9">
                         <div class="right_header_info">
                             <ul>         
-                                <li>
+                                  <!-- <li>
                                 <p>
                                 <button id="button" class="BT-OH-BR-R6-NF-FH-FP-TU-PT" style="background-color:#FFFF00;position:relative;top:65px;left:-130px;font-size:15px" onclick="window.location.href='handleFurniture?action=limitproductList'">
                                     <canvas id="canvas" width="246" height="60"></canvas> 

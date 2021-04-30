@@ -15,7 +15,6 @@ public class FurnitureBean implements Serializable {
     private String type;
     private String image;
 
-
     public FurnitureBean() {
     }
 
@@ -37,8 +36,6 @@ public class FurnitureBean implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
-
-
 
     public String getFurnitureId() {
         return furnitureId;
@@ -79,7 +76,7 @@ public class FurnitureBean implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public int getRating() {
         return rating;
     }
@@ -103,7 +100,8 @@ public class FurnitureBean implements Serializable {
     public void setDetailDescription(String detailDescription) {
         this.detailDescription = detailDescription;
     }
-        public String getType() {
+
+    public String getType() {
         return type;
 
     }

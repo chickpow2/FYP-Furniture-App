@@ -86,34 +86,7 @@ public class ShoppingCartDB {
         }
     }
 
-    public boolean addRecord(String furnitureId,String userID) {
-        Connection cnnct = null;
-        PreparedStatement pStmnt = null;
-        boolean isSuccess = false;
-        try {
-            cnnct = getConnection();
-            String preQueryStatement = "INSERT  INTO  SHOPPINGCART (furnitureId,userID) VALUES  (?,?)";
-            pStmnt = cnnct.prepareStatement(preQueryStatement);
-
-            pStmnt.setString(1, furnitureId);
-            pStmnt.setString(2, userID);
-
-            int rowCount = pStmnt.executeUpdate();
-            if (rowCount >= 1) {
-                isSuccess = true;
-            }
-            pStmnt.close();
-            cnnct.close();
-        } catch (SQLException ex) {
-            while (ex != null) {
-                ex.printStackTrace();
-                ex = ex.getNextException();
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return isSuccess;
-    }
+   
 
     public boolean addRecordTech(String sid, String Equipid, String name, String ovdDate, String brwDate, String status) {
         Connection cnnct = null;
@@ -675,18 +648,24 @@ public class ShoppingCartDB {
         }
         return null;
     }
-
-    public int delRecord(String custId) {
+ public boolean addRecord(String furnitureId,String userID) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
+        boolean isSuccess = false;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "DELETE FROM SHOPPINGCART WHERE FURNITUREID=?";
+            String preQueryStatement = "INSERT  INTO  SHOPPINGCART (furnitureId,userID) VALUES  (?,?)";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
-            pStmnt.setString(1, custId);
 
-            int rs = pStmnt.executeUpdate();
-            return rs;
+            pStmnt.setString(1, furnitureId);
+            pStmnt.setString(2, userID);
+
+            int rowCount = pStmnt.executeUpdate();
+            if (rowCount >= 1) {
+                isSuccess = true;
+            }
+            pStmnt.close();
+            cnnct.close();
         } catch (SQLException ex) {
             while (ex != null) {
                 ex.printStackTrace();
@@ -694,24 +673,43 @@ public class ShoppingCartDB {
             }
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally {
-            if (pStmnt != null) {
-                try {
-                    pStmnt.close();
-                } catch (SQLException e) {
-                }
-            }
-            if (cnnct != null) {
-                try {
-                    cnnct.close();
-                } catch (SQLException sqlEx) {
-                }
-            }
         }
-        return 0;
+        return isSuccess;
+    }
+ 
+    public boolean delRecord(String furnitureId,String userID) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+           boolean isSuccess = false;
+        try {
+            cnnct = getConnection();
+            //String preQueryStatement = "DELETE FROM SHOPPINGCART (furnitureId,userID) VALUES  (?,?)";
+            String preQueryStatement = "DELETE FROM SHOPPINGCART WHERE furnitureId = ? and userID = ?";
+           // String preQueryStatement = "INSERT  INTO  SHOPPINGCART (furnitureId,userID) VALUES  (?,?)";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+
+            pStmnt.setString(1, furnitureId);
+            pStmnt.setString(2, userID);
+
+                 int rowCount = pStmnt.executeUpdate();
+            if (rowCount >= 1) {
+                isSuccess = true;
+            }
+            pStmnt.close();
+            cnnct.close();
+
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return isSuccess;
     }
 
-    public int editRecord(ShoppingCartBean cb) {
+    /*public int editRecord(ShoppingCartBean cb) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;
         try {
@@ -749,7 +747,7 @@ public class ShoppingCartDB {
             }
         }
         return 0;
-    }
+    }*/
 
     public int editRecordWaitingToAccepted(String custId) {
         Connection cnnct = null;

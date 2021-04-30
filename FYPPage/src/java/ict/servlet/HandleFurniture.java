@@ -205,6 +205,7 @@ public class HandleFurniture extends HttpServlet {
             rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
             rd.forward(request, response);// V
 
+<<<<<<< HEAD
         }  else if ("limitputToCart".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
             String id = request.getParameter("id");
@@ -221,6 +222,26 @@ public class HandleFurniture extends HttpServlet {
             rd.forward(request, response);// V
 
         }  else if ("limitproductList".equalsIgnoreCase(action)) {
+=======
+        } else if ("RemoveFromCart".equalsIgnoreCase(action)) {
+            // call the query db to get retrieve for a customer witht the id
+            String id = request.getParameter("id"); //warning!!
+
+            HttpSession session = request.getSession(true); 
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo"); 
+            scdb.delRecord(id, ui.getUsername());//id and user get 
+            ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
+            request.setAttribute("shoppingCartList", shoppingCartList);
+            ArrayList furnitures = db.queryCust();
+            request.setAttribute("furnitures", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");
+            rd.forward(request, response);
+
+        }
+        
+        else if ("limitproductList".equalsIgnoreCase(action)) {
+>>>>>>> 306fee366188f0f9a36ddcc0df1c6113acf4cb2c
             ArrayList<FurnitureBean> furnitureList = db.queryCust();
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/limitproduct.jsp");
@@ -420,6 +441,22 @@ public class HandleFurniture extends HttpServlet {
 
             //  String json = new Gson().toJson(heads);
             //    out.print(json);
+        } else if ("staffList".equalsIgnoreCase(action)) {
+            ArrayList furnitures = db.queryCust();
+            
+            request.setAttribute("furnitures", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/StaffItemList.jsp");
+            rd.forward(request, response);
+        }else if ("editFurnitures".equalsIgnoreCase(action)) {
+            String id = request.getParameter("id");
+            
+            FurnitureBean furnitures = db.queryCustByID(id);
+            
+            request.setAttribute("c", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/StaffManageItem.jsp");
+            rd.forward(request, response);
         } else {
             PrintWriter out = response.getWriter();
             out.println("No such action!!!");

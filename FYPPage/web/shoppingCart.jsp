@@ -80,6 +80,8 @@
                                     + "<div class='center'>"
                                     + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnitureId() + ".png\" alt='#'/>"
                                     + "<div class='overlay_hover'>"
+                                            // + "<a href='handleFurniture?action=RemoveFromCart' class='add-bt'>Cancel</a>"
+                                    + "<a href='handleFurniture?action=RemoveFromCart&id="+ ShoppingCartList.get(i).getFurnitureId() +"' class='add-bt'>Cancel</a>"
                                     + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"
                                     + "<div class='product_detail text_align_center'>");

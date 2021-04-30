@@ -260,30 +260,46 @@
                     -->   
 
   <br>
-                        <fieldset style="border: 3px solid #0fbbad; width: 950px; height:240px;border-radius:8px" >
+                         <fieldset style="border: 3px solid #0fbbad; width: 950px; height:240px;border-radius:8px" >
                             <br>
-                            <form method="GET" action="handleFurniture?action=categorySort" style="font-size:25px;">
-                            <input type="hidden" name="action" value="categorySort">
-                            <label><strong class="black">Category:</strong></label>
-                            <input type="radio" name="type" value="sofa" checked style="height:25px; width:25px;">Sofa
-                            <input type="radio" name="type" value="table" style="height:25px; width:25px;">Table
-                            <input type="radio" name="type" value="chair" style="height:25px; width:25px;">Chair
-                            <input type="radio" name="type" value="electronic" style="height:25px; width:25px;">Electronic
-                            <input type="radio" name="type" value="other" style="height:25px; width:25px;">Other
-                            <br>
-                            <label><strong class="black">Sort:</strong></label>
-                            <input type="radio" name="sort" value="asc" checked style="height:25px; width:25px;">Price: Low to High
-                            <input type="radio" name="sort" value="desc" style="height:25px; width:25px;">Price: High to Low
-                            <input type="radio" name="sort" value="ascName" style="height:25px; width:25px;">Name: A to Z
-                            <input type="radio" name="sort" value="descName" style="height:25px; width:25px;">Name: Z to A
-                            <br>
-                            <input type="submit" class="btn btn-primary" value="Sort" style="width:100px"/>
-                            <input type="reset"   class="btn btn-primary" value="Clear" style="width:100px"/>
-                        </form>
-                     
+                            <form method="GET" action="handleFurniture?action=limitcategorySort" style="font-size:25px;">
+                                <input type="hidden" name="action" value="limitcategorySort">
+                                <!--
+                                        <label><strong class="black">Category:</strong></label>
+                                        <input type="radio" name="type" value="sofa" checked style="height:25px; width:25px;">Sofa
+                                        <input type="radio" name="type" value="table" style="height:25px; width:25px;">Table
+                                        <input type="radio" name="type" value="chair" style="height:25px; width:25px;">Chair
+                                        <input type="radio" name="type" value="electronic" style="height:25px; width:25px;">Electronic
+                                        <input type="radio" name="type" value="other" style="height:25px; width:25px;">Other
+                                        <br>
+                                        <label><strong class="black">Sort:</strong></label>
+                                        <input type="radio" name="sort" value="asc" checked style="height:25px; width:25px;">Price: Low to High
+                                        <input type="radio" name="sort" value="desc" style="height:25px; width:25px;">Price: High to Low
+                                        <input type="radio" name="sort" value="ascName" style="height:25px; width:25px;">Name: A to Z
+                                        <input type="radio" name="sort" value="descName" style="height:25px; width:25px;">Name: Z to A
+                                        <br>
+                                
+                                -->
+                                Category:
+                                <select name="limitsort">
+                                    <option value="asc">Price: Low to High</option>
+                                    <option value="desc">Price: High to Low</option>
+                                    <option value="ascName">Name: A to Z</option>
+                                    <option value="descName">Name: Z to A</option>
+                                </select>
+                                <select name="limittype" onchange="this.form.submit()">
+                                    <option hidden disabled selected value> -- select a category -- </option>
+                                    <option value="sofa">Sofa</option>
+                                    <option value="table">Table</option>
+                                    <option value="chair">Chair</option>
+                                    <option value="electronic">Electronic</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </form>
+
                         </fieldset>
 
-                    <br><label><strong class="black">Category</strong></label><br>
+                    <p>&nbsp</p><p>&nbsp</p>
   
                     </div>                   
 
@@ -299,7 +315,7 @@
                                     + "<div class='center'>"
                                     + "<img src=\"furniture/" + furnitureList.get(i).getFurnitureId() + ".png\" alt='#'/>"
                                     + "<div class='overlay_hover'>"
-                                    + "<a class='add-bt' href=\"handleFurniture?action=limitproductList" +  "\">Add to cart<a href=\"handleFurniture?action=limitShowOneFurniture&id="  + furnitureList.get(i).getFurnitureId() + "\"</a>"
+                                      + "<a class='add-bt' href=\"handleFurniture?action=limitputToCart&id=" + furnitureList.get(i).getFurnitureId() + "\">Add to cart<a href=\"handleFurniture?action=limitShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
                                    // 備用+ "<a class='add-bt' href=\"handleFurniture?action=putToCart&id=" + furnitureList.get(i).getFurnitureId() + "\">Add to cart<a href=\"handleFurniture?action=limitShowOneFurniture&id=" + furnitureList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"  
                                     + "<div class='product_detail text_align_center'>");

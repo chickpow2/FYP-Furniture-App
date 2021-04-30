@@ -116,15 +116,18 @@ h4 {
 
 
 <script>
+  var d = new Date();
+  var n = d.getMinutes();
+
+    
 function checkCode() {
     var check = document.getElementById('code').value;
-    var codeNo = 2021;
-  if ( check !== "FYP" + codeNo){
+    alert(n);
+  if ( check !== "FYP00" + n){
       alert("You have enter the wrong activation code!\nPlease try again!");
       document.getElementById('code').value = '';
   }else{ 
       alert("You have success to enter the activation code!\nIt brings you to Limit Sell page!");
-      codeNo++;
       window.location.href ='handleFurniture?action=limitproductList';
   };
 }

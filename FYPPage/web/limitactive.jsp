@@ -122,9 +122,8 @@ h4 {
     
 function checkCode() {
     var check = document.getElementById('code').value;
-    alert(n);
   if ( check !== "FYP00" + n){
-      alert("You have enter the wrong activation code!\nPlease try again!");
+      alert("Your activation code maybe incorrect or used!\nPlease try again!");
       document.getElementById('code').value = '';
   }else{ 
       alert("You have success to enter the activation code!\nIt brings you to Limit Sell page!");

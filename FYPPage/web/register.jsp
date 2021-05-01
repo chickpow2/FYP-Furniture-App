@@ -20,36 +20,36 @@
                 top:  50%;
                 left: 50%;
                 transform: translate(-50%,-50%);
-                width: 40%;
-                height: 55%;
             }
         </style>
     </head>
     <body>
         <form id="register" action="Register" method="POST" class="form_center card">
-            <input type="hidden" name="action" value="register"/>
-            <center><img src="images/MFL_h.png" alt="#"></center>
-            <div class="card-body">
-                <div class="form-group">
-                    <label>Email address</label>
-                    <input type="email" class="form-control" id="email" name="username" placeholder="Email Adress">
+            <div class="container">
+                <input type="hidden" name="action" value="register"/>
+                <center><img src="images/MFL_h.png" alt="#"></center>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" id="email" name="username" placeholder="Email Adress">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="pwd" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" id="cpwd" placeholder="Confirm Password">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="return checking()" >Register</button>
+                    <a href="login.jsp" class="btn btn-primary active" role="button" aria-pressed="true" style="float: right">
+                        Already Have A Account? Login
+                    </a>
                 </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="pwd" name="password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" class="form-control" id="cpwd" placeholder="Confirm Password">
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
-                </div>
-                <button type="button" class="btn btn-primary" onclick="return checking()" >Register</button>
-                <a href="login.jsp" class="btn btn-primary active" role="button" aria-pressed="true" style="float: right">
-                    Already Have A Account? Login
-                </a>
             </div>
         </form>
 

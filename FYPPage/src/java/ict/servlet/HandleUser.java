@@ -31,15 +31,20 @@ public class HandleUser extends HttpServlet {
         String action = request.getParameter("action");
 
         if ("listProfile".equalsIgnoreCase(action)) {
-            HttpSession session = request.getSession(true); 
-            UserInfo ui = (UserInfo) session.getAttribute("userInfo");  
-            UserInfo user = db.getUser(ui.getUsername());
-            
-            RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/profile.jsp");
-            request.setAttribute("user", user);
-            rd.forward(request, response);
+            if (!isAuthenticated(request)) {
+                RequestDispatcher rd;// V
+                rd = getServletContext().getRequestDispatcher("/login.jsp");// V
+                rd.forward(request, response);
+            } else {
+                HttpSession session = request.getSession(true);
+                UserInfo ui = (UserInfo) session.getAttribute("userInfo");
+                UserInfo user = db.getUser(ui.getUsername());
 
+                RequestDispatcher rd;
+                rd = getServletContext().getRequestDispatcher("/profile.jsp");
+                request.setAttribute("user", user);
+                rd.forward(request, response);
+            }
         } else if ("changeProfile".equalsIgnoreCase(action)) {
             String username = request.getParameter("username");
             String pwd = request.getParameter("newpwd");
@@ -49,13 +54,23 @@ public class HandleUser extends HttpServlet {
             user.setUsername(username);
             user.setPassword(pwd);
             user.setTel(tel);
-            
+
             db.editUser(user);
-            
+
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/handleUser?action=listProfile");
             rd.forward(request, response);
         }
+    }
+
+    private boolean isAuthenticated(HttpServletRequest request) {
+        boolean result = false;
+        HttpSession session = request.getSession();
+        //get the UserInfo from session
+        if (session.getAttribute("userInfo") != null) {
+            result = true;
+        }
+        return result;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

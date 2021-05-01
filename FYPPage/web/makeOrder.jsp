@@ -68,7 +68,7 @@
                             <div class='center'>
                                     <div class="card" style="width: 90%">
                                         <div class="card-body">
-                                            <h3 class="card-title">Shipping Orption</h3>
+                                            <h3 class="card-title">Shipping Option</h3>
                                             <p>
                                                 <input type="radio" name="shipping" id="shipping1" value="tbm">Take By Myself
                                                 <input type="radio" name="shipping" id="shipping2" value="delivery">Delivery

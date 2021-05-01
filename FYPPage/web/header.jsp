@@ -105,7 +105,7 @@ canvas{margin: 0;padding: 0;display:block;position:absolute;margin-top:-30px;}
                              <!--   </li>-->
                                 
 
-                                <li><a href="login.jsp"><img style="margin-right: 15px;" src="icon/1.png" alt="#" /></a></li>
+                                <li><a href="handleUser?action=listProfile"><img style="margin-right: 15px;" src="icon/1.png" alt="#" /></a></li>
 
                                 <li><a href="handleFurniture?action=shoppingCart"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a></li>
 

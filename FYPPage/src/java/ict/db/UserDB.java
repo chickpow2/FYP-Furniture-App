@@ -1,5 +1,6 @@
 package ict.db;
 
+import ict.bean.UserInfo;
 import java.io.IOException;
 import java.sql.*;
 import java.util.*;
@@ -155,5 +156,66 @@ public class UserDB {
             ex.printStackTrace();
         }
         return isSuccess;
+    }
+    public UserInfo getUser(String username) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+
+        UserInfo user = null;
+        try {
+
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM USERINFO WHERE USERNAME = ?";
+
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            pStmnt.setString(1, username);
+            ResultSet rs = null;
+            rs = pStmnt.executeQuery();
+            if (rs.next()) {
+                user = new UserInfo();
+                user.setUsername(rs.getString(2));
+                user.setPassword(rs.getString(3));
+                user.setPosition(rs.getString(4));
+                user.setTel(rs.getString(5));
+            }
+
+            pStmnt.close();
+            cnnct.close();
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return user;
+    }
+    
+        public void editUser(UserInfo user) {
+        Connection cnnct = null;
+        Statement stmnt = null;
+        PreparedStatement pStmnt = null;
+        
+        try {
+            cnnct = getConnection();
+            stmnt = cnnct.createStatement();
+            String preQueryStatement = "UPDATE USERINFO SET PASSWORD = ?, TEL = ? WHERE USERNAME = ?";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+            pStmnt.setString(1, user.getPassword());
+            pStmnt.setString(2, user.getTel());
+            pStmnt.setString(3, user.getUsername());
+            pStmnt.executeUpdate();
+            
+            stmnt.close();
+            cnnct.close();
+        } catch(SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }

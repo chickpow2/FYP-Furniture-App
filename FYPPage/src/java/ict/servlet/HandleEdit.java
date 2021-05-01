@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HandleEdit extends HttpServlet {
 
     private FurnitureDB db;
-
+    
     @Override
     public void init() {
         String dbUser = this.getServletContext().getInitParameter("dbUser");
@@ -57,14 +57,14 @@ public class HandleEdit extends HttpServlet {
         if (c != null) {
             c.setFurnitureId(id);
             c.setName(name);
-            c.setPrice(Integer.parseInt(price));
+            c.setPrice(price);
             c.setModel(model);
             c.setStock(stock);
             c.setDescription(descrip);
 
             db.editRecord(c);
         } else {
-            db.addRecord(name, price, model, descrip,0, stock,"");
+            db.addRecord(name, price, model, descrip, 0, stock,"");
 
             /*            boolean furnitures = db.addRecord(name, tel, age);
                         request.setAttribute("furnitures", furnitures);*/

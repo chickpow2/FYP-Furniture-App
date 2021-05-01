@@ -1,77 +1,61 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ict.servlet;
 
-import ict.bean.FurnitureBean;
-import ict.db.FurnitureDB;
+import ict.bean.UserInfo;
+import ict.db.UserDB;
 import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Administrator
- */
-@WebServlet(name = "HandleEdit", urlPatterns = {"/handleEdit"})
-public class HandleEdit extends HttpServlet {
+@WebServlet(name = "HandleUser", urlPatterns = {"/handleUser"})
+public class HandleUser extends HttpServlet {
 
-    private FurnitureDB db;
-    
+    private UserDB db;
+
     @Override
     public void init() {
         String dbUser = this.getServletContext().getInitParameter("dbUser");
         String dbPassword = this.getServletContext().getInitParameter("dbPassword");
         String dbUrl = this.getServletContext().getInitParameter("dbUrl");
 
-        db = new FurnitureDB(dbUrl, dbUser, dbPassword);
-
+        db = new UserDB(dbUrl, dbUser, dbPassword);
     }
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String action = request.getParameter("action");
 
-        // get the parameter from users
-        String id = request.getParameter("id");
-        String name = request.getParameter("name");
-        int price = Integer.parseInt(request.getParameter("price"));
-        String model = request.getParameter("model");
-        int stock = Integer.parseInt(request.getParameter("stock"));
-        String descrip = request.getParameter("descrip");
+        if ("listProfile".equalsIgnoreCase(action)) {
+            HttpSession session = request.getSession(true); 
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo");  
+            UserInfo user = db.getUser(ui.getUsername());
+            
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/profile.jsp");
+            request.setAttribute("user", user);
+            rd.forward(request, response);
 
-        // update the database operations
-        FurnitureBean c = db.queryCustByID(id);
-        if (c != null) {
-            c.setFurnitureId(id);
-            c.setName(name);
-            c.setPrice(price);
-            c.setModel(model);
-            c.setStock(stock);
-            c.setDescription(descrip);
+        } else if ("changeProfile".equalsIgnoreCase(action)) {
+            String username = request.getParameter("username");
+            String pwd = request.getParameter("newpwd");
+            String tel = request.getParameter("tel");
 
-            db.editRecord(c);
-        } else {
-            db.addRecord(name, price, model, descrip, 0, stock,"");
-
-            /*            boolean furnitures = db.addRecord(name, tel, age);
-                        request.setAttribute("furnitures", furnitures);*/
-            // redirect the result
+            UserInfo user = new UserInfo();
+            user.setUsername(username);
+            user.setPassword(pwd);
+            user.setTel(tel);
+            
+            db.editUser(user);
+            
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/handleUser?action=listProfile");
+            rd.forward(request, response);
         }
-        response.sendRedirect("handleFurniture?action=list");
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -112,4 +96,5 @@ public class HandleEdit extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

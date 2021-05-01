@@ -46,103 +46,106 @@
     <!-- loader  -->
 
 
-<div class="wrapper">
+    <div class="wrapper">
 
-    <!-- end loader --> 
-    <%@include file="/header.jsp" %>
+        <!-- end loader --> 
+        <%@include file="/header.jsp" %>
 
 
-    <div id="content">
-        <!-- end header -->
-        <div class="contactus">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <div class="title">
-                            <h2>Profile</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <jsp:useBean id="user" scope="request" class="ict.bean.UserInfo" />
-        <%
-            String username = user.getUsername();
-            String oldpwd = user.getPassword();
-            String tel = user.getTel();
-        %>
-        <div class="profile">
-            <div class="container">
-                <div class='center'>
-                    <div class="card" style="width: 90%">
-                        <div class="card-body">
-                            <form method="post" action="handleUser" onsubmit="return  checkSubmit();">
-                                <input type="hidden" name="action" value="changeProfile">
-                                <h3 class="card-title">Username</h3>
-                                <p><input name="username" id="username" value="<%=username%>" readonly></p>
-                                <br/>
-
-                                <h3 class="card-title">Current Password</h3>
-                                <p><input type="password" name="oldpwd" id="oldpwd"></p>
-                                <br/>
-
-                                <h3 class="card-title">New Password</h3>
-                                <p><input type="password" name="newpwd" id="newpwd"></p>
-                                <br/>
-
-                                <h3 class="card-title">Telephone</h3>
-                                <p><input name="tel" id="tel" value="<%=tel%>"></p>
-                                <br/>
-
-                                <input type="submit" value="submit" class="btn btn-primary">
-                            </form>
-
+        <div id="content">
+            <!-- end header -->
+            <div class="contactus">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="title">
+                                <h2>Profile</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!--  footer --> 
-            <%@include file="/footer.jsp" %>
-            <!-- end footer -->
+            <jsp:useBean id="user" scope="request" class="ict.bean.UserInfo" />
+            <%
+                String username = user.getUsername();
+                String oldpwd = user.getPassword();
+                String tel = user.getTel();
+            %>
+            <div class="profile">
+                <div class="container">
+                    <div class='center'>
+                        <div class="card" style="width: 90%">
+                            <div class="card-body">
+                                <form method="post" action="handleUser" onsubmit="return  checkSubmit();">
+                                    <input type="hidden" name="action" value="changeProfile">
+                                    <h3 class="card-title">Username</h3>
+                                    <p><input name="username" id="username" value="<%=username%>" readonly></p>
+                                    <br/>
+
+                                    <h3 class="card-title">Current Password</h3>
+                                    <p><input type="password" name="oldpwd" id="oldpwd"></p>
+                                    <br/>
+
+                                    <h3 class="card-title">New Password</h3>
+                                    <p><input type="password" name="newpwd" id="newpwd"></p>
+                                    <br/>
+
+                                    <h3 class="card-title">Telephone</h3>
+                                    <p><input name="tel" id="tel" value="<%=tel%>"></p>
+                                    <br/>
+
+                                    <input type="submit" value="submit" class="btn btn-primary">
+                                    <a href="Login?action=logout" class="btn btn-danger active" role="button" aria-pressed="true" style="float: right">
+                                        LOG OUT 
+                                    </a>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  footer --> 
+                <%@include file="/footer.jsp" %>
+                <!-- end footer -->
+            </div>
+
         </div>
 
-    </div>
 
 
 
+        <script>
+            $(document).ready(function () {
+                $(".fancybox").fancybox({
+                    openEffect: "none",
+                    closeEffect: "none"
+                });
 
-    <script>
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
+                $(".zoom").hover(function () {
+
+                    $(this).addClass('transition');
+                }, function () {
+
+                    $(this).removeClass('transition');
+                });
             });
 
-            $(".zoom").hover(function () {
-
-                $(this).addClass('transition');
-            }, function () {
-
-                $(this).removeClass('transition');
-            });
-        });
-
-        function checkSubmit() {
-            var username = document.getElementById("username").value;
-            var oldpwd = document.getElementById("oldpwd").value;
-            var newpwd = document.getElementById("newpwd").value;
-            var tel = document.getElementById("tel").value;
-            if (oldpwd == newpwd) {
-                alert("New password cannot be the same as the current password.");
-                return false;
+            function checkSubmit() {
+                var username = document.getElementById("username").value;
+                var oldpwd = document.getElementById("oldpwd").value;
+                var newpwd = document.getElementById("newpwd").value;
+                var tel = document.getElementById("tel").value;
+                if (oldpwd == newpwd) {
+                    alert("New password cannot be the same as the current password.");
+                    return false;
+                }
+                if (oldpwd.length == 0 || newpwd.length == 0 || tel.length == 0) {
+                    alert("Missing some information");
+                    return false;
+                }
             }
-            if (oldpwd.length == 0 || newpwd.length == 0 || tel.length == 0) {
-                alert("Missing some information");
-                return false;
-            }
-        }
-    </script> 
-</body>
+        </script> 
+    </body>
 </html>

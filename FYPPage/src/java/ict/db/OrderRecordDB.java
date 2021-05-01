@@ -67,11 +67,11 @@ public class OrderRecordDB {
             stmnt = cnnct.createStatement();  // create statement
             String sql
                     = "CREATE TABLE ORDER("
-                    + "orderId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEYGENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
+                    + "orderId INTEGER CONSTRAINT PK_ORDER PRIMARY KEYGENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
                     + "sendDate Date, orderDate Date,"
                     + "status VARCHAR(255),"
-                    + "shippingOption VARCHAR(255)"
-                    + "Payment VARCHAR(255)"
+                    + "shippingOption VARCHAR(255),"
+                    + "Payment VARCHAR(255),"
                     + "ttlPrice VARCHAR(255))";
             stmnt.execute(sql);
             stmnt.close();
@@ -95,7 +95,7 @@ public class OrderRecordDB {
             stmnt = cnnct.createStatement();  // create statement
             String sql
                     = "CREATE TABLE ORDERRECORD("
-                    + "orderId INTEGER CONSTRAINT PK_FURNITURE PRIMARY KEY, "
+                    + "orderId INTEGER(10), "
                     + "furnId VARCHAR(10))";
             stmnt.execute(sql);
             stmnt.close();

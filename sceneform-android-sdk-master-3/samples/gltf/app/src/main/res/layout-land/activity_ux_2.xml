@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:id="@+id/ux_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+            <!--
+                  <ImageView
+                      android:layout_width="80dp"
+                      android:layout_height="80dp"
+                      android:id="@+id/sofa1" android:src="@drawable/sofa1"
+                      ></ImageView>
+
+                  <ImageView
+                      android:layout_width="80dp"
+                      android:layout_height="80dp"
+                      android:id="@+id/carpet1" android:src="@drawable/carpet1"
+                      ></ImageView>
+                  <ImageView
+                      android:layout_width="80dp"
+                      android:layout_height="80dp"
+                      android:id="@+id/chair1" android:src="@drawable/chair1"
+                      ></ImageView> -->
+        </LinearLayout>
+    </HorizontalScrollView>
+</android.support.constraint.ConstraintLayout>

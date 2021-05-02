@@ -116,6 +116,24 @@ public class ShoppingCartRecord extends HttpServlet {
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/order?action=staffViewOrder");
             rd.forward(request, response);
+        } else if ("custOrder".equalsIgnoreCase(action)) {
+            HttpSession session = request.getSession(true); //v
+            UserInfo ui = (UserInfo) session.getAttribute("userInfo");
+            ArrayList<OrderBean> order = ordb.queryViewOrder(ui.getUsername());
+
+            request.setAttribute("Order", order);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/CustOrder.jsp");
+            rd.forward(request, response);
+        }else if ("receipt".equalsIgnoreCase(action)){
+            String id = request.getParameter("id");
+            ArrayList<OrderRecordBean> order = ordb.queryOrderRecord(id);
+            request.setAttribute("orderList", order);
+            ArrayList furnitures = db.queryCust();
+            request.setAttribute("furnitures", furnitures);
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/receipt.jsp");
+            rd.forward(request, response);
         }
     }
 

@@ -27,7 +27,7 @@
         <form id="register" action="Register" method="POST" class="form_center card">
             <div class="container">
                 <input type="hidden" name="action" value="register"/>
-                <center><img src="images/MFL_h.png" alt="#"></center>
+                <center><a href="handleFurniture?action=home" ><img src="images/MFL_h.png" alt="#"></a></center>
                 <div class="card-body">
                     <div class="form-group">
                         <label>Email address</label>
@@ -59,24 +59,24 @@
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap-4.4.1.js"></script>
         <script>
-                    function checking() {
-                        var email = document.getElementById("email").value;
-                        var emailInclude = email.includes("@gmail.com");
-                        var pwd = document.getElementById("pwd").value;
-                        var cpwd = document.getElementById("cpwd").value;
-                        var phone = document.getElementById("phone").value;
+                        function checking() {
+                            var email = document.getElementById("email").value;
+                            var emailInclude = email.includes("@gmail.com");
+                            var pwd = document.getElementById("pwd").value;
+                            var cpwd = document.getElementById("cpwd").value;
+                            var phone = document.getElementById("phone").value;
 
-                        if (email.length === 0 || pwd.length === 0 || phone.length === 0) {
-                            alert("Information Cannot be Empty !");
-                        } else if (pwd !== cpwd) {
-                            alert("Password Mismatch !");
-                        } else if (!emailInclude) {
-                            alert("Invalid Email !");
-                        } else {
-                            document.getElementById("register").submit();
+                            if (email.length === 0 || pwd.length === 0 || phone.length === 0) {
+                                alert("Information Cannot be Empty !");
+                            } else if (pwd !== cpwd) {
+                                alert("Password Mismatch !");
+                            } else if (!emailInclude) {
+                                alert("Invalid Email !");
+                            } else {
+                                document.getElementById("register").submit();
+                            }
+
                         }
-
-                    }
         </script>
     </body>
 </html>

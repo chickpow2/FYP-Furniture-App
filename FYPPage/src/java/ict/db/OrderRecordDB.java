@@ -264,7 +264,7 @@ public class OrderRecordDB {
         PreparedStatement pStmnt = null;
         try {
             cnnct = getConnection();
-            String preQueryStatement = "SELECT * FROM  orders WHERE orderid = ? ORDER BY orderid DESC";
+            String preQueryStatement = "SELECT * FROM  orders WHERE userid = ? ORDER BY orderid DESC";
             pStmnt = cnnct.prepareStatement(preQueryStatement);
 
             pStmnt.setString(1, orderId);
@@ -280,7 +280,8 @@ public class OrderRecordDB {
                 cb.setOrderDate(rs.getString(4));
                 cb.setStatus(rs.getString(5));
                 cb.setShippingOption(rs.getString(6));
-                cb.setTtlPrice(rs.getString(7));
+                cb.setAddress(rs.getString(7));
+                cb.setTtlPrice(rs.getString(8));
                 
                 list.add(cb);
             }

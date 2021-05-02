@@ -106,7 +106,7 @@ h4 {
             <div class="row">
                <div class="col-md-8 offset-md-2">
                   <div class="title">
-                     <h2>Activate Limit Sell</h2>
+                     <h2>Activate Promo Code</h2>
                     
                   </div>
                </div>
@@ -123,10 +123,10 @@ h4 {
 function checkCode() {
     var check = document.getElementById('code').value;
   if ( check !== "FYP00" + n){
-      alert("Your activation code maybe incorrect or used!\nPlease try again!");
+      alert("Your promo code maybe incorrect or used!\nPlease try again!");
       document.getElementById('code').value = '';
   }else{ 
-      alert("You have success to enter the activation code!\nIt brings you to Limit Sell page!");
+      alert("You have success to enter the promo code!\nIt brings you to shopping cart page to confirm your order!");
       window.location.href = "handleFurniture?action=limitshoppingCart";
   };
 }
@@ -140,7 +140,7 @@ function checkCode() {
 
   <div class="container" style="background-color:white">
     
-    <input type="text"  style="width:100%;height:90px;font-size:18pt" placeholder="Please Input Your Activation Code" id="code" required>
+    <input type="text"  style="width:100%;height:90px;font-size:18pt" placeholder="Please Input Your Promo Code" id="code" required>
     <label>
         <table border="0">
         </table>

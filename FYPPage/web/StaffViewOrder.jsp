@@ -21,6 +21,7 @@
         </style>
     </head>
     <body>
+        <jsp:include page="StaffMenu.jsp" />
         <%
             ArrayList<OrderBean> order = (ArrayList<OrderBean>) request.getAttribute("Order");
             out.println("<div class='divCenter'>");

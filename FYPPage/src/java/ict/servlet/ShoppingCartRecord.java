@@ -102,17 +102,17 @@ public class ShoppingCartRecord extends HttpServlet {
             rd.forward(request, response);
         } else if ("staffSend".equalsIgnoreCase(action)) {
             String id = request.getParameter("id");
-            
+
             this.ordb.UpdateSend(id);
-            
+
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/order?action=staffViewOrder");
             rd.forward(request, response);
-        }else if ("staffArrived".equalsIgnoreCase(action)) {
+        } else if ("staffArrived".equalsIgnoreCase(action)) {
             String id = request.getParameter("id");
-            
+
             this.ordb.UpdateArrived(id);
-            
+
             RequestDispatcher rd;
             rd = getServletContext().getRequestDispatcher("/order?action=staffViewOrder");
             rd.forward(request, response);

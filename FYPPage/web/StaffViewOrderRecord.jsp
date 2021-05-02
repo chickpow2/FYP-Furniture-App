@@ -22,6 +22,7 @@
         </style>
     </head>
     <body>
+        <jsp:include page="StaffMenu.jsp" />
         <%
             ArrayList<OrderRecordBean> order = (ArrayList<OrderRecordBean>) request.getAttribute("order");
             ArrayList<FurnitureBean> furn = (ArrayList<FurnitureBean>) request.getAttribute("furnitures");

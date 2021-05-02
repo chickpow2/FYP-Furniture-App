@@ -16,6 +16,7 @@
         <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
     </head>
     <body>
+        <jsp:include page="StaffMenu.jsp" />
         <jsp:useBean id="c" scope="request" class="ict.bean.FurnitureBean" />
         <%
             String action = c.getFurnitureId() != null ? "edit" : "add";
@@ -28,17 +29,17 @@
             String rating = r != null ? r : "";
             String s = Integer.toString(c.getStock());
             String stock = s != null ? s : "";
-            String type = c.getType()!= null ? c.getType() : "";
+            String type = c.getType() != null ? c.getType() : "";
             String descript = c.getDescription() != null ? c.getDescription() : "";
             String dDescript = c.getDetailDescription() != null ? c.getDetailDescription() : "";
-            
-            if (c.getPrice() == 0){
+
+            if (c.getPrice() == 0) {
                 price = "";
             }
-            if (c.getRating() == 0){
+            if (c.getRating() == 0) {
                 rating = "";
             }
-            if (c.getStock() == 0){
+            if (c.getStock() == 0) {
                 stock = "";
             }
         %>

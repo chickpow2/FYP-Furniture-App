@@ -74,6 +74,7 @@
                     <a href="register.jsp" class="btn btn-primary active" role="button" aria-pressed="true" style="float: right">
                         Don't Have A Account? Register
                     </a>
+                    <br/>
                 </div>
             </div>
         </form>

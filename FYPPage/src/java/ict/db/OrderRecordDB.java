@@ -229,7 +229,8 @@ public class OrderRecordDB {
                 cb.setOrderDate(rs.getString(4));
                 cb.setStatus(rs.getString(5));
                 cb.setShippingOption(rs.getString(6));
-                cb.setTtlPrice(rs.getString(7));
+                cb.setAddress(rs.getString(7));
+                cb.setTtlPrice(rs.getString(8));
                 
                 list.add(cb);
             }

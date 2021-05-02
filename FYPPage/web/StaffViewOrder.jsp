@@ -35,6 +35,7 @@
                     + "<th>Order Date</th>"
                     + "<th>Status</th >"
                     + "<th>Shipping Option</th >"
+                    + "<th>Address</th >"
                     + "<th>Total Price</th>"
                     + "<th></th><th></th>");
             out.println("</tr>"
@@ -55,6 +56,7 @@
                 }else {
                     out.println("<td> Delivery </td>");
                 }
+                out.println("<td>" + c.getAddress()+ "</td>");
                 out.println("<td>" + c.getTtlPrice()+ "</td>");
                 out.println("<td><a href=\"order?action=staffViewOrderRecord&id=" + c.getOrderId()+ "\">View Record</a></td>");
                 if("delivery".equalsIgnoreCase(c.getShippingOption()) && "Checking".equalsIgnoreCase(c.getStatus())){

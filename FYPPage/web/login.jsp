@@ -60,7 +60,7 @@
         <form id="login" action="Login" method="POST" class="form_center card">
             <div class="container">
                 <input type="hidden" name="action" value="authenticate"/>
-                <center><img src="images/MFL_h.png" alt="#"></center>
+                <center><a href="handleFurniture?action=home" ><img src="images/MFL_h.png" alt="#"></a></center>
                 <div class="card-body">
                     <div class="form-group">
                         <label>Email Address</label>

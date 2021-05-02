@@ -89,17 +89,20 @@ canvas{margin: 0;padding: 0;display:block;position:absolute;margin-top:-30px;}
                     </div>
                     <div class="col-lg-9">
                         <div class="right_header_info">
-                            <ul>         
+                            <ul>     
+                                
+                                <!--
                                   <li>
                                 <p>
                                <button id="button" class="BT-OH-BR-R6-NF-FH-FP-TU-PT" style="background-color:#FFFF00;position:relative;top:65px;left:-130px;font-size:15px" onclick="window.location.href='limitactive.jsp'">
                                     <!-- <button id="button" class="BT-OH-BR-R6-NF-FH-FP-TU-PT" style="background-color:#FFFF00;position:relative;top:65px;left:-130px;font-size:15px" onclick="window.location.href='handleFurniture?action=limitproductList'"> -->
-                                   <canvas id="canvas" width="246" height="60"></canvas> 
+                                  <!--<canvas id="canvas" width="246" height="60"></canvas> 
                                     <hover></hover>
                                     <span>Limit Sell Here !!</span>
                                 </button>
                               </p>    
                                 </li>
+                                -->
                                <!-- <li>  limit product logo clear-->
                                <!--     <a href="handleFurniture?action=limitproductList"><img style="margin-right: 15px;" src="icon/20sale.png" width="100" height="100" alt="20%off" /></a> --><!-- for AR function -->
                              <!--   </li>-->

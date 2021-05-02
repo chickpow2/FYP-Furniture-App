@@ -113,6 +113,7 @@
                 </div>
                 
             </div>
+                                 <center><a href="handleFurniture?action=home" class="btn btn-primary">Confirm and Back to Main Page</a></center><br>
                 <!--  footer --> 
                 <%@include file="/footer.jsp" %>
                 <!-- end footer -->

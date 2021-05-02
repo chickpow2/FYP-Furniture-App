@@ -52,8 +52,10 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="title">
-                            <h2>Limit Shopping Cart</h2>
+                            <h2>Shopping Cart</h2>
+                            
                         </div>
+                            
                     </div>
                 </div>
             </div>
@@ -68,6 +70,7 @@
                     <!-- product -->
                     <div class='container'>       
                         <br>
+                        <h2 align="center" style="color:red;">Please check the price after input promo code</h2><br>
                     </div>                   
                     <%
                         int total = 0;
@@ -79,11 +82,13 @@
                                     + "<div class='product_img'>"
                                     + "<div class='center'>"
                                     + "<img src=\"furniture/" + limitShoppingCartList.get(i).getFurnitureId() + ".png\" alt='#'/>"
+                                    
                                     + "<div class='overlay_hover'>"
                                     + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + limitShoppingCartList.get(i).getFurnitureId() + "\"</a>"
                                     + "</div></div></div>"
                                     + "<div class='product_detail text_align_center'>");          //  String.format("%.1f",(furnitureList.get(i).getPrice())*0.8)
                            // out.println("<p class='product_price'>$" + String.format("%1f",furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice()*0.8));
+                                     out.println("<p style='color:red;font-size:1vw'><b>After 20% OFF!</b></p>");
                              out.println("<p class='product_price'>$" + String.format("%.1f",furnitureList.get(Integer.parseInt(limitShoppingCartList.get(i).getFurnitureId()) - 1).getPrice()*0.8));
                            
                             //out.println("<p class='product_price'>$" + ShoppingCartList.get(i).getUserID());
@@ -102,7 +107,7 @@
                                     <img src="icon/plus.png" alt='#'/>
                                     <div class='overlay_hover'>
                                         <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
-                                    </div> </div></div></div></div><br><div class='container'><% out.println("$Total: " + String.format("%.1f", total*0.8)  + "<br>");%>
+                                    </div> </div></div></div></div><br><div class='container'><% out.println("$Total: " + String.format("%.1f", total*0.8)  + " (With Promo Code)<br>");%>
                         <br><a href="limitmakeOrder.jsp" class="btn btn-primary">Purchase</a></div><br>
                     <!-- end product -->
                 </div>

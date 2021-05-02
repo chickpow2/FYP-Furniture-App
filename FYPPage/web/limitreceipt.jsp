@@ -58,7 +58,7 @@
                         <div class="row">
                             <div class="col-md-8 offset-md-2">
                                 <div class="title">
-                                    <h2>Receipt</h2><h2 style="color:#FF0000"> (Limit Sell)</h2>
+                                    <h2>Receipt</h2>
                                 
                                 </div>
                             </div>
@@ -101,24 +101,26 @@
                                             + "<div class='center'>"
                                             + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnitureId() + ".png\" alt='#'/>"
                                             + "<div class='overlay_hover'>"
-                                            + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnitureId() + "\"</a>"
+                                           
                                             + "</div></div></div>"
                                             + "<div class='product_detail text_align_center'>");
+                                    out.println("<p style='color:red;font-size:1vw'><b>After 20% OFF!</b></p>");
                                     out.println("<p class='product_price'>$" + String.format("%.1f",furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice()*0.8));
                                     out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getName() + "</p>");
                                     total += furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice();
                                     out.println("</div></div></div>");
                                 }
                             %>
-                            <br><div class='container'><% out.println("$Total: " + String.format("%.1f",total*0.8) + "<br>");%>
+                            <br><div class='container'><% out.println("$Total: " + String.format("%.1f",total*0.8) + " (With Promo Code)<br>");%>
                                 <br><div><br>
                             <!-- end product -->
                         </div>
                     </div>
                 </div>
                
-            </div>
-                                <center> <button onclick="handleFurniture?action=home" >Confirm and Back to Main Page</button>   </center><br>
+                        </div>                 
+                                <center><a href="handleFurniture?action=home" class="btn btn-primary">Confirm and Back to Main Page</a></center><br>
+                                
                                 
                 <!--  footer --> 
                 <%@include file="/footer.jsp" %>

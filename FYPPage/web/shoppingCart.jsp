@@ -101,9 +101,49 @@
                                 <div class='center'>
                                     <img src="icon/plus.png" alt='#'/>
                                     <div class='overlay_hover'>
-                                        <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
-                                    </div> </div></div></div></div><br><div class='container'><% out.println("$Total: " + total + "<br>");%>
-                        <br><%if(total!=0){%><a href="makeOrder.jsp" class="btn btn-primary">Purchase</a><%}%></div><br>
+                                        <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a><br><br><br><br>
+<script>
+  var d = new Date();
+  var n = d.getMinutes();
+  
+
+  
+function checkCode(total) {
+   
+  var code = prompt("Enter code to get extra discount");
+  if (code !== "FYP00" + n) {
+    alert("Your activation code maybe incorrect or used!\nPlease try again!");
+   
+    }else{ 
+      alert("You have success to enter the activation code! Enjoy your special price");
+      
+       document.getElementById("codeprice").innerHTML = "$Total: " + total*0.8 + "<br>";
+       total = total * 0.8 ;
+       return total;
+     // window.location.href ='handleFurniture?action=limitproductList';
+  };
+    
+    
+  
+  
+}
+
+
+</script>  <br><br>
+
+
+                
+                                    </div> </div>
+                            </div></div>
+                   </div><br><div class='container'>
+                       
+             
+                       
+                       
+                   <p id="codeprice">      <% out.println( "$Total: " + total + "<br>");%> </p>
+  
+                        <br> <%if(total!=0){%><a href="makeOrder.jsp" class="btn btn-primary">Purchase</a><%}%> 
+                        &nbsp;&nbsp;&nbsp;<%if(total!=0){%><a href="limitactive.jsp" class="btn btn-primary">Using Promo Code to Purchase</a><%}%></div><br>
                     <!-- end product -->
                 </div>
             </div>

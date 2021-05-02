@@ -127,7 +127,7 @@ function checkCode() {
       document.getElementById('code').value = '';
   }else{ 
       alert("You have success to enter the activation code!\nIt brings you to Limit Sell page!");
-      window.location.href ='handleFurniture?action=limitproductList';
+      window.location.href = "handleFurniture?action=limitshoppingCart";
   };
 }
 </script>

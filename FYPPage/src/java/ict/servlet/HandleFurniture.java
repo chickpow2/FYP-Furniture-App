@@ -152,6 +152,24 @@ public class HandleFurniture extends HttpServlet {
                 RequestDispatcher rd;// V
                 rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");// V
                 rd.forward(request, response);// V
+                
+            }
+        }  else if ("limitshoppingCart".equalsIgnoreCase(action)) {
+
+            if (!isAuthenticated(request)) {
+                RequestDispatcher rd;// V
+                rd = getServletContext().getRequestDispatcher("/login.jsp");// V
+                rd.forward(request, response);
+            } else {
+                HttpSession session = request.getSession(true); //v
+                UserInfo ui = (UserInfo) session.getAttribute("userInfo"); //v 
+                ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
+                request.setAttribute("shoppingCartList", shoppingCartList);// V
+                ArrayList furnitures = db.queryCust();
+                request.setAttribute("furnitures", furnitures);// V
+                RequestDispatcher rd;// V
+                rd = getServletContext().getRequestDispatcher("/limitShoppingCart.jsp");// V
+                rd.forward(request, response);// V
             }
 
         } else if ("getEditFurniture".equalsIgnoreCase(action)) {

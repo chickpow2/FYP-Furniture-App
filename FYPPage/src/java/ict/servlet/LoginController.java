@@ -68,7 +68,16 @@ public class LoginController extends HttpServlet {
         //    if ("abc".equals(username) && "123".equals(password)) {
         PrintWriter out = response.getWriter();
         UserInfo position = userDb.getUser(username);
-        if (this.userDb.isValidUser(username, password)) {
+        if ("staff".equalsIgnoreCase(position.getPosition())) {
+            HttpSession session = request.getSession(true);
+            UserInfo bean = new UserInfo();
+            bean.setUsername(username);
+            bean.setPassword(password);
+            
+            RequestDispatcher rd;
+            rd = getServletContext().getRequestDispatcher("/order?action=StaffViewOrder");
+            rd.forward(request, response);
+        }else if (this.userDb.isValidUser(username, password)) {
             // obtain session from request
             HttpSession session = request.getSession(true);
             UserInfo bean = new UserInfo();
@@ -80,10 +89,6 @@ public class LoginController extends HttpServlet {
             out.println("alert('Login Success ! Now Direct To The Main Page !');");
             out.println("location='redirect.jsp';");
             out.println("</script>");
-        } else if ("staff".equalsIgnoreCase(position.getPosition())) {
-            RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/order?action=StaffViewOrder.jsp");
-            rd.forward(request, response);
         } else {
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Invalid Account !');");

@@ -73,13 +73,13 @@ public class ShoppingCartRecord extends HttpServlet {
 
                 this.ordb.addOrderRecord(id, scb.getFurnitureId());
             }
-
-            ArrayList<ShoppingCartBean> shoppingCartList = scdb.queryCustByID1(ui.getUsername());
-            request.setAttribute("shoppingCartList", shoppingCartList);
+            String orderId = ordb.takeOrderId();
+            ArrayList<OrderRecordBean> order = ordb.queryOrderRecord(orderId);
+            request.setAttribute("orderList", order);
             ArrayList furnitures = db.queryCust();
             request.setAttribute("furnitures", furnitures);
             RequestDispatcher rd;
-            rd = getServletContext().getRequestDispatcher("/shoppingCart.jsp");
+            rd = getServletContext().getRequestDispatcher("/receipt.jsp");
             rd.forward(request, response);
         } else if ("staffViewOrder".equalsIgnoreCase(action)) {
             ArrayList<OrderBean> order = ordb.queryStaffViewOrder();

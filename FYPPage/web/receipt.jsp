@@ -61,8 +61,8 @@
                     </div>
                 </div>
                 <%
-                    ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("Furnitures");
-                    ArrayList<ShoppingCartBean> ShoppingCartList = (ArrayList<ShoppingCartBean>) request.getAttribute("orderList");
+                    ArrayList<FurnitureBean> furnitureList = (ArrayList<FurnitureBean>) request.getAttribute("furnitures");
+                    ArrayList<OrderRecordBean> ShoppingCartList = (ArrayList<OrderRecordBean>) request.getAttribute("orderList");
                 %>
                 <div class="ourproduct">
                     <div class="container">
@@ -72,9 +72,9 @@
                                 <br>
                             </div> 
                             <div class='container'> 
-                            <p>Order ID : <label>0000000019</label></p>
-                            <p>User ID : <label>abc</label></p>
                             <%
+                                out.print("<p>Order ID : "+ ShoppingCartList.get(1).getOrderId() +"</p>");
+                                
                                 Date date = new Date();
                                 SimpleDateFormat od = new SimpleDateFormat("dd/MM/yyyy");
                                 SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
@@ -94,14 +94,14 @@
                                             + "<div class='full product'>"
                                             + "<div class='product_img'>"
                                             + "<div class='center'>"
-                                            + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnitureId() + ".png\" alt='#'/>"
+                                            + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnId()+ ".png\" alt='#'/>"
                                             + "<div class='overlay_hover'>"
-                                            + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnitureId() + "\"</a>"
+                                            + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnId() + "\"</a>"
                                             + "</div></div></div>"
                                             + "<div class='product_detail text_align_center'>");
-                                    out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice());
-                                    out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getName() + "</p>");
-                                    total += furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnitureId()) - 1).getPrice();
+                                    out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getPrice());
+                                    out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getName() + "</p>");
+                                    total += furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getPrice();
                                     out.println("</div></div></div>");
                                 }
                             %>

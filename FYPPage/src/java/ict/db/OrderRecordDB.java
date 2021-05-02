@@ -258,6 +258,56 @@ public class OrderRecordDB {
         return null;
     }
     
+    public ArrayList<OrderBean> queryViewOrder(String orderId) {
+        Connection cnnct = null;
+        PreparedStatement pStmnt = null;
+        try {
+            cnnct = getConnection();
+            String preQueryStatement = "SELECT * FROM  orders WHERE orderid = ? ORDER BY orderid DESC";
+            pStmnt = cnnct.prepareStatement(preQueryStatement);
+
+            pStmnt.setString(1, orderId);
+            ResultSet rs = pStmnt.executeQuery();
+
+            ArrayList list = new ArrayList();
+
+            while (rs.next()) {
+                OrderBean cb = new OrderBean();
+                cb.setOrderId(rs.getString(1));
+                cb.setUserId(rs.getString(2));
+                cb.setSendDate(rs.getString(3));
+                cb.setOrderDate(rs.getString(4));
+                cb.setStatus(rs.getString(5));
+                cb.setShippingOption(rs.getString(6));
+                cb.setTtlPrice(rs.getString(7));
+                
+                list.add(cb);
+            }
+            return list;
+        } catch (SQLException ex) {
+            while (ex != null) {
+                ex.printStackTrace();
+                ex = ex.getNextException();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (pStmnt != null) {
+                try {
+                    pStmnt.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (cnnct != null) {
+                try {
+                    cnnct.close();
+                } catch (SQLException sqlEx) {
+                }
+            }
+        }
+        return null;
+    }
+    
     public ArrayList<OrderRecordBean> queryOrderRecord(String orderId) {
         Connection cnnct = null;
         PreparedStatement pStmnt = null;

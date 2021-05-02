@@ -66,11 +66,13 @@
                                 <br>
                             </div>
                             <div class='center'>
-                                    <div class="card" style="width: 90%">
+
+                                <div class="card" style="width: 90%">
+                                    <form id="makeOrder" action="order?action=makeOrder" method="POST">
                                         <div class="card-body">
                                             <h3 class="card-title">Shipping Option</h3>
                                             <p>
-                                                <input type="radio" name="shipping" id="shipping1" value="tbm">Take By Myself
+                                                <input type="radio" name="shipping" id="shipping1" value="tbm">In-Store Pickup
                                                 <input type="radio" name="shipping" id="shipping2" value="delivery">Delivery
                                             </p>
                                             <p id="placeAddress"></p>
@@ -104,9 +106,12 @@
                                                 <input type="text" name="ccname" id="ccname" onkeypress="return onlyNumberKey(event)" style="width: 90%">
                                             </p>
                                         </div>
-                                    </div>
+                                    </form>
+                                </div>
+                                <br><a class="btn btn-primary" onclick="return  checkSubmit();">Purchase</a></div><br>
                             </div>
-                            <br><a href="handleFurniture?action=receipt" class="btn btn-primary" onclick="return  checkSubmit();">Purchase</a></div><br>
+                            
+
                     </div>
                 </div>
             </div>
@@ -114,58 +119,60 @@
             <%@include file="/footer.jsp" %>
             <!-- end footer -->
         </div>
-    <script>
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
+        <script>
+            $(document).ready(function () {
+                $(".fancybox").fancybox({
+                    openEffect: "none",
+                    closeEffect: "none"
+                });
+
+                $(".zoom").hover(function () {
+
+                    $(this).addClass('transition');
+                }, function () {
+
+                    $(this).removeClass('transition');
+                });
             });
 
-            $(".zoom").hover(function () {
-
-                $(this).addClass('transition');
-            }, function () {
-
-                $(this).removeClass('transition');
+            $(document).ready(function () {
+                $('#search').keyup(function () {
+                    $('tr:gt(0)').hide().filter(":contains('" + $('#search').val() + "')").show();
+                });
             });
-        });
 
-        $(document).ready(function () {
-            $('#search').keyup(function () {
-                $('tr:gt(0)').hide().filter(":contains('" + $('#search').val() + "')").show();
+            $(document).ready(function () {
+                $('#shipping2').click(function () {
+                    $("#placeAddress").html("<h5>Address :</h5><p><input type='text' id='address' name='address' /></p>");
+                });
+                $('#shipping1').click(function () {
+                    $("#placeAddress").html("<p></p>");
+                });
             });
-        });
 
-        $(document).ready(function () {
-            $('#shipping2').click(function () {
-                $("#placeAddress").html("<h5>Address :</h5><p><input type='text' id='address' name='address' /></p>");
-            });
-            $('#shipping1').click(function () {
-                $("#placeAddress").html("<p></p>");
-            });
-        });
-
-        function isNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
-                return false;
-            return true;
-        }
-        function checkSubmit() {
-            var shipping1 = document.getElementById("shipping1");
-            var shipping2 = document.getElementById("shipping2");
-            var address = document.getElementById("address");
-            var ccnum = document.getElementById("ccnum");
-            var month = document.getElementById("month");
-            var year = document.getElementById("year");
-            var cvc = document.getElementById("cvc");
-            var ccname = document.getElementById("ccname");
-            if (shipping1.checked === false && shipping2.checked === false || shipping2.checked === true && address.value.length === 0
-                    || ccnum.value.length === 0 || year.value.length === 0 || cvc.value.length === 0 || ccname.value.length === 0) {
-                alert("Missing some information");
-                return false;
-            } 
-        }
-    </script>
-</body>
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : evt.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+                return true;
+            }
+            function checkSubmit() {
+                var shipping1 = document.getElementById("shipping1");
+                var shipping2 = document.getElementById("shipping2");
+                var address = document.getElementById("address");
+                var ccnum = document.getElementById("ccnum");
+                var month = document.getElementById("month");
+                var year = document.getElementById("year");
+                var cvc = document.getElementById("cvc");
+                var ccname = document.getElementById("ccname");
+                if (shipping1.checked === false && shipping2.checked === false || shipping2.checked === true && address.value.length === 0
+                        || ccnum.value.length === 0 || year.value.length === 0 || cvc.value.length === 0 || ccname.value.length === 0) {
+                    alert("Missing some information");
+                    return false;
+                }else{
+                    document.getElementById("makeOrder").submit();
+                }
+            }
+        </script>
+    </body>
 </html>

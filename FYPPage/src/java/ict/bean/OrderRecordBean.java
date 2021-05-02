@@ -4,7 +4,6 @@ public class OrderRecordBean {
 
     private String orderId;
     private String furnId;
-    private String furnName;
 
     public OrderRecordBean() {
     }
@@ -24,14 +23,5 @@ public class OrderRecordBean {
     public void setFurnId(String furnId) {
         this.furnId = furnId;
     }
-
-    public String getFurnName() {
-        return furnName;
-    }
-
-    public void setFurnName(String furnName) {
-        this.furnName = furnName;
-    }
-    
     
 }

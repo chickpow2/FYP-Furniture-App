@@ -7,11 +7,12 @@ public class OrderBean implements Serializable {
 
     private String userId;
     private String orderId;
-    private ArrayList furnId;
-    private ArrayList furnName;
     private String sendDate;
     private String orderDate;
     private String status;
+    private String shippingOption;
+    private String address;
+    private String ttlPrice;
 
     public OrderBean() {
     }
@@ -30,22 +31,6 @@ public class OrderBean implements Serializable {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
-    }
-
-    public ArrayList getFurnId() {
-        return furnId;
-    }
-
-    public void setFurnId(ArrayList furnId) {
-        this.furnId = furnId;
-    }
-
-    public ArrayList getFurnName() {
-        return furnName;
-    }
-
-    public void setFurnName(ArrayList furnName) {
-        this.furnName = furnName;
     }
 
     public String getSendDate() {
@@ -70,6 +55,22 @@ public class OrderBean implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getShippingOption() {
+        return shippingOption;
+    }
+
+    public void setShippingOption(String shippingOption) {
+        this.shippingOption = shippingOption;
+    }
+
+    public String getTtlPrice() {
+        return ttlPrice;
+    }
+
+    public void setTtlPrice(String ttlPrice) {
+        this.ttlPrice = ttlPrice;
     }
 
 }

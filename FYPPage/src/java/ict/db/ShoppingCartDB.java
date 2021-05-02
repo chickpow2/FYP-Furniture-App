@@ -528,8 +528,8 @@ public class ShoppingCartDB {
                 ShoppingCartBean cb = new ShoppingCartBean();
                 cb.setCartID(rs.getString(1));
                 cb.setItem(rs.getString(2));
-                cb.setOvedDate(rs.getString(3));
-                cb.setStatus(rs.getString(4));
+                //cb.setOvedDate(rs.getString(3));
+                //cb.setStatus(rs.getString(4));
                 list.add(cb);
             }
             return list;
@@ -574,8 +574,8 @@ public class ShoppingCartDB {
                 ShoppingCartBean cb = new ShoppingCartBean();
                 cb.setCartID(rs.getString(1));
                 cb.setItem(rs.getString(2));
-                cb.setOvedDate(rs.getString(3));
-                cb.setStatus(rs.getString(4));
+                //cb.setOvedDate(rs.getString(3));
+                //cb.setStatus(rs.getString(4));
                 list.add(cb);
             }
             return list;

@@ -210,6 +210,11 @@ public class HandleFurniture extends HttpServlet {
 
         } else if ("putToCart".equalsIgnoreCase(action)) {
             // call the query db to get retrieve for a customer witht the id
+           if (!isAuthenticated(request)) {
+                RequestDispatcher rd;// V
+                rd = getServletContext().getRequestDispatcher("/login.jsp");// V
+                rd.forward(request, response);
+            } 
             String id = request.getParameter("id");
 
             HttpSession session = request.getSession(true); //v

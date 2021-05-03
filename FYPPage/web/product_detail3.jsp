@@ -76,12 +76,10 @@
                                 <p><%=c.getDescription()%>
                                     <br><br><span class="stock"><%=c.getStock()%> in stock</span>
                                 </p>
-                                <form class="cart" method="post" action="handleFurniture?action=shoppingCart">
-                                    <div class="quantity">
-                                        <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
-                                    </div>
+                                <br>
+
                                     <button type="submit" class="bt_main">Add to cart</button>
-                                </form>
+         
                             </div>
                         </div>
                     </div>

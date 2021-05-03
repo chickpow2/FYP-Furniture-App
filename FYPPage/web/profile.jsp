@@ -95,11 +95,11 @@
                                     <p><input name="tel" id="tel" value="<%=tel%>"></p>
                                     <br/>
 
-                                    <input type="submit" value="submit" class="btn btn-primary">
+                                    <input type="submit" value="submit" class="btn btn-primary"> <a href="order?action=custOrder" class="btn btn-primary">Check Order</a><
                                     <a href="Login?action=logout" class="btn btn-danger active" role="button" aria-pressed="true" style="float: right">
                                         LOG OUT 
                                     </a>
-                                        <center><a href="order?action=custOrder" class="btn btn-primary">Check Order</a></center>
+                                   
                                 </form>
 
                             </div>

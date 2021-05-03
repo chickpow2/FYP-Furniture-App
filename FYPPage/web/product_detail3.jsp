@@ -78,7 +78,7 @@
                                 </p>
                                 <br>
 
-                                    <button type="submit" class="bt_main">Add to cart</button>
+                                <a href="handleFurniture?action=putToCart&id=<%=c.getFurnitureId()%>"> <button type="submit" class="bt_main" href="/handleFurniture?action=putToCart&id=3">Add to cart</button></a>
          
                             </div>
                         </div>

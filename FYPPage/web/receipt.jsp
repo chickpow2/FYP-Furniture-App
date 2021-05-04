@@ -72,73 +72,73 @@
                                 <br>
                             </div> 
                             <div class='container'> 
-                            <%
-                                out.print("<p>Order ID : "+ ShoppingCartList.get(1).getOrderId() +"</p>");
-                                
-                                Date date = new Date();
-                                SimpleDateFormat od = new SimpleDateFormat("dd/MM/yyyy");
-                                SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-                                out.print("<p>Order Date : <label>" + od.format(date) + "</label></p>");
-                                try {
-                                    date = sd.parse(od.format(date));
-                                    long t = date.getTime() + 7 * 24 * 60 * 60 * 1000;
-                                    date.setTime(t);
-                                    out.println("<p>Expected Send Date : <label>" + sd.format(date) + "</label></p></div> ");
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                                
-                                int total = 0;
-                                for (int i = 0; i < ShoppingCartList.size(); i++) {
-                                    out.println("<br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
-                                            + "<div class='full product'>"
-                                            + "<div class='product_img'>"
-                                            + "<div class='center'>"
-                                            + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnId()+ ".png\" alt='#'/>"
-                                            + "<div class='overlay_hover'>"
-                                            + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnId() + "\"</a>"
-                                            + "</div></div></div>"
-                                            + "<div class='product_detail text_align_center'>");
-                                    out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getPrice());
-                                    out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getName() + "</p>");
-                                    total += furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getPrice();
-                                    out.println("</div></div></div>");
-                                }
-                            %>
-                            <br><div class='container'><% out.println("$Total: " + total + "<br>");%>
-                                <br><div><br>
-                            <!-- end product -->
+                                <%
+                                    out.print("<p>Order ID : " + ShoppingCartList.get(1).getOrderId() + "</p>");
+
+                                    Date date = new Date();
+                                    SimpleDateFormat od = new SimpleDateFormat("dd/MM/yyyy");
+                                    SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
+                                    out.print("<p>Order Date : <label>" + od.format(date) + "</label></p>");
+                                    try {
+                                        date = sd.parse(od.format(date));
+                                        long t = date.getTime() + 7 * 24 * 60 * 60 * 1000;
+                                        date.setTime(t);
+                                        out.println("<p>Expected Send Date : <label>" + sd.format(date) + "</label></p></div> ");
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    int total = 0;
+                                    for (int i = 0; i < ShoppingCartList.size(); i++) {
+                                        out.println("<br><div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>"
+                                                + "<div class='full product'>"
+                                                + "<div class='product_img'>"
+                                                + "<div class='center'>"
+                                                + "<img src=\"furniture/" + ShoppingCartList.get(i).getFurnId() + ".png\" alt='#'/>"
+                                                + "<div class='overlay_hover'>"
+                                                + "<a href=\"handleFurniture?action=ShowOneFurniture&id=" + ShoppingCartList.get(i).getFurnId() + "\"</a>"
+                                                + "</div></div></div>"
+                                                + "<div class='product_detail text_align_center'>");
+                                        out.println("<p class='product_price'>$" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getPrice());
+                                        out.println("<p class='product_descr'>" + furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getName() + "</p>");
+                                        total += furnitureList.get(Integer.parseInt(ShoppingCartList.get(i).getFurnId()) - 1).getPrice();
+                                        out.println("</div></div></div>");
+                                    }
+                                %>
+                                <div><br>
+                                    <!-- end product -->
+                                </div>
+                            </div>
+                            <div class='container'><% out.println("$Total: " + total + "<br>");%>
+                            </div>
+
                         </div>
+                        <center><a href="handleFurniture?action=home" class="btn btn-primary">Confirm and Back to Main Page</a></center><br>
+                        <!--  footer --> 
+                        <%@include file="/footer.jsp" %>
+                        <!-- end footer -->
                     </div>
-                </div>
-                
-            </div>
-                                 <center><a href="handleFurniture?action=home" class="btn btn-primary">Confirm and Back to Main Page</a></center><br>
-                <!--  footer --> 
-                <%@include file="/footer.jsp" %>
-                <!-- end footer -->
-        </div>
-        <script>
-            $(document).ready(function () {
-                $(".fancybox").fancybox({
-                    openEffect: "none",
-                    closeEffect: "none"
-                });
+                    <script>
+                        $(document).ready(function () {
+                            $(".fancybox").fancybox({
+                                openEffect: "none",
+                                closeEffect: "none"
+                            });
 
-                $(".zoom").hover(function () {
+                            $(".zoom").hover(function () {
 
-                    $(this).addClass('transition');
-                }, function () {
+                                $(this).addClass('transition');
+                            }, function () {
 
-                    $(this).removeClass('transition');
-                });
-            });
+                                $(this).removeClass('transition');
+                            });
+                        });
 
-            $(document).ready(function () {
-                $('#search').keyup(function () {
-                    $('tr:gt(0)').hide().filter(":contains('" + $('#search').val() + "')").show();
-                });
-            });
-        </script> 
-    </body>
-</html>
+                        $(document).ready(function () {
+                            $('#search').keyup(function () {
+                                $('tr:gt(0)').hide().filter(":contains('" + $('#search').val() + "')").show();
+                            });
+                        });
+                    </script> 
+                    </body>
+                    </html>

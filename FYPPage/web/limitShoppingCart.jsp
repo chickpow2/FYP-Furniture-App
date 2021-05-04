@@ -102,12 +102,12 @@
                     %>  
                     <div class='col-xl-4 col-lg-4 col-md-6 col-sm-12'>
                         <div class='full product'>
-                            <div class='product_img'>
-                                <div class='center'>
+                           <!-- <div class='product_img'> -->
+                               <!-- <div class='center'>
                                     <img src="icon/plus.png" alt='#'/>
                                     <div class='overlay_hover'>
                                         <a href="handleFurniture?action=productList" class='add-bt'>Continue Shopping</a>
-                                    </div> </div></div></div></div><br><div class='container'><% out.println("$Total: " + String.format("%.1f", total*0.8)  + " (With Promo Code)<br>");%>
+                                    </div> --> </div></div></div></div><br><div class='container'><% out.println("$Total: " + String.format("%.1f", total*0.8)  + " (With Promo Code)<br>");%>
                         <br><a href="limitmakeOrder.jsp" class="btn btn-primary">Purchase</a></div><br>
                     <!-- end product -->
                 </div>

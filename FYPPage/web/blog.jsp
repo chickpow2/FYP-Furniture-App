@@ -53,6 +53,7 @@ function saveStorage(id){
     var time = new Date().getTime();
     localStorage.setItem(time,data);
     alert("Message has been saved!");
+   
     loadStorage('msg');
 }
 
@@ -73,7 +74,8 @@ function loadStorage(id){
         result +='<tr><td >'+ '<h3 style="color:blue" ><img src="images/customerLogo.png" width=70 height=70/> Customer ' +(i+1)+ ' Said:</h3><br><h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ' + value + '</h3>'+ '<h3 align = "right"> (Release on ' +datestr+ ')</h3>' + '<hr></td></tr>';
        
         document.querySelector('#cmd').value = 'Comment(' + localStorage.length + ')';
-   
+        
+        document.getElementById("dome").value = ""
     
     }
     
@@ -122,7 +124,7 @@ function clearStorage(id){
     </div>
     <br>
     <br>
-   <p align = "center" style="font-size:50px;"><b><u>Theme : Table</b></u></p>
+   <!--<p align = "center" style="font-size:50px;"><b><u>Theme : Table</b></u></p>-->
    
     
     <div id="myCarousel" class="carousel slide banner_Client" data-ride="carousel">
@@ -235,6 +237,7 @@ function clearStorage(id){
                         <table border=0 id="tab2"  style="display:none; background-color: Transparent;border: none;">
                         <tr>
                         <td>
+                            
                             <textarea id="dome" cols="60" rows="10" placeholder="Enter With Your Comments !!!" style="width:1100px;height:120px;font-size: 24px;"></textarea>
                             <input type="button" value="Send" style="border:3px solid ;cursor: pointer;width:250px;margin:50px;background-color:lightblue ;border-color: #4CAF50;font-color:#0fbbad;font-size: 24px;float: left;" onclick="saveStorage('dome');">
                             

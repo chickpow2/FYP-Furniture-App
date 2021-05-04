@@ -239,11 +239,11 @@ function clearStorage(id){
                         <td>
                             
                             <textarea id="dome" cols="60" rows="10" placeholder="Enter With Your Comments !!!" style="width:1100px;height:120px;font-size: 24px;"></textarea>
-                            <input type="button" value="Send" style="border:3px solid ;cursor: pointer;width:250px;margin:50px;background-color:lightblue ;border-color: #4CAF50;font-color:#0fbbad;font-size: 24px;float: left;" onclick="saveStorage('dome');">
+                        <center>    <input type="button" value="Send" style="border:3px solid ;cursor: pointer;width:250px;margin:50px;background-color:lightblue ;border-color: #4CAF50;font-color:#0fbbad;font-size: 24px;float: center;" onclick="saveStorage('dome');"> </center>
                             
                             <input type="button" value="Commend Record" style="background: none;border: none;color:#0fbbad;font-size: 24px;visibility:hidden;" id="readbt" onclick="loadStorage('msg');">
                             
-                            <input type="button" value="Clear All Comment" style="border:3px solid black ;cursor: pointer;width:250px;margin:50px;background-color:red ;font-color:#0fbbad;font-size: 24px;float: right;" onclick="clearStorage('msg');">
+                           <!-- <input type="button" value="Clear All Comment" style="border:3px solid black ;cursor: pointer;width:250px;margin:50px;background-color:red ;font-color:#0fbbad;font-size: 24px;float: right;" onclick="clearStorage('msg');">-->
                             <p id="msg"></p>
                         </td>
                         </tr>
